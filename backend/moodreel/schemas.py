@@ -68,6 +68,7 @@ class MoodProfile(BaseModel):
     goal: MoodGoal = "unclear"
     context: MoodContext = Field(default_factory=MoodContext)
     target_tones: list[str] = Field(default_factory=list)
+    requested_tones: list[str] = Field(default_factory=list)  # tones the user explicitly asked for
     distress: Literal["none", "elevated", "crisis"] = "none"
     raw_emotions: dict[str, float] = Field(default_factory=dict)
     summary: str = ""  # short human-readable description, e.g. "tired · lonely · wants a lift"

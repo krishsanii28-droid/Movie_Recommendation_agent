@@ -17,12 +17,10 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
-from sqlalchemy import func, select
 
 from moodreel import __version__
 from moodreel.agent import memory
 from moodreel.config import get_settings
-from moodreel.db import Movie, init_db, session_scope
 from moodreel.emotion.lexicon import STATES
 from moodreel.emotion.mood import CHIPS
 from moodreel.log import get_logger, setup_logging
@@ -44,23 +42,10 @@ ATTRIBUTION = {
 }
 
 
-def _ensure_catalog() -> None:
-    """Auto-seed an empty database so a fresh deploy works out of the box."""
-    init_db()
-    with session_scope() as s:
-        count = s.scalar(select(func.count()).select_from(Movie)) or 0
-    if count == 0:
-        from moodreel.data.pipeline import seed
-
-        logger.info("empty catalogue - loading curated seed data")
-        seed()
-
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     settings = get_settings()
     setup_logging(settings.log_level)
-    _ensure_catalog()
     from moodreel.services import get_agent
 
     agent = get_agent()  # warm up models + index

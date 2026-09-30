@@ -187,12 +187,22 @@ def key_phrase(text: str) -> str:
     clean = re.sub(r"\s+", " ", text).strip().rstrip(".!?")
     if not clean:
         return ""
-    if len(clean) <= 70:
-        return clean[0].lower() + clean[1:] if not clean[:2].isupper() else clean
-    clauses = [c.strip() for c in re.split(r"[.,;!?]| but | and | so ", clean) if c.strip()]
-    scored = sorted(clauses, key=lambda c: (-len(requested_tones(c)) - len(_state_hits(c)), len(c)))
-    best = scored[0] if scored else clean[:70]
-    return best[:70]
+    def lower_first(s: str) -> str:
+        return s if s[:2].isupper() or s.startswith("I ") or s.startswith("I'") else s[0].lower() + s[1:]
+
+    if len(clean) <= 50:
+        return lower_first(clean)
+    # Keep only the clauses that carry feeling or a request, in order, up to ~50 chars.
+    clauses = [c.strip() for c in re.split(r"[.,;!?]|\s[-–—]\s", clean) if c.strip()]
+    keep: list[str] = []
+    for clause in clauses:
+        if not (requested_tones(clause) or _state_hits(clause)):
+            continue
+        if keep and len(", ".join(keep + [clause])) > 50:
+            break
+        keep.append(clause)
+    best = ", ".join(keep) if keep else clauses[0] if clauses else clean
+    return lower_first(best[:60])
 
 
 def _state_hits(text: str) -> dict[str, float]:  # small indirection for key_phrase scoring

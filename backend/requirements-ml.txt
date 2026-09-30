@@ -1,0 +1,10 @@
+# Full AI stack: HF emotion classifier, sentence-transformers embeddings,
+# ChromaDB vector index and a local / hosted instruct LLM.
+-r requirements.txt
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.3
+transformers>=4.44
+sentence-transformers>=3.0
+chromadb>=0.5
+huggingface_hub>=0.24
+accelerate>=0.33

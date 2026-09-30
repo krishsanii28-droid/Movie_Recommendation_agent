@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Data / indexes (rebuildable)
+backend/data/
+!backend/data/.gitkeep
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+frontend/dist/
+*.log
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

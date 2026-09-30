@@ -1,0 +1,3714 @@
+{
+ "_note": "Curated offline seed catalogue for demos, tests and evaluation. Ratings, vote counts and streaming availability are approximate and indicative only - run `python -m moodreel.data.pipeline ingest` with a TMDB key for live data (posters, JustWatch providers).",
+ "movies": [
+  {
+   "id": 9000001,
+   "title": "Kumbalangi Nights",
+   "year": 2019,
+   "language": "ml",
+   "runtime": 135,
+   "rating": 8.0,
+   "vote_count": 420,
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Romance"
+   ],
+   "keywords": [
+    "brothers",
+    "family",
+    "backwaters",
+    "masculinity",
+    "healing"
+   ],
+   "tones": [
+    "warm",
+    "bittersweet",
+    "slow-burn",
+    "gentle",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Four estranged brothers living in a half-built house on the Kochi backwaters slowly learn to become a family, with a little help from love and a very unsettling in-law."
+  },
+  {
+   "id": 9000002,
+   "title": "Maheshinte Prathikaaram",
+   "year": 2016,
+   "language": "ml",
+   "runtime": 120,
+   "rating": 7.9,
+   "vote_count": 260,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "revenge vow",
+    "photographer",
+    "village life",
+    "slice of life"
+   ],
+   "tones": [
+    "warm",
+    "funny",
+    "light",
+    "gentle",
+    "feel-good"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A soft-spoken small-town photographer in Idukki is humiliated in a scuffle and vows not to wear slippers until he gets his revenge - a promise that quietly rearranges his whole life."
+  },
+  {
+   "id": 9000003,
+   "title": "Bangalore Days",
+   "year": 2014,
+   "language": "ml",
+   "runtime": 171,
+   "rating": 7.6,
+   "vote_count": 300,
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+   ],
+   "keywords": [
+    "cousins",
+    "friendship",
+    "city life",
+    "marriage"
+   ],
+   "tones": [
+    "feel-good",
+    "warm",
+    "romantic",
+    "light"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "Three cousins who grew up together move to Bangalore and navigate careers, marriages and heartbreaks while holding on to each other."
+  },
+  {
+   "id": 9000004,
+   "title": "Premam",
+   "year": 2015,
+   "language": "ml",
+   "runtime": 156,
+   "rating": 7.8,
+   "vote_count": 380,
+   "genres": [
+    "Romance",
+    "Comedy"
+   ],
+   "keywords": [
+    "first love",
+    "coming of age",
+    "nostalgia",
+    "friendship"
+   ],
+   "tones": [
+    "romantic",
+    "nostalgic",
+    "funny",
+    "bittersweet"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "George falls in love three times - as a schoolboy, a rowdy college student and a grown-up baker - in a nostalgic, funny ode to first loves."
+  },
+  {
+   "id": 9000005,
+   "title": "Drishyam",
+   "year": 2013,
+   "language": "ml",
+   "runtime": 164,
+   "rating": 8.3,
+   "vote_count": 520,
+   "genres": [
+    "Thriller",
+    "Crime",
+    "Drama"
+   ],
+   "keywords": [
+    "family man",
+    "cover up",
+    "police investigation",
+    "twist ending"
+   ],
+   "tones": [
+    "tense",
+    "twisty",
+    "thrilling"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A cable-TV operator with a fourth-grade education uses everything he learned from movies to protect his family after a terrible accident."
+  },
+  {
+   "id": 9000006,
+   "title": "Joji",
+   "year": 2021,
+   "language": "ml",
+   "runtime": 113,
+   "rating": 7.4,
+   "vote_count": 250,
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
+   "keywords": [
+    "greed",
+    "family",
+    "patriarch",
+    "macbeth"
+   ],
+   "tones": [
+    "dark",
+    "slow-burn",
+    "tense"
+   ],
+   "flags": [
+    "violence",
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "In a wealthy plantation family ruled by an iron-fisted patriarch, the youngest son's quiet ambition curdles into something sinister. A Macbeth for the pandemic era."
+  },
+  {
+   "id": 9000007,
+   "title": "Jaya Jaya Jaya Jaya Hey",
+   "year": 2022,
+   "language": "ml",
+   "runtime": 144,
+   "rating": 7.6,
+   "vote_count": 180,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "domestic abuse",
+    "marriage",
+    "martial arts",
+    "satire"
+   ],
+   "tones": [
+    "funny",
+    "satirical",
+    "energetic",
+    "uplifting"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A young woman stuck in a stifling marriage secretly learns martial arts and turns the tables in this riotous, sharp satire."
+  },
+  {
+   "id": 9000008,
+   "title": "Minnal Murali",
+   "year": 2021,
+   "language": "ml",
+   "runtime": 158,
+   "rating": 7.4,
+   "vote_count": 650,
+   "genres": [
+    "Action",
+    "Comedy",
+    "Fantasy"
+   ],
+   "keywords": [
+    "superhero",
+    "lightning",
+    "small town",
+    "origin story"
+   ],
+   "tones": [
+    "fun",
+    "energetic",
+    "funny",
+    "family-friendly"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A tailor in a 1990s Kerala village is struck by lightning and gains superpowers - but so does someone with far darker reasons to use them."
+  },
+  {
+   "id": 9000009,
+   "title": "Manjummel Boys",
+   "year": 2024,
+   "language": "ml",
+   "runtime": 135,
+   "rating": 8.0,
+   "vote_count": 300,
+   "genres": [
+    "Thriller",
+    "Drama",
+    "Adventure"
+   ],
+   "keywords": [
+    "friendship",
+    "cave rescue",
+    "survival",
+    "based on true story"
+   ],
+   "tones": [
+    "tense",
+    "inspiring",
+    "intense",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A gang of friends on a trip to Kodaikanal face their worst nightmare when one of them falls into a deep, uncharted cave pit."
+  },
+  {
+   "id": 9000010,
+   "title": "Premalu",
+   "year": 2024,
+   "language": "ml",
+   "runtime": 156,
+   "rating": 7.7,
+   "vote_count": 280,
+   "genres": [
+    "Romance",
+    "Comedy"
+   ],
+   "keywords": [
+    "hyderabad",
+    "young love",
+    "friendship",
+    "crush"
+   ],
+   "tones": [
+    "light",
+    "funny",
+    "romantic",
+    "feel-good",
+    "energetic"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A lovable underachiever moves to Hyderabad and falls for a confident young professional - chaos, cringe and charm follow."
+  },
+  {
+   "id": 9000011,
+   "title": "Aavesham",
+   "year": 2024,
+   "language": "ml",
+   "runtime": 158,
+   "rating": 7.6,
+   "vote_count": 250,
+   "genres": [
+    "Action",
+    "Comedy"
+   ],
+   "keywords": [
+    "gangster",
+    "college students",
+    "bengaluru",
+    "mentor"
+   ],
+   "tones": [
+    "energetic",
+    "funny",
+    "party",
+    "fast-paced"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Three freshers looking to settle a score with seniors befriend an eccentric, larger-than-life Bengaluru gangster named Ranga."
+  },
+  {
+   "id": 9000012,
+   "title": "The Great Indian Kitchen",
+   "year": 2021,
+   "language": "ml",
+   "runtime": 100,
+   "rating": 7.9,
+   "vote_count": 210,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "patriarchy",
+    "marriage",
+    "domestic labour",
+    "feminism"
+   ],
+   "tones": [
+    "thought-provoking",
+    "slow-burn",
+    "hard-hitting"
+   ],
+   "flags": [
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A newly married woman's days dissolve into endless cooking and cleaning in a traditional household in this quietly furious drama."
+  },
+  {
+   "id": 9000013,
+   "title": "Charlie",
+   "year": 2015,
+   "language": "ml",
+   "runtime": 129,
+   "rating": 7.7,
+   "vote_count": 160,
+   "genres": [
+    "Adventure",
+    "Romance",
+    "Drama"
+   ],
+   "keywords": [
+    "free spirit",
+    "journey",
+    "quest",
+    "artist"
+   ],
+   "tones": [
+    "whimsical",
+    "romantic",
+    "uplifting",
+    "adventurous"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A young woman goes looking for the mysterious free-spirited artist who used to live in her rented room, and discovers a trail of lives he changed."
+  },
+  {
+   "id": 9000014,
+   "title": "Ustad Hotel",
+   "year": 2012,
+   "language": "ml",
+   "runtime": 151,
+   "rating": 7.9,
+   "vote_count": 230,
+   "genres": [
+    "Drama",
+    "Family"
+   ],
+   "keywords": [
+    "grandfather",
+    "biryani",
+    "chef",
+    "kozhikode",
+    "food"
+   ],
+   "tones": [
+    "warm",
+    "comforting",
+    "uplifting",
+    "cosy",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A young chef who dreams of cooking abroad ends up working at his grandfather's humble Kozhikode restaurant and learns what food is really for."
+  },
+  {
+   "id": 9000015,
+   "title": "Thondimuthalum Driksakshiyum",
+   "year": 2017,
+   "language": "ml",
+   "runtime": 144,
+   "rating": 8.0,
+   "vote_count": 150,
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
+   "keywords": [
+    "stolen chain",
+    "police station",
+    "realism",
+    "thief"
+   ],
+   "tones": [
+    "quirky",
+    "slow-burn",
+    "funny",
+    "gentle"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A gold chain is swallowed by a pickpocket on a bus, and a young couple spend a very long day in a small-town police station waiting to get it back."
+  },
+  {
+   "id": 9000016,
+   "title": "Android Kunjappan Version 5.25",
+   "year": 2019,
+   "language": "ml",
+   "runtime": 132,
+   "rating": 7.7,
+   "vote_count": 140,
+   "genres": [
+    "Comedy",
+    "Science Fiction",
+    "Drama"
+   ],
+   "keywords": [
+    "robot",
+    "caregiver",
+    "father son relationship",
+    "loneliness"
+   ],
+   "tones": [
+    "heartwarming",
+    "funny",
+    "bittersweet",
+    "quirky"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A stubborn old man who distrusts machines slowly bonds with the humanoid robot his son leaves behind to care for him."
+  },
+  {
+   "id": 9000017,
+   "title": "Home",
+   "year": 2021,
+   "language": "ml",
+   "runtime": 160,
+   "rating": 8.1,
+   "vote_count": 190,
+   "genres": [
+    "Family",
+    "Drama",
+    "Comedy"
+   ],
+   "keywords": [
+    "father son relationship",
+    "smartphones",
+    "generation gap",
+    "family"
+   ],
+   "tones": [
+    "warm",
+    "heartwarming",
+    "cathartic",
+    "feel-good"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A gentle, old-fashioned father tries to connect with his phone-obsessed sons in this tender and funny family drama."
+  },
+  {
+   "id": 9000018,
+   "title": "Bramayugam",
+   "year": 2024,
+   "language": "ml",
+   "runtime": 139,
+   "rating": 7.7,
+   "vote_count": 220,
+   "genres": [
+    "Horror",
+    "Thriller"
+   ],
+   "keywords": [
+    "black and white",
+    "folklore",
+    "mansion",
+    "power"
+   ],
+   "tones": [
+    "eerie",
+    "dark",
+    "scary",
+    "slow-burn"
+   ],
+   "flags": [
+    "horror"
+   ],
+   "providers": [
+    "SonyLIV"
+   ],
+   "overview": "A folk singer on the run takes shelter in a crumbling mansion ruled by a mysterious lord - and realises he may never be allowed to leave."
+  },
+  {
+   "id": 9000019,
+   "title": "Romancham",
+   "year": 2023,
+   "language": "ml",
+   "runtime": 132,
+   "rating": 7.3,
+   "vote_count": 140,
+   "genres": [
+    "Comedy",
+    "Horror"
+   ],
+   "keywords": [
+    "ouija board",
+    "bachelors",
+    "bengaluru",
+    "friendship"
+   ],
+   "tones": [
+    "funny",
+    "party",
+    "quirky",
+    "light"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A group of broke bachelors in Bengaluru play with an ouija board for fun, and their new 'friend' refuses to leave."
+  },
+  {
+   "id": 9000020,
+   "title": "Take Off",
+   "year": 2017,
+   "language": "ml",
+   "runtime": 139,
+   "rating": 7.5,
+   "vote_count": 120,
+   "genres": [
+    "Thriller",
+    "Drama"
+   ],
+   "keywords": [
+    "nurses",
+    "hostage",
+    "rescue",
+    "based on true story"
+   ],
+   "tones": [
+    "tense",
+    "inspiring",
+    "intense"
+   ],
+   "flags": [
+    "violence",
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Indian nurses trapped in a war-torn Iraqi city fight to survive and get home, based on a real rescue."
+  },
+  {
+   "id": 9000021,
+   "title": "Sudani from Nigeria",
+   "year": 2018,
+   "language": "ml",
+   "runtime": 121,
+   "rating": 7.9,
+   "vote_count": 130,
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "keywords": [
+    "football",
+    "friendship",
+    "migrant",
+    "small town"
+   ],
+   "tones": [
+    "warm",
+    "heartwarming",
+    "gentle",
+    "funny"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A small-town Malappuram football club manager ends up caring for his injured Nigerian star player, and an unlikely family forms."
+  },
+  {
+   "id": 9000022,
+   "title": "2018",
+   "year": 2023,
+   "language": "ml",
+   "runtime": 150,
+   "rating": 7.4,
+   "vote_count": 160,
+   "genres": [
+    "Drama",
+    "Thriller"
+   ],
+   "keywords": [
+    "kerala floods",
+    "community",
+    "survival",
+    "based on true story"
+   ],
+   "tones": [
+    "inspiring",
+    "intense",
+    "tense",
+    "cathartic"
+   ],
+   "flags": [],
+   "providers": [
+    "SonyLIV"
+   ],
+   "overview": "As the 2018 floods engulf Kerala, ordinary people - fishermen, soldiers, a failed army deserter - become each other's lifelines."
+  },
+  {
+   "id": 9000023,
+   "title": "Aattam",
+   "year": 2023,
+   "language": "ml",
+   "runtime": 139,
+   "rating": 7.6,
+   "vote_count": 90,
+   "genres": [
+    "Drama",
+    "Thriller"
+   ],
+   "keywords": [
+    "theatre troupe",
+    "jury",
+    "morality",
+    "ensemble"
+   ],
+   "tones": [
+    "thought-provoking",
+    "tense",
+    "slow-burn"
+   ],
+   "flags": [
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "When the only woman in a theatre troupe accuses one of the men of misconduct, the group's debate becomes a gripping study of power and self-interest."
+  },
+  {
+   "id": 9000024,
+   "title": "Kaathal - The Core",
+   "year": 2023,
+   "language": "ml",
+   "runtime": 114,
+   "rating": 7.4,
+   "vote_count": 100,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "marriage",
+    "identity",
+    "courtroom",
+    "family"
+   ],
+   "tones": [
+    "thought-provoking",
+    "gentle",
+    "bittersweet",
+    "poignant"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A retired bank employee contesting a local election is confronted by his wife's divorce petition, and a family's quiet truth comes into the open."
+  },
+  {
+   "id": 9000025,
+   "title": "Zindagi Na Milegi Dobara",
+   "year": 2011,
+   "language": "hi",
+   "runtime": 155,
+   "rating": 7.9,
+   "vote_count": 1100,
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Adventure"
+   ],
+   "keywords": [
+    "road trip",
+    "friendship",
+    "spain",
+    "bachelor trip"
+   ],
+   "tones": [
+    "feel-good",
+    "uplifting",
+    "energetic",
+    "adventurous",
+    "warm"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix",
+    "Prime Video"
+   ],
+   "overview": "Three childhood friends take a bachelor road trip across Spain, each facing a fear they have been avoiding."
+  },
+  {
+   "id": 9000026,
+   "title": "3 Idiots",
+   "year": 2009,
+   "language": "hi",
+   "runtime": 170,
+   "rating": 8.0,
+   "vote_count": 2600,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "engineering college",
+    "friendship",
+    "education system",
+    "underdog"
+   ],
+   "tones": [
+    "funny",
+    "inspiring",
+    "feel-good",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix",
+    "Prime Video"
+   ],
+   "overview": "Two friends search for their long-lost college companion, remembering the genius who taught them to chase excellence instead of marks."
+  },
+  {
+   "id": 9000027,
+   "title": "Queen",
+   "year": 2014,
+   "language": "hi",
+   "runtime": 146,
+   "rating": 7.8,
+   "vote_count": 600,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "solo travel",
+    "self-discovery",
+    "jilted bride",
+    "paris"
+   ],
+   "tones": [
+    "uplifting",
+    "funny",
+    "feel-good",
+    "hopeful"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "Dumped a day before her wedding, a shy Delhi girl goes on her honeymoon to Paris and Amsterdam alone - and finds herself."
+  },
+  {
+   "id": 9000028,
+   "title": "Dil Chahta Hai",
+   "year": 2001,
+   "language": "hi",
+   "runtime": 183,
+   "rating": 7.9,
+   "vote_count": 450,
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+   ],
+   "keywords": [
+    "friendship",
+    "goa",
+    "growing up",
+    "coming of age"
+   ],
+   "tones": [
+    "nostalgic",
+    "feel-good",
+    "warm",
+    "funny"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Three inseparable friends drift apart after college as love and life pull them in different directions."
+  },
+  {
+   "id": 9000029,
+   "title": "The Lunchbox",
+   "year": 2013,
+   "language": "hi",
+   "runtime": 105,
+   "rating": 7.6,
+   "vote_count": 850,
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "keywords": [
+    "letters",
+    "loneliness",
+    "mumbai",
+    "dabbawala",
+    "food"
+   ],
+   "tones": [
+    "gentle",
+    "bittersweet",
+    "melancholic",
+    "romantic",
+    "slow-burn"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A mistaken lunchbox delivery connects a lonely housewife and a widower on the verge of retirement through handwritten notes."
+  },
+  {
+   "id": 9000030,
+   "title": "Andhadhun",
+   "year": 2018,
+   "language": "hi",
+   "runtime": 139,
+   "rating": 8.0,
+   "vote_count": 1000,
+   "genres": [
+    "Thriller",
+    "Crime",
+    "Comedy"
+   ],
+   "keywords": [
+    "blind pianist",
+    "murder",
+    "twist ending",
+    "dark comedy"
+   ],
+   "tones": [
+    "twisty",
+    "tense",
+    "dark",
+    "witty"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A pianist pretending to be blind accidentally witnesses a murder, and things spiral into a wickedly funny thriller."
+  },
+  {
+   "id": 9000031,
+   "title": "Gully Boy",
+   "year": 2019,
+   "language": "hi",
+   "runtime": 154,
+   "rating": 7.7,
+   "vote_count": 700,
+   "genres": [
+    "Drama",
+    "Music"
+   ],
+   "keywords": [
+    "rap",
+    "dharavi",
+    "dream",
+    "underdog"
+   ],
+   "tones": [
+    "inspiring",
+    "energetic",
+    "musical",
+    "hopeful"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A young man from Mumbai's slums finds his voice in street rap, pushing against class and family expectations."
+  },
+  {
+   "id": 9000032,
+   "title": "Taare Zameen Par",
+   "year": 2007,
+   "language": "hi",
+   "runtime": 165,
+   "rating": 8.0,
+   "vote_count": 1300,
+   "genres": [
+    "Drama",
+    "Family"
+   ],
+   "keywords": [
+    "dyslexia",
+    "art teacher",
+    "childhood",
+    "school"
+   ],
+   "tones": [
+    "heartwarming",
+    "cathartic",
+    "poignant",
+    "family-friendly",
+    "uplifting"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "An art teacher discovers that a troubled eight-year-old isn't lazy or stupid - he's dyslexic, and brilliantly creative."
+  },
+  {
+   "id": 9000033,
+   "title": "Piku",
+   "year": 2015,
+   "language": "hi",
+   "runtime": 125,
+   "rating": 7.3,
+   "vote_count": 420,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "father daughter relationship",
+    "road trip",
+    "kolkata",
+    "ageing"
+   ],
+   "tones": [
+    "warm",
+    "quirky",
+    "bittersweet",
+    "funny"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "An exasperated architect drives her hypochondriac father from Delhi to Kolkata with a reluctant taxi-company owner at the wheel."
+  },
+  {
+   "id": 9000034,
+   "title": "Barfi!",
+   "year": 2012,
+   "language": "hi",
+   "runtime": 151,
+   "rating": 7.7,
+   "vote_count": 700,
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+   ],
+   "keywords": [
+    "deaf",
+    "love triangle",
+    "darjeeling",
+    "autism"
+   ],
+   "tones": [
+    "whimsical",
+    "romantic",
+    "bittersweet",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A charming deaf-mute man in Darjeeling and the two very different women who love him."
+  },
+  {
+   "id": 9000035,
+   "title": "Tumbbad",
+   "year": 2018,
+   "language": "hi",
+   "runtime": 104,
+   "rating": 8.0,
+   "vote_count": 600,
+   "genres": [
+    "Horror",
+    "Fantasy",
+    "Thriller"
+   ],
+   "keywords": [
+    "greed",
+    "folklore",
+    "cursed treasure",
+    "period"
+   ],
+   "tones": [
+    "dark",
+    "eerie",
+    "scary",
+    "epic"
+   ],
+   "flags": [
+    "horror",
+    "violence"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Across three generations, a man keeps returning to a cursed village to steal gold from a god who must never be worshipped."
+  },
+  {
+   "id": 9000036,
+   "title": "Kahaani",
+   "year": 2012,
+   "language": "hi",
+   "runtime": 122,
+   "rating": 7.7,
+   "vote_count": 500,
+   "genres": [
+    "Thriller",
+    "Mystery"
+   ],
+   "keywords": [
+    "missing husband",
+    "kolkata",
+    "investigation",
+    "twist ending"
+   ],
+   "tones": [
+    "tense",
+    "twisty",
+    "thrilling"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A pregnant woman arrives in Kolkata during Durga Puja searching for her missing husband, who no one seems to remember."
+  },
+  {
+   "id": 9000037,
+   "title": "Jab We Met",
+   "year": 2007,
+   "language": "hi",
+   "runtime": 138,
+   "rating": 7.6,
+   "vote_count": 550,
+   "genres": [
+    "Romance",
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "train journey",
+    "heartbreak",
+    "road trip",
+    "chatterbox"
+   ],
+   "tones": [
+    "romantic",
+    "feel-good",
+    "energetic",
+    "funny"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A heartbroken businessman meets a talkative, irrepressible young woman on a train and his life takes a sharp turn."
+  },
+  {
+   "id": 9000038,
+   "title": "Wake Up Sid",
+   "year": 2009,
+   "language": "hi",
+   "runtime": 138,
+   "rating": 7.4,
+   "vote_count": 380,
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+   ],
+   "keywords": [
+    "coming of age",
+    "mumbai",
+    "slacker",
+    "friendship"
+   ],
+   "tones": [
+    "warm",
+    "cosy",
+    "light",
+    "gentle"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A spoilt rich slacker finally grows up after befriending an independent writer who has just moved to Mumbai."
+  },
+  {
+   "id": 9000039,
+   "title": "Chak De! India",
+   "year": 2007,
+   "language": "hi",
+   "runtime": 153,
+   "rating": 7.8,
+   "vote_count": 550,
+   "genres": [
+    "Drama",
+    "Sport"
+   ],
+   "keywords": [
+    "women's hockey",
+    "coach",
+    "redemption",
+    "underdog",
+    "sports"
+   ],
+   "tones": [
+    "inspiring",
+    "energetic",
+    "uplifting"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A disgraced hockey player coaches a fractured Indian women's team to believe in themselves - and in each other."
+  },
+  {
+   "id": 9000040,
+   "title": "Article 15",
+   "year": 2019,
+   "language": "hi",
+   "runtime": 130,
+   "rating": 7.9,
+   "vote_count": 300,
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
+   "keywords": [
+    "caste discrimination",
+    "investigation",
+    "police",
+    "rural india"
+   ],
+   "tones": [
+    "hard-hitting",
+    "dark",
+    "thought-provoking",
+    "tense"
+   ],
+   "flags": [
+    "heavy",
+    "violence"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A city-bred police officer posted to a rural district uncovers the caste violence behind the disappearance of three girls."
+  },
+  {
+   "id": 9000041,
+   "title": "12th Fail",
+   "year": 2023,
+   "language": "hi",
+   "runtime": 147,
+   "rating": 8.1,
+   "vote_count": 200,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "upsc exam",
+    "perseverance",
+    "poverty",
+    "based on true story",
+    "underdog"
+   ],
+   "tones": [
+    "inspiring",
+    "hopeful",
+    "uplifting",
+    "cathartic"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A boy from a Chambal village who failed class 12 chases the near-impossible dream of becoming an IPS officer."
+  },
+  {
+   "id": 9000042,
+   "title": "Laapataa Ladies",
+   "year": 2024,
+   "language": "hi",
+   "runtime": 124,
+   "rating": 7.9,
+   "vote_count": 220,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "swapped brides",
+    "village",
+    "train",
+    "women"
+   ],
+   "tones": [
+    "funny",
+    "warm",
+    "heartwarming",
+    "satirical"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "Two veiled brides get swapped on a crowded train, and the search to set things right becomes a sharp, sweet comedy."
+  },
+  {
+   "id": 9000043,
+   "title": "Bhool Bhulaiyaa",
+   "year": 2007,
+   "language": "hi",
+   "runtime": 159,
+   "rating": 7.3,
+   "vote_count": 300,
+   "genres": [
+    "Comedy",
+    "Horror",
+    "Mystery"
+   ],
+   "keywords": [
+    "haunted house",
+    "psychiatrist",
+    "palace"
+   ],
+   "tones": [
+    "funny",
+    "eerie",
+    "party",
+    "twisty"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "An eccentric psychiatrist is called in when strange events unsettle a family that has moved into a supposedly haunted palace."
+  },
+  {
+   "id": 9000044,
+   "title": "Stree",
+   "year": 2018,
+   "language": "hi",
+   "runtime": 128,
+   "rating": 7.2,
+   "vote_count": 350,
+   "genres": [
+    "Horror",
+    "Comedy"
+   ],
+   "keywords": [
+    "small town",
+    "ghost",
+    "folklore",
+    "friendship"
+   ],
+   "tones": [
+    "funny",
+    "eerie",
+    "party",
+    "quirky"
+   ],
+   "flags": [
+    "horror"
+   ],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A small-town tailor and his friends take on a female ghost who abducts men at night during festival season."
+  },
+  {
+   "id": 9000045,
+   "title": "Masaan",
+   "year": 2015,
+   "language": "hi",
+   "runtime": 109,
+   "rating": 7.8,
+   "vote_count": 280,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "varanasi",
+    "grief",
+    "caste",
+    "first love"
+   ],
+   "tones": [
+    "melancholic",
+    "poignant",
+    "bittersweet",
+    "slow-burn"
+   ],
+   "flags": [
+    "heavy"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "In Varanasi, a young woman shamed by a scandal and a boy from a family of cremation workers each wrestle with love and loss."
+  },
+  {
+   "id": 9000046,
+   "title": "Swades",
+   "year": 2004,
+   "language": "hi",
+   "runtime": 189,
+   "rating": 7.9,
+   "vote_count": 400,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "nri",
+    "village",
+    "electricity",
+    "homecoming"
+   ],
+   "tones": [
+    "warm",
+    "hopeful",
+    "slow-burn",
+    "inspiring"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A NASA scientist returns to India to bring his childhood nanny back with him, and finds a village that needs him more."
+  },
+  {
+   "id": 9000047,
+   "title": "Hera Pheri",
+   "year": 2000,
+   "language": "hi",
+   "runtime": 156,
+   "rating": 7.9,
+   "vote_count": 320,
+   "genres": [
+    "Comedy",
+    "Crime"
+   ],
+   "keywords": [
+    "ransom",
+    "landlord",
+    "misfits",
+    "wrong number"
+   ],
+   "tones": [
+    "funny",
+    "chaotic",
+    "party",
+    "light"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A broke landlord and two tenants stumble upon a kidnapper's ransom call and try to cash in - with legendary results."
+  },
+  {
+   "id": 9000048,
+   "title": "Kapoor & Sons",
+   "year": 2016,
+   "language": "hi",
+   "runtime": 132,
+   "rating": 7.6,
+   "vote_count": 350,
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Family"
+   ],
+   "keywords": [
+    "dysfunctional family",
+    "brothers",
+    "grandfather",
+    "secrets"
+   ],
+   "tones": [
+    "bittersweet",
+    "cathartic",
+    "warm",
+    "funny"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "Two brothers return home when their 90-year-old grandfather has a heart attack, and a family's cracks show."
+  },
+  {
+   "id": 9000049,
+   "title": "Bajrangi Bhaijaan",
+   "year": 2015,
+   "language": "hi",
+   "runtime": 163,
+   "rating": 7.7,
+   "vote_count": 700,
+   "genres": [
+    "Drama",
+    "Adventure",
+    "Comedy"
+   ],
+   "keywords": [
+    "lost child",
+    "border",
+    "kindness",
+    "pakistan"
+   ],
+   "tones": [
+    "heartwarming",
+    "uplifting",
+    "cathartic",
+    "feel-good"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A devout, big-hearted man sets out to return a mute little girl lost in India to her home across the border in Pakistan."
+  },
+  {
+   "id": 9000050,
+   "title": "96",
+   "year": 2018,
+   "language": "ta",
+   "runtime": 158,
+   "rating": 8.0,
+   "vote_count": 240,
+   "genres": [
+    "Romance",
+    "Drama"
+   ],
+   "keywords": [
+    "school reunion",
+    "first love",
+    "one night",
+    "nostalgia"
+   ],
+   "tones": [
+    "bittersweet",
+    "nostalgic",
+    "melancholic",
+    "romantic",
+    "gentle"
+   ],
+   "flags": [],
+   "providers": [
+    "Sun NXT"
+   ],
+   "overview": "Twenty-two years after school, a travel photographer and his first love meet at a reunion and spend one long night revisiting what could have been."
+  },
+  {
+   "id": 9000051,
+   "title": "Super Deluxe",
+   "year": 2019,
+   "language": "ta",
+   "runtime": 176,
+   "rating": 7.9,
+   "vote_count": 200,
+   "genres": [
+    "Drama",
+    "Crime",
+    "Comedy"
+   ],
+   "keywords": [
+    "interwoven stories",
+    "dark comedy",
+    "transgender",
+    "chennai"
+   ],
+   "tones": [
+    "quirky",
+    "dark",
+    "mind-bending",
+    "funny"
+   ],
+   "flags": [
+    "heavy",
+    "violence"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "Four bizarre, interlinked stories unfold over one day in Chennai - a dead body, a returning father, a religious cult and a porn film."
+  },
+  {
+   "id": 9000052,
+   "title": "Vikram",
+   "year": 2022,
+   "language": "ta",
+   "runtime": 174,
+   "rating": 7.6,
+   "vote_count": 300,
+   "genres": [
+    "Action",
+    "Thriller",
+    "Crime"
+   ],
+   "keywords": [
+    "drug cartel",
+    "black ops",
+    "masked killers",
+    "revenge"
+   ],
+   "tones": [
+    "intense",
+    "fast-paced",
+    "thrilling",
+    "gritty"
+   ],
+   "flags": [
+    "violence",
+    "gore"
+   ],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A special investigator hunting a masked gang of killers uncovers a war between a drug cartel and a legend thought long dead."
+  },
+  {
+   "id": 9000053,
+   "title": "Jai Bhim",
+   "year": 2021,
+   "language": "ta",
+   "runtime": 164,
+   "rating": 8.3,
+   "vote_count": 420,
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
+   "keywords": [
+    "custodial violence",
+    "lawyer",
+    "tribal",
+    "courtroom",
+    "based on true story"
+   ],
+   "tones": [
+    "hard-hitting",
+    "inspiring",
+    "intense",
+    "cathartic"
+   ],
+   "flags": [
+    "violence",
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A lawyer fights for justice for a tribal woman whose husband disappears from police custody."
+  },
+  {
+   "id": 9000054,
+   "title": "Soorarai Pottru",
+   "year": 2020,
+   "language": "ta",
+   "runtime": 153,
+   "rating": 8.3,
+   "vote_count": 420,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "low-cost airline",
+    "dream",
+    "underdog",
+    "entrepreneur"
+   ],
+   "tones": [
+    "inspiring",
+    "uplifting",
+    "energetic",
+    "hopeful"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A village schoolteacher's son sets out to build an airline so cheap that even the poorest can fly."
+  },
+  {
+   "id": 9000055,
+   "title": "Kaithi",
+   "year": 2019,
+   "language": "ta",
+   "runtime": 145,
+   "rating": 8.0,
+   "vote_count": 300,
+   "genres": [
+    "Action",
+    "Thriller"
+   ],
+   "keywords": [
+    "one night",
+    "convict",
+    "police",
+    "truck"
+   ],
+   "tones": [
+    "tense",
+    "fast-paced",
+    "thrilling",
+    "intense"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A just-released convict, desperate to meet the daughter he's never seen, is forced to drive a truck full of poisoned cops through one deadly night."
+  },
+  {
+   "id": 9000056,
+   "title": "Ratsasan",
+   "year": 2018,
+   "language": "ta",
+   "runtime": 170,
+   "rating": 8.2,
+   "vote_count": 300,
+   "genres": [
+    "Thriller",
+    "Crime",
+    "Mystery"
+   ],
+   "keywords": [
+    "serial killer",
+    "police",
+    "investigation",
+    "school"
+   ],
+   "tones": [
+    "dark",
+    "tense",
+    "scary",
+    "twisty"
+   ],
+   "flags": [
+    "violence",
+    "gore"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "An aspiring filmmaker turned cop uses his research on serial killers to chase a psychopath targeting schoolgirls."
+  },
+  {
+   "id": 9000057,
+   "title": "Oh My Kadavule",
+   "year": 2020,
+   "language": "ta",
+   "runtime": 146,
+   "rating": 7.6,
+   "vote_count": 110,
+   "genres": [
+    "Romance",
+    "Fantasy",
+    "Comedy"
+   ],
+   "keywords": [
+    "second chance",
+    "best friend",
+    "marriage",
+    "god"
+   ],
+   "tones": [
+    "light",
+    "romantic",
+    "feel-good",
+    "whimsical"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A man who married his best friend and regrets it gets a strange second chance from a god with a sense of humour."
+  },
+  {
+   "id": 9000058,
+   "title": "Kadaisi Vivasayi",
+   "year": 2022,
+   "language": "ta",
+   "runtime": 125,
+   "rating": 7.7,
+   "vote_count": 80,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "farmer",
+    "village",
+    "elderly",
+    "nature"
+   ],
+   "tones": [
+    "gentle",
+    "poignant",
+    "calming",
+    "slow-burn"
+   ],
+   "flags": [],
+   "providers": [
+    "SonyLIV"
+   ],
+   "overview": "An elderly farmer, the last one in his village, gets caught up in an absurd legal case just as his crop needs him most."
+  },
+  {
+   "id": 9000059,
+   "title": "Visaranai",
+   "year": 2015,
+   "language": "ta",
+   "runtime": 117,
+   "rating": 8.0,
+   "vote_count": 160,
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
+   "keywords": [
+    "police brutality",
+    "migrant workers",
+    "corruption"
+   ],
+   "tones": [
+    "hard-hitting",
+    "dark",
+    "intense"
+   ],
+   "flags": [
+    "violence",
+    "heavy",
+    "gore"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "Four Tamil migrant workers in Andhra Pradesh are picked up by police and tortured into confessing to a crime they didn't commit."
+  },
+  {
+   "id": 9000060,
+   "title": "Kaaka Muttai",
+   "year": 2015,
+   "language": "ta",
+   "runtime": 109,
+   "rating": 8.0,
+   "vote_count": 150,
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "keywords": [
+    "children",
+    "pizza",
+    "slum",
+    "chennai"
+   ],
+   "tones": [
+    "heartwarming",
+    "funny",
+    "gentle",
+    "uplifting"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "Two little brothers from a Chennai slum scheme and save to taste their first pizza."
+  },
+  {
+   "id": 9000061,
+   "title": "Vinnaithaandi Varuvaayaa",
+   "year": 2010,
+   "language": "ta",
+   "runtime": 162,
+   "rating": 7.7,
+   "vote_count": 160,
+   "genres": [
+    "Romance",
+    "Drama",
+    "Music"
+   ],
+   "keywords": [
+    "love",
+    "film director",
+    "heartbreak",
+    "interfaith"
+   ],
+   "tones": [
+    "romantic",
+    "melancholic",
+    "musical",
+    "bittersweet"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "An aspiring filmmaker falls hard for his Malayali Christian neighbour, older than him, and their love refuses to settle."
+  },
+  {
+   "id": 9000062,
+   "title": "Anbe Sivam",
+   "year": 2003,
+   "language": "ta",
+   "runtime": 160,
+   "rating": 8.4,
+   "vote_count": 120,
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Adventure"
+   ],
+   "keywords": [
+    "road trip",
+    "humanism",
+    "strangers",
+    "friendship"
+   ],
+   "tones": [
+    "warm",
+    "thought-provoking",
+    "funny",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A snobbish ad-film maker and a scarred, kind-hearted activist are stuck travelling together from Odisha to Chennai."
+  },
+  {
+   "id": 9000063,
+   "title": "Jigarthanda",
+   "year": 2014,
+   "language": "ta",
+   "runtime": 171,
+   "rating": 7.9,
+   "vote_count": 140,
+   "genres": [
+    "Action",
+    "Comedy",
+    "Crime"
+   ],
+   "keywords": [
+    "gangster",
+    "filmmaker",
+    "madurai",
+    "dark comedy"
+   ],
+   "tones": [
+    "dark",
+    "funny",
+    "quirky",
+    "tense"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A young director researching a gangster film sets out to study a real, terrifying Madurai don up close."
+  },
+  {
+   "id": 9000064,
+   "title": "Maharaja",
+   "year": 2024,
+   "language": "ta",
+   "runtime": 141,
+   "rating": 8.1,
+   "vote_count": 300,
+   "genres": [
+    "Thriller",
+    "Action",
+    "Crime"
+   ],
+   "keywords": [
+    "barber",
+    "revenge",
+    "nonlinear",
+    "twist ending"
+   ],
+   "tones": [
+    "twisty",
+    "dark",
+    "intense",
+    "tense"
+   ],
+   "flags": [
+    "violence",
+    "heavy"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A mild-mannered barber files a police complaint about a stolen dustbin - and the story behind it is far darker than anyone imagines."
+  },
+  {
+   "id": 9000065,
+   "title": "Good Night",
+   "year": 2023,
+   "language": "ta",
+   "runtime": 144,
+   "rating": 7.8,
+   "vote_count": 90,
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+   ],
+   "keywords": [
+    "snoring",
+    "newlyweds",
+    "marriage",
+    "chennai"
+   ],
+   "tones": [
+    "warm",
+    "cosy",
+    "feel-good",
+    "funny",
+    "gentle"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A good-natured young man's thunderous snoring threatens his new marriage in this tender, funny slice of Chennai life."
+  },
+  {
+   "id": 9000066,
+   "title": "Doctor",
+   "year": 2021,
+   "language": "ta",
+   "runtime": 148,
+   "rating": 7.1,
+   "vote_count": 110,
+   "genres": [
+    "Comedy",
+    "Action",
+    "Thriller"
+   ],
+   "keywords": [
+    "kidnapping",
+    "army doctor",
+    "deadpan",
+    "goa"
+   ],
+   "tones": [
+    "funny",
+    "fast-paced",
+    "quirky"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A stoic army doctor goes after the trafficking gang that kidnapped his ex-fiancee's niece, dragging her chaotic family along."
+  },
+  {
+   "id": 9000067,
+   "title": "Aruvi",
+   "year": 2016,
+   "language": "ta",
+   "runtime": 130,
+   "rating": 8.1,
+   "vote_count": 90,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "society",
+    "reality tv",
+    "illness",
+    "young woman"
+   ],
+   "tones": [
+    "poignant",
+    "dark",
+    "cathartic",
+    "satirical"
+   ],
+   "flags": [
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A young woman thrown out by her family confronts a reality TV show - and everything society has done to her."
+  },
+  {
+   "id": 9000068,
+   "title": "Pariyerum Perumal",
+   "year": 2018,
+   "language": "ta",
+   "runtime": 154,
+   "rating": 8.3,
+   "vote_count": 100,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "caste discrimination",
+    "law college",
+    "friendship"
+   ],
+   "tones": [
+    "hard-hitting",
+    "poignant",
+    "thought-provoking"
+   ],
+   "flags": [
+    "heavy",
+    "violence"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A law student from an oppressed caste befriends a classmate from a dominant caste family, and faces brutal consequences."
+  },
+  {
+   "id": 9000069,
+   "title": "Meiyazhagan",
+   "year": 2024,
+   "language": "ta",
+   "runtime": 177,
+   "rating": 8.0,
+   "vote_count": 120,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "cousin",
+    "homecoming",
+    "one night",
+    "thanjavur",
+    "nostalgia"
+   ],
+   "tones": [
+    "warm",
+    "nostalgic",
+    "gentle",
+    "comforting",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A man returns to his hometown for a wedding after decades and spends a night with an overjoyed relative whose name he can't remember."
+  },
+  {
+   "id": 9000070,
+   "title": "Tourist Family",
+   "year": 2025,
+   "language": "ta",
+   "runtime": 127,
+   "rating": 7.9,
+   "vote_count": 80,
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Family"
+   ],
+   "keywords": [
+    "sri lankan family",
+    "neighbourhood",
+    "kindness",
+    "migrants"
+   ],
+   "tones": [
+    "heartwarming",
+    "funny",
+    "feel-good",
+    "warm"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A Sri Lankan Tamil family sneaks into Chennai to start over, and their warmth slowly transforms a whole grumpy neighbourhood."
+  },
+  {
+   "id": 9000071,
+   "title": "Baahubali: The Beginning",
+   "year": 2015,
+   "language": "te",
+   "runtime": 159,
+   "rating": 7.5,
+   "vote_count": 900,
+   "genres": [
+    "Action",
+    "Fantasy",
+    "Drama"
+   ],
+   "keywords": [
+    "epic",
+    "kingdom",
+    "waterfall",
+    "warrior"
+   ],
+   "tones": [
+    "epic",
+    "energetic",
+    "thrilling",
+    "adventurous"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Netflix",
+    "JioHotstar"
+   ],
+   "overview": "A young man who climbs an impossible waterfall discovers his royal past and the tyrant who stole his kingdom."
+  },
+  {
+   "id": 9000072,
+   "title": "RRR",
+   "year": 2022,
+   "language": "te",
+   "runtime": 187,
+   "rating": 7.8,
+   "vote_count": 1400,
+   "genres": [
+    "Action",
+    "Drama",
+    "History"
+   ],
+   "keywords": [
+    "friendship",
+    "revolutionaries",
+    "colonial india",
+    "bromance"
+   ],
+   "tones": [
+    "epic",
+    "energetic",
+    "intense",
+    "fast-paced"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Netflix",
+    "ZEE5"
+   ],
+   "overview": "Two legendary revolutionaries forge an explosive friendship in 1920s India before finding themselves on opposite sides."
+  },
+  {
+   "id": 9000073,
+   "title": "Jersey",
+   "year": 2019,
+   "language": "te",
+   "runtime": 157,
+   "rating": 8.0,
+   "vote_count": 180,
+   "genres": [
+    "Drama",
+    "Sport"
+   ],
+   "keywords": [
+    "cricket",
+    "comeback",
+    "father son relationship",
+    "sports"
+   ],
+   "tones": [
+    "inspiring",
+    "poignant",
+    "bittersweet",
+    "cathartic"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A failed cricketer returns to the game at 36 to buy his son a jersey - and to prove something to himself."
+  },
+  {
+   "id": 9000074,
+   "title": "Ee Nagaraniki Emaindi",
+   "year": 2018,
+   "language": "te",
+   "runtime": 140,
+   "rating": 7.7,
+   "vote_count": 90,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "friends",
+    "short film",
+    "goa trip",
+    "reunion"
+   ],
+   "tones": [
+    "funny",
+    "nostalgic",
+    "light",
+    "warm"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Four old friends try to make a short film together after years apart, chasing the dreams they left behind."
+  },
+  {
+   "id": 9000075,
+   "title": "Mahanati",
+   "year": 2018,
+   "language": "te",
+   "runtime": 177,
+   "rating": 8.0,
+   "vote_count": 150,
+   "genres": [
+    "Drama",
+    "History"
+   ],
+   "keywords": [
+    "actress",
+    "fame",
+    "biography",
+    "film industry"
+   ],
+   "tones": [
+    "bittersweet",
+    "poignant",
+    "nostalgic",
+    "epic"
+   ],
+   "flags": [
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "The life of legendary actress Savitri, from dazzling stardom to heartbreaking decline."
+  },
+  {
+   "id": 9000076,
+   "title": "C/o Kancharapalem",
+   "year": 2018,
+   "language": "te",
+   "runtime": 150,
+   "rating": 8.1,
+   "vote_count": 80,
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "keywords": [
+    "small town",
+    "love stories",
+    "anthology",
+    "religion"
+   ],
+   "tones": [
+    "gentle",
+    "warm",
+    "bittersweet",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "Four love stories, at four stages of life, unfold in the small town of Kancharapalem."
+  },
+  {
+   "id": 9000077,
+   "title": "Jathi Ratnalu",
+   "year": 2021,
+   "language": "te",
+   "runtime": 146,
+   "rating": 7.3,
+   "vote_count": 110,
+   "genres": [
+    "Comedy",
+    "Crime"
+   ],
+   "keywords": [
+    "goofballs",
+    "hyderabad",
+    "framed",
+    "small town"
+   ],
+   "tones": [
+    "funny",
+    "party",
+    "light",
+    "chaotic"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Three clueless small-town friends move to Hyderabad and get framed for an attempt on a minister's life."
+  },
+  {
+   "id": 9000078,
+   "title": "Arjun Reddy",
+   "year": 2017,
+   "language": "te",
+   "runtime": 182,
+   "rating": 7.7,
+   "vote_count": 300,
+   "genres": [
+    "Romance",
+    "Drama"
+   ],
+   "keywords": [
+    "surgeon",
+    "addiction",
+    "heartbreak",
+    "anger issues"
+   ],
+   "tones": [
+    "intense",
+    "dark",
+    "romantic",
+    "melancholic"
+   ],
+   "flags": [
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A brilliant, short-tempered surgeon spirals into self-destruction after his girlfriend is married off to someone else."
+  },
+  {
+   "id": 9000079,
+   "title": "Agent Sai Srinivasa Athreya",
+   "year": 2019,
+   "language": "te",
+   "runtime": 148,
+   "rating": 7.9,
+   "vote_count": 130,
+   "genres": [
+    "Mystery",
+    "Comedy",
+    "Thriller"
+   ],
+   "keywords": [
+    "detective",
+    "unclaimed bodies",
+    "nellore",
+    "investigation"
+   ],
+   "tones": [
+    "quirky",
+    "twisty",
+    "funny",
+    "tense"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A small-time detective in Nellore stumbles onto a sprawling conspiracy behind a string of unclaimed bodies."
+  },
+  {
+   "id": 9000080,
+   "title": "Eega",
+   "year": 2012,
+   "language": "te",
+   "runtime": 134,
+   "rating": 7.4,
+   "vote_count": 300,
+   "genres": [
+    "Fantasy",
+    "Action",
+    "Comedy"
+   ],
+   "keywords": [
+    "reincarnation",
+    "fly",
+    "revenge",
+    "love"
+   ],
+   "tones": [
+    "whimsical",
+    "funny",
+    "energetic",
+    "thrilling"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A murdered man is reborn as a housefly and sets out to protect the woman he loves and avenge himself."
+  },
+  {
+   "id": 9000081,
+   "title": "Sita Ramam",
+   "year": 2022,
+   "language": "te",
+   "runtime": 163,
+   "rating": 8.1,
+   "vote_count": 200,
+   "genres": [
+    "Romance",
+    "Drama",
+    "War"
+   ],
+   "keywords": [
+    "letters",
+    "soldier",
+    "kashmir",
+    "1960s"
+   ],
+   "tones": [
+    "romantic",
+    "bittersweet",
+    "nostalgic",
+    "poignant"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A student sets out to deliver a decades-old letter from an orphaned soldier to the mysterious woman he loved."
+  },
+  {
+   "id": 9000082,
+   "title": "Pelli Choopulu",
+   "year": 2016,
+   "language": "te",
+   "runtime": 124,
+   "rating": 7.8,
+   "vote_count": 90,
+   "genres": [
+    "Romance",
+    "Comedy"
+   ],
+   "keywords": [
+    "food truck",
+    "arranged marriage",
+    "startup",
+    "hyderabad"
+   ],
+   "tones": [
+    "light",
+    "feel-good",
+    "romantic",
+    "funny"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A directionless young man and an ambitious woman meet for an arranged match and end up starting a food truck together."
+  },
+  {
+   "id": 9000083,
+   "title": "Balagam",
+   "year": 2023,
+   "language": "te",
+   "runtime": 129,
+   "rating": 7.6,
+   "vote_count": 70,
+   "genres": [
+    "Drama",
+    "Family"
+   ],
+   "keywords": [
+    "grandfather",
+    "village",
+    "funeral",
+    "family"
+   ],
+   "tones": [
+    "warm",
+    "cathartic",
+    "heartwarming",
+    "poignant"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "When a grandfather dies, the crow refuses to touch the ritual offering - and a feuding family must finally make peace."
+  },
+  {
+   "id": 9000084,
+   "title": "Kshanam",
+   "year": 2016,
+   "language": "te",
+   "runtime": 116,
+   "rating": 7.8,
+   "vote_count": 110,
+   "genres": [
+    "Thriller",
+    "Mystery"
+   ],
+   "keywords": [
+    "missing child",
+    "ex-girlfriend",
+    "investigation",
+    "twist ending"
+   ],
+   "tones": [
+    "twisty",
+    "tense",
+    "thrilling"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A man returns from the US to help his ex find her missing daughter - but everyone insists the child never existed."
+  },
+  {
+   "id": 9000085,
+   "title": "Hi Nanna",
+   "year": 2023,
+   "language": "te",
+   "runtime": 155,
+   "rating": 7.6,
+   "vote_count": 110,
+   "genres": [
+    "Romance",
+    "Drama",
+    "Family"
+   ],
+   "keywords": [
+    "single father",
+    "daughter",
+    "memories",
+    "love"
+   ],
+   "tones": [
+    "heartwarming",
+    "romantic",
+    "cathartic",
+    "warm"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A single father's bedtime stories to his ailing daughter reveal a love story he has kept to himself."
+  },
+  {
+   "id": 9000086,
+   "title": "HanuMan",
+   "year": 2024,
+   "language": "te",
+   "runtime": 158,
+   "rating": 7.1,
+   "vote_count": 120,
+   "genres": [
+    "Action",
+    "Fantasy",
+    "Adventure"
+   ],
+   "keywords": [
+    "superhero",
+    "village",
+    "mythology",
+    "powers"
+   ],
+   "tones": [
+    "energetic",
+    "fun",
+    "family-friendly",
+    "epic"
+   ],
+   "flags": [],
+   "providers": [
+    "ZEE5"
+   ],
+   "overview": "A small-time thief in a remote village gains the powers of Hanuman and must protect his people from a power-hungry villain."
+  },
+  {
+   "id": 9000087,
+   "title": "Rangasthalam",
+   "year": 2018,
+   "language": "te",
+   "runtime": 179,
+   "rating": 7.9,
+   "vote_count": 150,
+   "genres": [
+    "Action",
+    "Drama"
+   ],
+   "keywords": [
+    "village politics",
+    "hearing impaired",
+    "1980s",
+    "revenge"
+   ],
+   "tones": [
+    "intense",
+    "gritty",
+    "energetic"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A partially deaf villager in 1980s Andhra gets drawn into a violent fight against the village's corrupt president."
+  },
+  {
+   "id": 9000088,
+   "title": "Awe!",
+   "year": 2018,
+   "language": "te",
+   "runtime": 116,
+   "rating": 7.3,
+   "vote_count": 90,
+   "genres": [
+    "Fantasy",
+    "Thriller",
+    "Mystery"
+   ],
+   "keywords": [
+    "interconnected stories",
+    "restaurant",
+    "surreal",
+    "twist ending"
+   ],
+   "tones": [
+    "mind-bending",
+    "quirky",
+    "twisty",
+    "dark"
+   ],
+   "flags": [
+    "heavy"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Seven strange characters cross paths in a restaurant over one day, and nothing is quite what it seems."
+  },
+  {
+   "id": 9000089,
+   "title": "Mathu Vadalara",
+   "year": 2019,
+   "language": "te",
+   "runtime": 129,
+   "rating": 7.5,
+   "vote_count": 80,
+   "genres": [
+    "Comedy",
+    "Thriller",
+    "Crime"
+   ],
+   "keywords": [
+    "delivery boy",
+    "crime",
+    "drugs",
+    "hyderabad"
+   ],
+   "tones": [
+    "quirky",
+    "funny",
+    "dark",
+    "twisty"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A broke delivery boy's small scam spirals into a murder mystery he never saw coming."
+  },
+  {
+   "id": 9000090,
+   "title": "Paddington 2",
+   "year": 2017,
+   "language": "en",
+   "runtime": 104,
+   "rating": 7.6,
+   "vote_count": 3000,
+   "genres": [
+    "Family",
+    "Comedy",
+    "Adventure"
+   ],
+   "keywords": [
+    "bear",
+    "pop-up book",
+    "prison",
+    "kindness",
+    "london"
+   ],
+   "tones": [
+    "cosy",
+    "feel-good",
+    "comforting",
+    "whimsical",
+    "funny"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Paddington takes odd jobs to buy the perfect birthday present for his aunt, only for it to be stolen by a vain, washed-up actor."
+  },
+  {
+   "id": 9000091,
+   "title": "Chef",
+   "year": 2014,
+   "language": "en",
+   "runtime": 115,
+   "rating": 7.1,
+   "vote_count": 3600,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "food truck",
+    "father son relationship",
+    "road trip",
+    "cooking"
+   ],
+   "tones": [
+    "feel-good",
+    "cosy",
+    "warm",
+    "comforting"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A fired chef starts a food truck and drives it across America with his son and his best friend."
+  },
+  {
+   "id": 9000092,
+   "title": "Little Miss Sunshine",
+   "year": 2006,
+   "language": "en",
+   "runtime": 101,
+   "rating": 7.5,
+   "vote_count": 7000,
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "road trip",
+    "dysfunctional family",
+    "pageant",
+    "van"
+   ],
+   "tones": [
+    "quirky",
+    "bittersweet",
+    "funny",
+    "warm"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A dysfunctional family crams into a yellow VW van to get their daughter to a children's beauty pageant."
+  },
+  {
+   "id": 9000093,
+   "title": "The Grand Budapest Hotel",
+   "year": 2014,
+   "language": "en",
+   "runtime": 100,
+   "rating": 8.0,
+   "vote_count": 15000,
+   "genres": [
+    "Comedy",
+    "Adventure",
+    "Crime"
+   ],
+   "keywords": [
+    "concierge",
+    "stolen painting",
+    "europe",
+    "friendship"
+   ],
+   "tones": [
+    "whimsical",
+    "quirky",
+    "witty",
+    "funny"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A legendary concierge and his loyal lobby boy are caught up in the theft of a priceless painting and a family fortune."
+  },
+  {
+   "id": 9000094,
+   "title": "Inception",
+   "year": 2010,
+   "language": "en",
+   "runtime": 148,
+   "rating": 8.4,
+   "vote_count": 37000,
+   "genres": [
+    "Science Fiction",
+    "Action",
+    "Thriller"
+   ],
+   "keywords": [
+    "dream",
+    "heist",
+    "subconscious",
+    "layers"
+   ],
+   "tones": [
+    "mind-bending",
+    "thrilling",
+    "tense",
+    "epic"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A thief who steals secrets through dreams is offered a chance at redemption: plant an idea in someone's mind."
+  },
+  {
+   "id": 9000095,
+   "title": "Interstellar",
+   "year": 2014,
+   "language": "en",
+   "runtime": 169,
+   "rating": 8.4,
+   "vote_count": 35000,
+   "genres": [
+    "Science Fiction",
+    "Drama",
+    "Adventure"
+   ],
+   "keywords": [
+    "space",
+    "time dilation",
+    "father daughter relationship",
+    "black hole"
+   ],
+   "tones": [
+    "epic",
+    "thought-provoking",
+    "poignant",
+    "mind-bending"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "As Earth dies, a pilot leaves his daughter to lead a mission through a wormhole in search of a new home for humanity."
+  },
+  {
+   "id": 9000096,
+   "title": "Arrival",
+   "year": 2016,
+   "language": "en",
+   "runtime": 116,
+   "rating": 7.6,
+   "vote_count": 18000,
+   "genres": [
+    "Science Fiction",
+    "Drama",
+    "Mystery"
+   ],
+   "keywords": [
+    "linguistics",
+    "aliens",
+    "grief",
+    "time"
+   ],
+   "tones": [
+    "thought-provoking",
+    "melancholic",
+    "mind-bending",
+    "slow-burn"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A linguist races to communicate with mysterious alien visitors, and discovers something that reshapes her understanding of her own life."
+  },
+  {
+   "id": 9000097,
+   "title": "Eternal Sunshine of the Spotless Mind",
+   "year": 2004,
+   "language": "en",
+   "runtime": 108,
+   "rating": 8.1,
+   "vote_count": 15000,
+   "genres": [
+    "Romance",
+    "Drama",
+    "Science Fiction"
+   ],
+   "keywords": [
+    "memory erasure",
+    "breakup",
+    "heartbreak",
+    "love"
+   ],
+   "tones": [
+    "bittersweet",
+    "mind-bending",
+    "melancholic",
+    "romantic"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "After a painful breakup, a man undergoes a procedure to erase his ex from memory - then fights to keep her."
+  },
+  {
+   "id": 9000098,
+   "title": "La La Land",
+   "year": 2016,
+   "language": "en",
+   "runtime": 128,
+   "rating": 7.9,
+   "vote_count": 17000,
+   "genres": [
+    "Romance",
+    "Comedy",
+    "Music"
+   ],
+   "keywords": [
+    "jazz",
+    "los angeles",
+    "dream",
+    "musical"
+   ],
+   "tones": [
+    "romantic",
+    "bittersweet",
+    "musical",
+    "nostalgic"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "An aspiring actress and a jazz pianist fall in love while chasing their dreams in Los Angeles."
+  },
+  {
+   "id": 9000099,
+   "title": "Before Sunrise",
+   "year": 1995,
+   "language": "en",
+   "runtime": 101,
+   "rating": 7.7,
+   "vote_count": 4000,
+   "genres": [
+    "Romance",
+    "Drama"
+   ],
+   "keywords": [
+    "train",
+    "vienna",
+    "conversation",
+    "strangers"
+   ],
+   "tones": [
+    "romantic",
+    "gentle",
+    "slow-burn",
+    "nostalgic"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Two strangers meet on a train and spend one night walking and talking through Vienna."
+  },
+  {
+   "id": 9000100,
+   "title": "Inside Out",
+   "year": 2015,
+   "language": "en",
+   "runtime": 95,
+   "rating": 7.9,
+   "vote_count": 21000,
+   "genres": [
+    "Animation",
+    "Family",
+    "Comedy"
+   ],
+   "keywords": [
+    "emotions",
+    "childhood",
+    "sadness",
+    "moving house"
+   ],
+   "tones": [
+    "heartwarming",
+    "cathartic",
+    "funny",
+    "family-friendly"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "The emotions inside an 11-year-old's head struggle to guide her through a difficult move to a new city."
+  },
+  {
+   "id": 9000101,
+   "title": "Up",
+   "year": 2009,
+   "language": "en",
+   "runtime": 96,
+   "rating": 8.0,
+   "vote_count": 20000,
+   "genres": [
+    "Animation",
+    "Adventure",
+    "Family"
+   ],
+   "keywords": [
+    "balloons",
+    "grief",
+    "adventure",
+    "friendship"
+   ],
+   "tones": [
+    "heartwarming",
+    "bittersweet",
+    "uplifting",
+    "adventurous"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A grieving 78-year-old ties thousands of balloons to his house to fly to South America - with an accidental boy scout aboard."
+  },
+  {
+   "id": 9000102,
+   "title": "Coco",
+   "year": 2017,
+   "language": "en",
+   "runtime": 105,
+   "rating": 8.2,
+   "vote_count": 19000,
+   "genres": [
+    "Animation",
+    "Family",
+    "Music"
+   ],
+   "keywords": [
+    "day of the dead",
+    "family",
+    "music",
+    "afterlife"
+   ],
+   "tones": [
+    "heartwarming",
+    "cathartic",
+    "musical",
+    "family-friendly"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A boy who dreams of being a musician is transported to the colourful Land of the Dead to uncover his family's history."
+  },
+  {
+   "id": 9000103,
+   "title": "Knives Out",
+   "year": 2019,
+   "language": "en",
+   "runtime": 131,
+   "rating": 7.8,
+   "vote_count": 14000,
+   "genres": [
+    "Mystery",
+    "Comedy",
+    "Crime"
+   ],
+   "keywords": [
+    "whodunit",
+    "family",
+    "detective",
+    "inheritance"
+   ],
+   "tones": [
+    "witty",
+    "twisty",
+    "funny",
+    "thrilling"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A famous crime novelist dies the night of his 85th birthday, and a genteel detective interrogates his deliciously awful family."
+  },
+  {
+   "id": 9000104,
+   "title": "Mad Max: Fury Road",
+   "year": 2015,
+   "language": "en",
+   "runtime": 121,
+   "rating": 7.6,
+   "vote_count": 22000,
+   "genres": [
+    "Action",
+    "Adventure",
+    "Science Fiction"
+   ],
+   "keywords": [
+    "desert",
+    "chase",
+    "war rig",
+    "post-apocalyptic"
+   ],
+   "tones": [
+    "fast-paced",
+    "intense",
+    "energetic",
+    "thrilling"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "In a post-apocalyptic wasteland, a drifter and a rebel warrior flee a tyrant across the desert in one relentless chase."
+  },
+  {
+   "id": 9000105,
+   "title": "Get Out",
+   "year": 2017,
+   "language": "en",
+   "runtime": 104,
+   "rating": 7.6,
+   "vote_count": 17000,
+   "genres": [
+    "Horror",
+    "Mystery",
+    "Thriller"
+   ],
+   "keywords": [
+    "racism",
+    "hypnosis",
+    "girlfriend's family",
+    "satire"
+   ],
+   "tones": [
+    "tense",
+    "eerie",
+    "satirical",
+    "scary"
+   ],
+   "flags": [
+    "horror",
+    "violence"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A young Black man's visit to his white girlfriend's family estate becomes a nightmare."
+  },
+  {
+   "id": 9000106,
+   "title": "The Shawshank Redemption",
+   "year": 1994,
+   "language": "en",
+   "runtime": 142,
+   "rating": 8.7,
+   "vote_count": 28000,
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "keywords": [
+    "prison",
+    "hope",
+    "friendship",
+    "escape"
+   ],
+   "tones": [
+    "hopeful",
+    "uplifting",
+    "slow-burn",
+    "poignant"
+   ],
+   "flags": [
+    "violence"
+   ],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A banker wrongly imprisoned for murder forms a decades-long friendship and never gives up hope."
+  },
+  {
+   "id": 9000107,
+   "title": "Mamma Mia!",
+   "year": 2008,
+   "language": "en",
+   "runtime": 108,
+   "rating": 6.9,
+   "vote_count": 7000,
+   "genres": [
+    "Comedy",
+    "Romance",
+    "Music"
+   ],
+   "keywords": [
+    "abba",
+    "greek island",
+    "wedding",
+    "mother daughter"
+   ],
+   "tones": [
+    "party",
+    "feel-good",
+    "musical",
+    "light"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "On the eve of her wedding, a young woman invites three men who might be her father to a Greek island - to a soundtrack of ABBA."
+  },
+  {
+   "id": 9000108,
+   "title": "The Secret Life of Walter Mitty",
+   "year": 2013,
+   "language": "en",
+   "runtime": 114,
+   "rating": 7.1,
+   "vote_count": 8000,
+   "genres": [
+    "Adventure",
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "daydreamer",
+    "iceland",
+    "magazine",
+    "journey"
+   ],
+   "tones": [
+    "uplifting",
+    "hopeful",
+    "adventurous",
+    "gentle"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A daydreaming photo manager sets out on a real global adventure to find a missing negative."
+  },
+  {
+   "id": 9000109,
+   "title": "Everything Everywhere All at Once",
+   "year": 2022,
+   "language": "en",
+   "runtime": 139,
+   "rating": 7.8,
+   "vote_count": 7000,
+   "genres": [
+    "Science Fiction",
+    "Comedy",
+    "Action"
+   ],
+   "keywords": [
+    "multiverse",
+    "mother daughter",
+    "laundromat",
+    "family"
+   ],
+   "tones": [
+    "mind-bending",
+    "cathartic",
+    "funny",
+    "energetic"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A laundromat owner being audited by the IRS discovers she must connect with versions of herself across the multiverse."
+  },
+  {
+   "id": 9000110,
+   "title": "Superbad",
+   "year": 2007,
+   "language": "en",
+   "runtime": 113,
+   "rating": 7.2,
+   "vote_count": 7000,
+   "genres": [
+    "Comedy"
+   ],
+   "keywords": [
+    "high school",
+    "party",
+    "best friends",
+    "graduation"
+   ],
+   "tones": [
+    "funny",
+    "party",
+    "light"
+   ],
+   "flags": [
+    "sexual content"
+   ],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Two co-dependent high-school seniors try to score alcohol for a party before they go to separate colleges."
+  },
+  {
+   "id": 9000111,
+   "title": "The Conjuring",
+   "year": 2013,
+   "language": "en",
+   "runtime": 112,
+   "rating": 7.5,
+   "vote_count": 11000,
+   "genres": [
+    "Horror",
+    "Thriller"
+   ],
+   "keywords": [
+    "haunted house",
+    "demonologists",
+    "farmhouse",
+    "possession"
+   ],
+   "tones": [
+    "scary",
+    "eerie",
+    "tense"
+   ],
+   "flags": [
+    "horror"
+   ],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "Paranormal investigators help a family terrorised by a dark presence in their secluded farmhouse."
+  },
+  {
+   "id": 9000112,
+   "title": "About Time",
+   "year": 2013,
+   "language": "en",
+   "runtime": 123,
+   "rating": 7.9,
+   "vote_count": 8000,
+   "genres": [
+    "Romance",
+    "Comedy",
+    "Drama"
+   ],
+   "keywords": [
+    "time travel",
+    "father son relationship",
+    "love",
+    "family"
+   ],
+   "tones": [
+    "warm",
+    "romantic",
+    "bittersweet",
+    "comforting"
+   ],
+   "flags": [],
+   "providers": [
+    "Netflix"
+   ],
+   "overview": "A young man who can travel back in time tries to use it to find love - and learns what truly matters."
+  },
+  {
+   "id": 9000113,
+   "title": "Good Will Hunting",
+   "year": 1997,
+   "language": "en",
+   "runtime": 126,
+   "rating": 8.1,
+   "vote_count": 12000,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "therapist",
+    "genius",
+    "grief",
+    "friendship"
+   ],
+   "tones": [
+    "cathartic",
+    "warm",
+    "thought-provoking",
+    "poignant"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A gifted janitor at MIT works with a therapist to face his past and his future."
+  },
+  {
+   "id": 9000114,
+   "title": "Dead Poets Society",
+   "year": 1989,
+   "language": "en",
+   "runtime": 128,
+   "rating": 8.3,
+   "vote_count": 11000,
+   "genres": [
+    "Drama"
+   ],
+   "keywords": [
+    "teacher",
+    "poetry",
+    "boarding school",
+    "coming of age"
+   ],
+   "tones": [
+    "inspiring",
+    "bittersweet",
+    "poignant",
+    "nostalgic"
+   ],
+   "flags": [
+    "heavy"
+   ],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "An unconventional English teacher inspires students at a strict prep school to seize the day."
+  },
+  {
+   "id": 9000115,
+   "title": "The Martian",
+   "year": 2015,
+   "language": "en",
+   "runtime": 144,
+   "rating": 7.7,
+   "vote_count": 20000,
+   "genres": [
+    "Science Fiction",
+    "Adventure",
+    "Drama"
+   ],
+   "keywords": [
+    "mars",
+    "survival",
+    "botany",
+    "space"
+   ],
+   "tones": [
+    "hopeful",
+    "funny",
+    "thrilling",
+    "inspiring"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "Stranded alone on Mars, an astronaut uses his wits and a lot of potatoes to survive."
+  },
+  {
+   "id": 9000116,
+   "title": "Soul",
+   "year": 2020,
+   "language": "en",
+   "runtime": 100,
+   "rating": 8.0,
+   "vote_count": 10000,
+   "genres": [
+    "Animation",
+    "Family",
+    "Fantasy"
+   ],
+   "keywords": [
+    "jazz",
+    "purpose",
+    "afterlife",
+    "new york"
+   ],
+   "tones": [
+    "gentle",
+    "thought-provoking",
+    "comforting",
+    "heartwarming"
+   ],
+   "flags": [],
+   "providers": [
+    "JioHotstar"
+   ],
+   "overview": "A jazz musician whose soul gets separated from his body learns what it truly means to live."
+  },
+  {
+   "id": 9000117,
+   "title": "Whiplash",
+   "year": 2014,
+   "language": "en",
+   "runtime": 107,
+   "rating": 8.4,
+   "vote_count": 15000,
+   "genres": [
+    "Drama",
+    "Music"
+   ],
+   "keywords": [
+    "drummer",
+    "abusive mentor",
+    "ambition",
+    "jazz"
+   ],
+   "tones": [
+    "intense",
+    "tense",
+    "energetic",
+    "gritty"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "A young drummer at an elite conservatory is pushed to the edge by a ferocious instructor."
+  },
+  {
+   "id": 9000118,
+   "title": "Crazy Rich Asians",
+   "year": 2018,
+   "language": "en",
+   "runtime": 120,
+   "rating": 6.8,
+   "vote_count": 5000,
+   "genres": [
+    "Romance",
+    "Comedy"
+   ],
+   "keywords": [
+    "singapore",
+    "wedding",
+    "family",
+    "wealth"
+   ],
+   "tones": [
+    "light",
+    "romantic",
+    "feel-good",
+    "party"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "An economics professor travels to Singapore with her boyfriend and discovers his family is outrageously rich - and disapproving."
+  },
+  {
+   "id": 9000119,
+   "title": "Pride & Prejudice",
+   "year": 2005,
+   "language": "en",
+   "runtime": 129,
+   "rating": 7.9,
+   "vote_count": 7500,
+   "genres": [
+    "Romance",
+    "Drama"
+   ],
+   "keywords": [
+    "bennet sisters",
+    "mr darcy",
+    "period",
+    "england"
+   ],
+   "tones": [
+    "romantic",
+    "comforting",
+    "cosy",
+    "witty"
+   ],
+   "flags": [],
+   "providers": [
+    "Prime Video"
+   ],
+   "overview": "Spirited Elizabeth Bennet and the proud Mr Darcy clash, misjudge and slowly fall for each other in Regency England."
+  }
+ ]
+}

@@ -42,7 +42,7 @@ PLACES = {
 }
 SLOT_LINE = {
     "Hidden gem": "A lesser-known gem worth discovering.",
-    "Wildcard": "A bit of a wildcard - but trust me on this one.",
+    "Wildcard": "A bit of a wildcard — but trust me on this one.",
 }
 
 

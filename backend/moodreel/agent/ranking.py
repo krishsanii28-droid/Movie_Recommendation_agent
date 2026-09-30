@@ -108,7 +108,7 @@ def score_movie(movie: MovieOut, sim_n: float, profile: MoodProfile, history: di
     if profile.distress != "none" and tones & {"comforting", "gentle", "warm", "hopeful"}:
         adjust += 0.08
 
-    score = 0.35 * sim_n + 0.40 * tone_fit + 0.15 * quality + taste + adjust - 0.12 * len(clashes)
+    score = 0.35 * sim_n + 0.40 * tone_fit + 0.15 * quality + taste + adjust - 0.2 * len(clashes)
     return Scored(movie, round(score, 4), round(sim_n, 3), round(tone_fit, 3), matched, notes)
 
 

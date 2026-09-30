@@ -63,7 +63,7 @@ TARGET_TONES: dict[str, dict[str, list[str]]] = {
 
 # Tones that would clash with the mood goal (soft penalty in ranking).
 CLASH_TONES: dict[tuple[str, str], list[str]] = {
-    ("heartbroken", "shift"): ["romantic", "melancholic"],
+    ("heartbroken", "shift"): ["romantic", "melancholic", "bittersweet"],
     ("sad", "shift"): ["dark", "hard-hitting", "melancholic", "gritty"],
     ("lonely", "shift"): ["dark", "melancholic", "hard-hitting"],
     ("stressed", "shift"): ["tense", "scary", "intense", "dark", "hard-hitting"],
@@ -333,7 +333,8 @@ def analyze_mood(
         target_tones=build_target_tones(primary, secondary, goal, requested),
         requested_tones=requested,
         raw_emotions=raw,
-        key_phrase=key_phrase(text) or (prior.key_phrase if prior else ""),
+        key_phrase=(prior.key_phrase if prior is not None and not strong_new and prior.key_phrase
+                    else key_phrase(text)),
         vague=vague,
     )
     profile.summary = summarize(profile)

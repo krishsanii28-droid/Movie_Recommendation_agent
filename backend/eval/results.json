@@ -1,0 +1,847 @@
+{
+ "summary": {
+  "overall": {
+   "understanding": 1.0,
+   "relevance": 0.908,
+   "constraints": 0.983,
+   "diversity": 0.671,
+   "reason_quality": 0.913,
+   "behaviour": 1.0
+  },
+  "by_category": {
+   "edge": {
+    "n": 7,
+    "understanding": 1.0,
+    "relevance": 0.857,
+    "constraints": 1.0,
+    "diversity": 0.719,
+    "reason_quality": 0.889,
+    "behaviour": 1.0
+   },
+   "everyday": {
+    "n": 8,
+    "understanding": 1.0,
+    "relevance": 1.0,
+    "constraints": 1.0,
+    "diversity": 0.647,
+    "reason_quality": 0.964,
+    "behaviour": 1.0
+   },
+   "group": {
+    "n": 4,
+    "understanding": NaN,
+    "relevance": 0.812,
+    "constraints": 0.875,
+    "diversity": 0.713,
+    "reason_quality": 0.917,
+    "behaviour": 1.0
+   },
+   "indian": {
+    "n": 7,
+    "understanding": 1.0,
+    "relevance": 0.857,
+    "constraints": 1.0,
+    "diversity": 0.606,
+    "reason_quality": 0.893,
+    "behaviour": 1.0
+   },
+   "vague": {
+    "n": 4,
+    "understanding": 1.0,
+    "relevance": 1.0,
+    "constraints": 1.0,
+    "diversity": 0.707,
+    "reason_quality": 0.885,
+    "behaviour": 1.0
+   }
+  },
+  "n": 30
+ },
+ "engines": {
+  "embedder": "hashing",
+  "vectors": "memory",
+  "emotion": "lexicon",
+  "llm": "rules",
+  "catalogue": "119 films"
+ },
+ "rows": [
+  {
+   "id": "e01",
+   "category": "everyday",
+   "prompt": "Long day, want something cosy but not cheesy",
+   "mood": "drained · low energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Paddington 2 (en)",
+    "Chef (en)",
+    "Good Night (ta)",
+    "Ustad Hotel (ml)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.652,
+   "reason_quality": 1.0,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"long day, want something cosy but not cheesy\" — Paddington 2 is a cosy, light family film about bear, pop-up book and prison that should lift you without trying too hard. At 1h44, it won't ask much of you."
+  },
+  {
+   "id": "e02",
+   "category": "everyday",
+   "prompt": "I'm in a great mood, give me something fun and feel-good",
+   "mood": "happy · high energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Zindagi Na Milegi Dobara (hi)",
+    "Queen (hi)",
+    "Premalu (ml)",
+    "Good Night (ta)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.526,
+   "reason_quality": 1.0,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"I'm in a great mood\" — Zindagi Na Milegi Dobara is a feel-good, funny comedy-drama about road trip, friendship and Spain that lets you sit with the feeling."
+  },
+  {
+   "id": "e03",
+   "category": "everyday",
+   "prompt": "Just broke up. I want a good cry.",
+   "mood": "heartbroken · down · low energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Eternal Sunshine of the Spotless Mind (en)",
+    "The Lunchbox (hi)",
+    "Masaan (hi)",
+    "La La Land (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.661,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"just broke up. I want a good cry\" — Eternal Sunshine of the Spotless Mind is a bittersweet, melancholic romance about memory erasure, breakup and heartbreak that lets you sit with the feeling. At 1h48, it won't ask much of you."
+  },
+  {
+   "id": "e04",
+   "category": "everyday",
+   "prompt": "So stressed about work, need something to take my mind off it",
+   "mood": "stressed · medium energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Paddington 2 (en)",
+    "Anbe Sivam (ta)",
+    "Oh My Kadavule (ta)",
+    "Queen (hi)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.664,
+   "reason_quality": 1.0,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"so stressed about work\" — Paddington 2 is a funny, light family film about bear, pop-up book and prison that should lift you without trying too hard."
+  },
+  {
+   "id": "e05",
+   "category": "everyday",
+   "prompt": "I want something that makes me think, maybe a mind-bending one",
+   "mood": "curious · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Arrival (en)",
+    "Interstellar (en)",
+    "Awe! (te)",
+    "Inception (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.77,
+   "reason_quality": 0.958,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"I want something that makes me think\" — Arrival is a mind-bending, thought-provoking sci-fi film about linguistics, aliens and grief that'll keep your brain happily busy."
+  },
+  {
+   "id": "e06",
+   "category": "everyday",
+   "prompt": "Date night with my girlfriend, something romantic but fun",
+   "mood": "romantic · medium energy · wants to lean in · with partner",
+   "asked_followup": 0,
+   "picks": [
+    "Premalu (ml)",
+    "Barfi! (hi)",
+    "About Time (en)",
+    "C/o Kancharapalem (te)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.466,
+   "reason_quality": 1.0,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"date night with my girlfriend\" — Premalu is a romantic, warm rom-com about Hyderabad, young love and friendship that lets you sit with the feeling."
+  },
+  {
+   "id": "e07",
+   "category": "everyday",
+   "prompt": "Bored out of my mind, surprise me with something gripping",
+   "mood": "bored · medium energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Maharaja (ta)",
+    "Baahubali: The Beginning (te)",
+    "Awe! (te)",
+    "Mad Max: Fury Road (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.78,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"bored out of my mind\" — Maharaja is a thrilling, twisty thriller about barber, revenge and nonlinear that should lift you without trying too hard."
+  },
+  {
+   "id": "e08",
+   "category": "everyday",
+   "prompt": "Feeling nostalgic about college days",
+   "mood": "nostalgic · low energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "96 (ta)",
+    "Premam (ml)",
+    "Ee Nagaraniki Emaindi (te)",
+    "La La Land (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.657,
+   "reason_quality": 1.0,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"feeling nostalgic about college days\" — 96 is a nostalgic, bittersweet romance about school reunion, first love and one night that lets you sit with the feeling."
+  },
+  {
+   "id": "i01",
+   "category": "indian",
+   "prompt": "Bore adikkunnu, oru nalla Malayalam comedy venam",
+   "mood": "bored · medium energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Aavesham (ml)",
+    "Minnal Murali (ml)",
+    "Premalu (ml)",
+    "Jaya Jaya Jaya Jaya Hey (ml)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.582,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"bore adikkunnu, oru nalla Malayalam comedy venam\" — Aavesham is a funny, energetic action film about gangster, college students and Bengaluru that should lift you without trying too hard."
+  },
+  {
+   "id": "i02",
+   "category": "indian",
+   "prompt": "Mood off yaar, thak gaya hu. Kuch halka sa, Hindi mein",
+   "mood": "drained · down · low energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Zindagi Na Milegi Dobara (hi)",
+    "Jab We Met (hi)",
+    "Laapataa Ladies (hi)",
+    "Bhool Bhulaiyaa (hi)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.546,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"mood off yaar, thak gaya hu\" — Zindagi Na Milegi Dobara is a light, funny comedy-drama about road trip, friendship and Spain that should lift you without trying too hard."
+  },
+  {
+   "id": "i03",
+   "category": "indian",
+   "prompt": "Watching with amma and achan tonight, Malayalam, nothing violent",
+   "mood": "open to anything · medium energy · wants to lean in · with family",
+   "asked_followup": 0,
+   "picks": [
+    "Bangalore Days (ml)",
+    "Home (ml)",
+    "Maheshinte Prathikaaram (ml)",
+    "Manjummel Boys (ml)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.531,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"watching with amma and achan tonight\" — Bangalore Days is a feel-good, warm comedy-drama about cousins, friendship and city life that lets you sit with the feeling."
+  },
+  {
+   "id": "i04",
+   "category": "indian",
+   "prompt": "Missing home, feeling homesick in Bangalore. Something that feels like Kerala.",
+   "mood": "lonely · low energy · wants a lift",
+   "asked_followup": 1,
+   "picks": [
+    "Zindagi Na Milegi Dobara (hi)",
+    "Ustad Hotel (ml)",
+    "Laapataa Ladies (hi)",
+    "Inside Out (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.68,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"missing home, feeling homesick in Bangalore\" — Zindagi Na Milegi Dobara is a warm, heartwarming comedy-drama about road trip, friendship and Spain that should lift you without trying too hard."
+  },
+  {
+   "id": "i05",
+   "category": "indian",
+   "prompt": "Tamil thriller venum, edge of the seat, but no gore",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Good Night (ta)",
+    "Tourist Family (ta)",
+    "Oh My Kadavule (ta)",
+    "Anbe Sivam (ta)"
+   ],
+   "slots": [
+    "Also great",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": 1.0,
+   "relevance": 0.0,
+   "constraints": 1.0,
+   "diversity": 0.519,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"tamil thriller venum, edge of the seat\" — Good Night is a feel-good, warm comedy-drama about snoring, newlyweds and marriage that lets you sit with the feeling."
+  },
+  {
+   "id": "i06",
+   "category": "indian",
+   "prompt": "Telugu movie that'll inspire me, exams next week and I'm tense",
+   "mood": "stressed · medium energy · wants a lift",
+   "asked_followup": 1,
+   "picks": [
+    "Ee Nagaraniki Emaindi (te)",
+    "Agent Sai Srinivasa Athreya (te)",
+    "Jathi Ratnalu (te)",
+    "Pelli Choopulu (te)"
+   ],
+   "slots": [
+    "Also great",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.659,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"exams next week and I'm tense\" — Ee Nagaraniki Emaindi is a funny, light comedy-drama about friends, short film and goa trip that should lift you without trying too hard."
+  },
+  {
+   "id": "i07",
+   "category": "indian",
+   "prompt": "Sankadam aanu. Kurachu santhosham tharunna oru padam?",
+   "mood": "down · happy · low energy · wants a lift",
+   "asked_followup": 1,
+   "picks": [
+    "Queen (hi)",
+    "Soorarai Pottru (ta)",
+    "Anbe Sivam (ta)",
+    "Up (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.723,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"sankadam aanu\" — Queen is an uplifting, funny comedy-drama about solo travel, self-discovery and jilted bride that should lift you without trying too hard."
+  },
+  {
+   "id": "g01",
+   "category": "group",
+   "prompt": "Asha: exhausted after work Ravi: want to laugh, no horror",
+   "mood": "group of 2 · Asha drained · Ravi easygoing",
+   "asked_followup": 0,
+   "picks": [
+    "Zindagi Na Milegi Dobara (hi)",
+    "Paddington 2 (en)",
+    "Good Night (ta)",
+    "Knives Out (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.708,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "Middle ground for everyone: Zindagi Na Milegi Dobara is a funny, feel-good comedy-drama that meets Asha's drained mood and Ravi's easygoing mood halfway."
+  },
+  {
+   "id": "g02",
+   "category": "group",
+   "prompt": "Neha: want a thriller Arjun: in the mood for something twisty Sam: anything but horror",
+   "mood": "group of 3 · Neha easygoing · Arjun curious · Sam easygoing",
+   "asked_followup": 0,
+   "picks": [
+    "Andhadhun (hi)",
+    "Agent Sai Srinivasa Athreya (te)",
+    "Anbe Sivam (ta)",
+    "Get Out (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 0.5,
+   "constraints": 0.75,
+   "diversity": 0.766,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "Middle ground for everyone: Andhadhun is a twisty, thrilling thriller that meets Neha's easygoing mood, Arjun's curious mood and Sam's easygoing mood halfway."
+  },
+  {
+   "id": "g03",
+   "category": "group",
+   "prompt": "Mom: something wholesome for the family Kid: funny and animated please",
+   "mood": "group of 2 · Mom easygoing · Kid easygoing",
+   "asked_followup": 0,
+   "picks": [
+    "Paddington 2 (en)",
+    "Home (ml)",
+    "Tourist Family (ta)",
+    "Knives Out (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 0.75,
+   "constraints": 0.75,
+   "diversity": 0.607,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "Middle ground for everyone: Paddington 2 is a feel-good, funny family film that meets Mom's easygoing mood and Kid's easygoing mood halfway."
+  },
+  {
+   "id": "g04",
+   "category": "group",
+   "prompt": "Priya: happy, Malayalam or Tamil Kiran: party mood, Tamil or Telugu",
+   "mood": "group of 2 · Priya happy · Kiran party mood",
+   "asked_followup": 0,
+   "picks": [
+    "Soorarai Pottru (ta)",
+    "Oh My Kadavule (ta)",
+    "Anbe Sivam (ta)",
+    "Doctor (ta)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.77,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "Middle ground for everyone: Soorarai Pottru is an energetic, uplifting drama that meets Priya's happy mood and Kiran's party mood mood halfway."
+  },
+  {
+   "id": "v01",
+   "category": "vague",
+   "prompt": "idk",
+   "mood": "open to anything · medium energy · wants a lift",
+   "asked_followup": 1,
+   "picks": [
+    "3 Idiots (hi)",
+    "Agent Sai Srinivasa Athreya (te)",
+    "Anbe Sivam (ta)",
+    "Andhadhun (hi)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.693,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"idk\" — 3 Idiots is a funny, feel-good comedy-drama about engineering college, friendship and education system that should lift you without trying too hard."
+  },
+  {
+   "id": "v02",
+   "category": "vague",
+   "prompt": "meh",
+   "mood": "down · low energy · wants a lift",
+   "asked_followup": 1,
+   "picks": [
+    "Chef (en)",
+    "Paddington 2 (en)",
+    "Anbe Sivam (ta)",
+    "Good Night (ta)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.524,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"meh\" — Chef is a cosy, light comedy-drama about food truck, fathers and sons and road trip that should lift you without trying too hard. At 1h55, it won't ask much of you."
+  },
+  {
+   "id": "v03",
+   "category": "vague",
+   "prompt": "suggest something",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 1,
+   "picks": [
+    "Andhadhun (hi)",
+    "Knives Out (en)",
+    "Kshanam (te)",
+    "The Martian (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.777,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"suggest something\" — Andhadhun is a thrilling, twisty thriller about blind pianist, murder and twist ending that lets you sit with the feeling."
+  },
+  {
+   "id": "v04",
+   "category": "vague",
+   "prompt": "I'm sad",
+   "mood": "down · low energy · wants to lean in",
+   "asked_followup": 1,
+   "picks": [
+    "The Lunchbox (hi)",
+    "Up (en)",
+    "Android Kunjappan Version 5.25 (ml)",
+    "Jersey (te)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.834,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"I'm sad\" — The Lunchbox is a melancholic, bittersweet drama about letters, loneliness and Mumbai that lets you sit with the feeling. At 1h45, it won't ask much of you."
+  },
+  {
+   "id": "x01",
+   "category": "edge",
+   "prompt": "I feel hopeless and I can't go on anymore",
+   "mood": "open to anything · medium energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Soul (en)",
+    "Meiyazhagan (ta)",
+    "Home (ml)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.788,
+   "reason_quality": 0.889,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"I feel hopeless and I can't go on anymore\" — Soul is a comforting, gentle animated film about jazz, purpose and afterlife that should lift you without trying too hard."
+  },
+  {
+   "id": "x02",
+   "category": "edge",
+   "prompt": "Only have 90 minutes before bed, something light",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Inside Out (en)",
+    "The Grand Budapest Hotel (en)",
+    "Soul (en)",
+    "The Great Indian Kitchen (ml)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Also great"
+   ],
+   "understanding": null,
+   "relevance": 0.75,
+   "constraints": 1.0,
+   "diversity": 0.813,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"only have 90 minutes before bed, something light\" — Inside Out is a light, warm animated film about emotions, childhood and sadness that lets you sit with the feeling."
+  },
+  {
+   "id": "x03",
+   "category": "edge",
+   "prompt": "Happy but also kind of sad? Weird day. Lift me up.",
+   "mood": "down · happy · low energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Queen (hi)",
+    "Home (ml)",
+    "Anbe Sivam (ta)",
+    "Up (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.619,
+   "reason_quality": 0.833,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"happy but also kind of sad? Weird day. Lift me up\" — Queen is an uplifting, funny comedy-drama about solo travel, self-discovery and jilted bride that should lift you without trying too hard."
+  },
+  {
+   "id": "x04",
+   "category": "edge",
+   "prompt": "Scared of the dark but I want a horror movie tonight, bring it on",
+   "mood": "uneasy · medium energy · wants a lift",
+   "asked_followup": 1,
+   "picks": [
+    "About Time (en)",
+    "Paddington 2 (en)",
+    "Romancham (ml)",
+    "Knives Out (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 0.25,
+   "constraints": 1.0,
+   "diversity": 0.736,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"scared of the dark but I want a horror movie tonight\" — About Time is a comforting, funny comedy-drama about time travel, fathers and sons and love that should lift you without trying too hard."
+  },
+  {
+   "id": "x05",
+   "category": "edge",
+   "prompt": "Angry at everyone. No romance, nothing slow, no songs.",
+   "mood": "frustrated · high energy · wants to lean in",
+   "asked_followup": 1,
+   "picks": [
+    "Rangasthalam (te)",
+    "Maharaja (ta)",
+    "Eega (te)",
+    "Mad Max: Fury Road (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.713,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"angry at everyone\" — Rangasthalam is an intense, energetic action film about village politics, hearing impaired and 1980s that lets you sit with the feeling."
+  },
+  {
+   "id": "x06",
+   "category": "edge",
+   "prompt": "😴😴😴",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 1,
+   "picks": [
+    "Paddington 2 (en)",
+    "Chef (en)",
+    "Good Night (ta)",
+    "Knives Out (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.654,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"😴😴😴\" — Paddington 2 is a cosy, light family film about bear, pop-up book and prison that lets you sit with the feeling."
+  },
+  {
+   "id": "x07",
+   "category": "edge",
+   "prompt": "Telugu horror comedy under 60 minutes with no violence",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Agent Sai Srinivasa Athreya (te)",
+    "Ee Nagaraniki Emaindi (te)",
+    "Awe! (te)",
+    "Pelli Choopulu (te)"
+   ],
+   "slots": [
+    "Also great",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.713,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"telugu horror comedy under 60 minutes with no violence\" — Agent Sai Srinivasa Athreya is a funny, twisty mystery about detective, unclaimed bodies and Nellore that lets you sit with the feeling."
+  }
+ ]
+}

@@ -161,16 +161,20 @@ def summarize(rows: list[dict]) -> dict:
     return {"overall": overall, "by_category": by_cat, "n": len(rows)}
 
 
+def _fmt(v: float) -> str:
+    return "—" if v != v else f"{v:.2f}"  # NaN -> dash (metric not applicable)
+
+
 def to_markdown(summary: dict, rows: list[dict], engines: dict) -> str:
     metrics = ["understanding", "relevance", "constraints", "diversity", "reason_quality", "behaviour"]
     lines = ["# MoodReel evaluation results", "",
              f"{summary['n']} prompts · engines: " + ", ".join(f"{k}=`{v}`" for k, v in engines.items()), "",
              "| Metric | Score |", "|---|---|"]
-    lines += [f"| {m.replace('_', ' ').title()} | {summary['overall'][m]:.2f} |" for m in metrics]
+    lines += [f"| {m.replace('_', ' ').title()} | {_fmt(summary['overall'][m])} |" for m in metrics]
     lines += ["", "## By category", "", "| Category | n | " + " | ".join(m.replace("_", " ") for m in metrics) + " |",
               "|---|---|" + "---|" * len(metrics)]
     for cat, vals in summary["by_category"].items():
-        lines.append(f"| {cat} | {vals['n']} | " + " | ".join(f"{vals[m]:.2f}" for m in metrics) + " |")
+        lines.append(f"| {cat} | {vals['n']} | " + " | ".join(_fmt(vals[m]) for m in metrics) + " |")
     lines += ["", "## Per prompt", "", "| id | prompt | understood as | picks | rel | div | reason |", "|---|---|---|---|---|---|---|"]
     for r in rows:
         prompt = r["prompt"].replace("|", "/")[:70]

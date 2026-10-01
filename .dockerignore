@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+backend/data
+.git
+.env
+*.log
+docs/screenshots

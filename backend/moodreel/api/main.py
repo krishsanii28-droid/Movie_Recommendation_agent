@@ -220,7 +220,7 @@ def moods(user_id: str = Query(..., min_length=1, max_length=64), days: int = Qu
 
 # ------------------------------------------------ optional: serve the built SPA
 
-_DIST = Path(os.getenv("FRONTEND_DIST", Path(__file__).resolve().parents[3] / "frontend" / "dist"))
+_DIST = Path(os.getenv("FRONTEND_DIST", Path(__file__).resolve().parents[3] / "frontend" / "dist")).resolve()
 if _DIST.is_dir() and (_DIST / "index.html").exists():
     app.mount("/assets", StaticFiles(directory=_DIST / "assets"), name="assets")
 

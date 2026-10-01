@@ -1,0 +1,17 @@
+# Local "production-like" run: one container serving the UI and API.
+#   docker compose up --build   ->  http://localhost:7860
+services:
+  moodreel:
+    build:
+      context: .
+      args:
+        INSTALL_ML: "0"   # set to "1" for the full Hugging Face stack
+    ports:
+      - "7860:7860"
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - moodreel-data:/app/backend/data   # keeps feedback, watchlist and moods across restarts
+volumes:
+  moodreel-data:

@@ -18,6 +18,18 @@ and `HF_TOKEN` + `LLM_BACKEND=hf_inference` for the LLM planner.
 The root [`Dockerfile`](../Dockerfile) builds the frontend, installs the backend, seeds the catalogue and
 serves everything on port **7860**.
 
+**One command:** [`scripts/deploy_hf_space.py`](../scripts/deploy_hf_space.py) creates the Space, uploads the
+repo with the required Space README, and copies `TMDB_API_KEY` into the Space as a secret:
+
+```bash
+pip install huggingface_hub
+export HF_TOKEN=hf_...                 # a write token
+export TMDB_API_KEY=...                # optional: live movie data
+python scripts/deploy_hf_space.py --space <your-username>/moodreel          # add --llm for the LLM planner
+```
+
+**Or by hand:**
+
 1. Create a new Space → **SDK: Docker** → blank template.
 2. Push this repository to the Space (or connect it with a GitHub Action). The Space's `README.md` must start
    with this front matter. Keep the GitHub README as it is and add the block only in the Space repo:

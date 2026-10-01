@@ -1,0 +1,23 @@
+{
+  "id": 575026,
+  "title": "Kumbalangi Nights",
+  "original_title": "കുമ്പളങ്ങി നൈറ്റ്സ്",
+  "original_language": "ml",
+  "release_date": "2019-02-07",
+  "overview": "Four brothers who share a love-hate relationship with each other.",
+  "genres": [{"id": 18, "name": "Drama"}, {"id": 35, "name": "Comedy"}],
+  "runtime": 135,
+  "vote_average": 7.96,
+  "vote_count": 412,
+  "popularity": 12.3,
+  "poster_path": "/abc.jpg",
+  "keywords": {"keywords": [{"id": 1, "name": "brothers"}, {"id": 2, "name": "friendship"}, {"id": 3, "name": "murder"}]},
+  "watch/providers": {"results": {
+    "IN": {
+      "link": "https://www.themoviedb.org/movie/575026/watch?locale=IN",
+      "flatrate": [{"provider_name": "Amazon Prime Video", "logo_path": "/p.jpg"}],
+      "rent": [{"provider_name": "Apple TV", "logo_path": "/a.jpg"}]
+    },
+    "US": {"flatrate": [{"provider_name": "Netflix"}]}
+  }}
+}

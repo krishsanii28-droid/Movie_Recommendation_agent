@@ -397,7 +397,7 @@ frontend/
     stores/              # Pinia: user prefs, chat, watchlist
     components/          # cards, chips, composer, sliders, group dialog, care card…
     views/               # Discover, Watchlist, My moods
-Dockerfile               # single container (UI + API) for Hugging Face Spaces
+Dockerfile               # single container (UI + API) for Render or Hugging Face Spaces
 backend/Dockerfile       # API only (Render etc.)
 render.yaml · docker-compose.yml · frontend/vercel.json · frontend/netlify.toml
 docs/deploy.md           # deployment guide
@@ -407,8 +407,9 @@ docs/deploy.md           # deployment guide
 
 See **[docs/deploy.md](docs/deploy.md)**:
 
-- **Hugging Face Spaces:** the root `Dockerfile` serves the UI and API on port 7860.
-- **Render:** `render.yaml` deploys the API.
+- **Render (free):** the root `Dockerfile` runs the UI and API as one web service. This is the simplest free option.
+- **Hugging Face Spaces:** the same `Dockerfile`. Docker Spaces now need an HF PRO subscription; `scripts/deploy_hf_space.py` deploys in one command.
+- **Render API only:** `render.yaml` deploys just the backend, for use with a separate frontend.
 - **Vercel / Netlify:** deploy the UI with `VITE_API_BASE_URL` pointing at the API.
 - Scheduled data refresh and PostgreSQL.
 

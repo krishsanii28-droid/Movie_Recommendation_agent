@@ -1,5 +1,5 @@
 # Single-container image: Vue frontend + FastAPI backend on one port.
-# Used for Hugging Face Spaces (Docker SDK, port 7860) - see docs/deploy.md.
+# Used for Render (listens on $PORT) or Hugging Face Spaces (port 7860) - see docs/deploy.md.
 #   docker build -t moodreel . && docker run -p 7860:7860 --env-file .env moodreel
 # Full AI stack (HF emotion model, sentence-transformers, ChromaDB, local LLM deps):
 #   docker build --build-arg INSTALL_ML=1 -t moodreel .

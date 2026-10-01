@@ -29,6 +29,18 @@ container listens on it, so nothing needs changing. Everything is done in the br
    - **Environment variables** (optional): `TMDB_API_KEY`
 4. **Create Web Service**. The first build takes about 5–10 minutes; then open the `onrender.com` URL.
 
+**More films (TMDB):** without a key the app uses the 119-film curated seed list. To load real TMDB data
+(up to about 800 films across the five languages, with posters and India streaming providers):
+
+1. Get a free API key at [themoviedb.org](https://www.themoviedb.org/settings/api).
+2. In Render: your service → **Environment** → add `TMDB_API_KEY` → **Save, rebuild, and deploy**.
+3. In the build log, look for `ingested N movies from TMDB` followed by the per-language counts.
+   If TMDB fails, the build prints `keeping the curated seed catalogue` and still succeeds.
+
+The films are loaded **during the build** and baked into the image, so they survive the free plan's
+restarts. Use **Manual Deploy → Deploy latest commit** now and then to refresh them. `TMDB_PAGES`
+(default 8, 20 films per page per language) controls how many are loaded.
+
 Free-plan caveats:
 - The service sleeps when idle, so the first request after a break takes 30–60 seconds.
 - The disk is ephemeral: feedback, watchlists and mood history reset on every deploy or restart. For

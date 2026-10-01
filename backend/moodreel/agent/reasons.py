@@ -8,37 +8,104 @@ from moodreel.emotion.lexicon import STATES
 from moodreel.schemas import MoodProfile, MovieOut
 
 GENRE_NOUN = {
-    "Comedy": "comedy", "Drama": "drama", "Romance": "romance", "Thriller": "thriller",
-    "Science Fiction": "sci-fi film", "Animation": "animated film", "Family": "family film",
-    "Horror": "horror film", "Action": "action film", "Crime": "crime drama", "Mystery": "mystery",
-    "Adventure": "adventure", "Fantasy": "fantasy", "Music": "music drama", "Sport": "sports drama",
-    "History": "period drama", "War": "war drama",
+    "Comedy": "comedy",
+    "Drama": "drama",
+    "Romance": "romance",
+    "Thriller": "thriller",
+    "Science Fiction": "sci-fi film",
+    "Animation": "animated film",
+    "Family": "family film",
+    "Horror": "horror film",
+    "Action": "action film",
+    "Crime": "crime drama",
+    "Mystery": "mystery",
+    "Adventure": "adventure",
+    "Fantasy": "fantasy",
+    "Music": "music drama",
+    "Sport": "sports drama",
+    "History": "period drama",
+    "War": "war drama",
 }
 
 GOAL_LINE = {
-    "shift": ["that should lift you without trying too hard", "that's an easy way out of the funk",
-              "that gently turns the evening around", "built to leave you lighter than you started"],
-    "stay": ["that lets you sit with the feeling", "that meets you exactly where you are",
-             "that honours the mood instead of fighting it", "for when you want to feel it fully"],
+    "shift": [
+        "that should lift you without trying too hard",
+        "that's an easy way out of the funk",
+        "that gently turns the evening around",
+        "built to leave you lighter than you started",
+    ],
+    "stay": [
+        "that lets you sit with the feeling",
+        "that meets you exactly where you are",
+        "that honours the mood instead of fighting it",
+        "for when you want to feel it fully",
+    ],
     "unclear": ["that works whichever way the night goes", "that keeps things gentle but engaging"],
 }
 FEELING = {
-    "tired": "drained", "stressed": "stressed", "anxious": "anxious", "lonely": "a bit lonely",
-    "heartbroken": "heartbroken", "sad": "down", "angry": "frustrated", "scared": "uneasy",
-    "bored": "bored", "curious": "curious", "nostalgic": "nostalgic", "romantic": "romantic",
-    "excited": "in a party mood", "happy": "good", "calm": "calm",
+    "tired": "drained",
+    "stressed": "stressed",
+    "anxious": "anxious",
+    "lonely": "a bit lonely",
+    "heartbroken": "heartbroken",
+    "sad": "down",
+    "angry": "frustrated",
+    "scared": "uneasy",
+    "bored": "bored",
+    "curious": "curious",
+    "nostalgic": "nostalgic",
+    "romantic": "romantic",
+    "excited": "in a party mood",
+    "happy": "good",
+    "calm": "calm",
 }
-TONE_ADJ = {"party": "party-ready", "family-friendly": "family-friendly", "adventurous": "adventurous"}
+TONE_ADJ = {
+    "party": "party-ready",
+    "family-friendly": "family-friendly",
+    "adventurous": "adventurous",
+}
 THEME_FIX = {
-    "father son relationship": "fathers and sons", "father daughter relationship": "fathers and daughters",
-    "mother daughter": "mothers and daughters", "nri": "an NRI", "upsc exam": "the UPSC exam",
-    "abba": "ABBA", "ouija board": "an ouija board", "greek island": "a Greek island",
+    "father son relationship": "fathers and sons",
+    "father daughter relationship": "fathers and daughters",
+    "mother daughter": "mothers and daughters",
+    "nri": "an NRI",
+    "upsc exam": "the UPSC exam",
+    "abba": "ABBA",
+    "ouija board": "an ouija board",
+    "greek island": "a Greek island",
 }
 PLACES = {
-    "spain", "mumbai", "kolkata", "bengaluru", "hyderabad", "chennai", "goa", "kochi", "darjeeling",
-    "varanasi", "kashmir", "paris", "vienna", "singapore", "madurai", "nellore", "thanjavur", "idukki",
-    "kozhikode", "malappuram", "london", "iceland", "mars", "pakistan", "dharavi", "chambal", "kerala",
-    "england", "new york", "los angeles", "iraq",
+    "spain",
+    "mumbai",
+    "kolkata",
+    "bengaluru",
+    "hyderabad",
+    "chennai",
+    "goa",
+    "kochi",
+    "darjeeling",
+    "varanasi",
+    "kashmir",
+    "paris",
+    "vienna",
+    "singapore",
+    "madurai",
+    "nellore",
+    "thanjavur",
+    "idukki",
+    "kozhikode",
+    "malappuram",
+    "london",
+    "iceland",
+    "mars",
+    "pakistan",
+    "dharavi",
+    "chambal",
+    "kerala",
+    "england",
+    "new york",
+    "los angeles",
+    "iraq",
 }
 SLOT_LINE = {
     "Hidden gem": "A lesser-known gem worth discovering.",
@@ -72,7 +139,11 @@ def _theme(keyword: str) -> str:
     kw = THEME_FIX.get(keyword.lower(), keyword)
     if kw.lower() in PLACES:
         return kw.title()
-    return re.sub(r"\b(kerala|india|indian|hyderabad|kochi|chennai|mumbai)\b", lambda m: m.group(1).title(), kw)
+    return re.sub(
+        r"\b(kerala|india|indian|hyderabad|kochi|chennai|mumbai)\b",
+        lambda m: m.group(1).title(),
+        kw,
+    )
 
 
 def mood_echo(profile: MoodProfile, i: int, slot: str = "") -> str:
@@ -88,13 +159,19 @@ def mood_echo(profile: MoodProfile, i: int, slot: str = "") -> str:
     return options[i % len(options)]
 
 
-def build_reason(movie: MovieOut, profile: MoodProfile, slot: str, matched: list[str], i: int = 0) -> str:
+def build_reason(
+    movie: MovieOut, profile: MoodProfile, slot: str, matched: list[str], i: int = 0
+) -> str:
     tones = [TONE_ADJ.get(t, t) for t in (matched or movie.tones)[:2]]
     desc = ", ".join(tones) if tones else "well-loved"
     noun = genre_phrase(movie)
     themes = [_theme(k) for k in movie.keywords[:3] if len(k) < 28]
     about = f" about {', '.join(themes[:-1])} and {themes[-1]}" if len(themes) >= 2 else ""
-    goal_key = "stay" if profile.primary in ("curious", "happy", "excited") and profile.goal == "stay" else profile.goal
+    goal_key = (
+        "stay"
+        if profile.primary in ("curious", "happy", "excited") and profile.goal == "stay"
+        else profile.goal
+    )
     goal_line = GOAL_LINE[goal_key][i % len(GOAL_LINE[goal_key])]
     if slot == "Wildcard":
         goal_line = "that's a change of pace from the rest"
@@ -117,17 +194,27 @@ def build_reason(movie: MovieOut, profile: MoodProfile, slot: str, matched: list
     return f"{first} {second}".strip()
 
 
-def build_group_reason(movie: MovieOut, members: list[tuple[str, MoodProfile]], matched: list[str], i: int = 0) -> str:
+def build_group_reason(
+    movie: MovieOut, members: list[tuple[str, MoodProfile]], matched: list[str], i: int = 0
+) -> str:
     tones = [TONE_ADJ.get(t, t) for t in (matched or movie.tones)[:2]]
     desc = ", ".join(tones)
     parts = []
     for name, p in members[:3]:
         label = STATES[p.primary].label if p.primary in STATES else "easygoing"
-        parts.append(f"{name}'s {label} mood" if p.primary != "neutral" else f"{name}'s easygoing mood")
+        parts.append(
+            f"{name}'s {label} mood" if p.primary != "neutral" else f"{name}'s easygoing mood"
+        )
     joined = ", ".join(parts[:-1]) + f" and {parts[-1]}" if len(parts) > 1 else parts[0]
-    openers = ["Middle ground for everyone:", "A crowd-pleaser here:", "Something the whole room can agree on:"]
-    return (f"{openers[i % len(openers)]} {movie.title} is {_article(desc)} {desc} {genre_phrase(movie)} "
-            f"that meets {joined} halfway.")
+    openers = [
+        "Middle ground for everyone:",
+        "A crowd-pleaser here:",
+        "Something the whole room can agree on:",
+    ]
+    return (
+        f"{openers[i % len(openers)]} {movie.title} is {_article(desc)} {desc} {genre_phrase(movie)} "
+        f"that meets {joined} halfway."
+    )
 
 
 def why_notes(profile: MoodProfile, slot: str, extra: list[str]) -> list[str]:

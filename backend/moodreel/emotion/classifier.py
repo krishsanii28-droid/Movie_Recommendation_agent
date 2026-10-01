@@ -78,7 +78,10 @@ class EmotionClassifier:
             return EmotionResult(lex_scores, states, "lexicon")
         # Lexicon hits carry nuance / Indian phrasing; weight them in when present.
         w = 0.4 if states else 0.0
-        scores = {e: round((1 - w) * hf.get(e, 0.0) + w * lex_scores.get(e, 0.0), 4) for e in BASE_EMOTIONS}
+        scores = {
+            e: round((1 - w) * hf.get(e, 0.0) + w * lex_scores.get(e, 0.0), 4)
+            for e in BASE_EMOTIONS
+        }
         if not states:
             top = max(scores, key=scores.get)  # type: ignore[arg-type]
             if top != "neutral" and scores[top] > 0.45:

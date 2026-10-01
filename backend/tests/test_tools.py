@@ -45,7 +45,8 @@ def test_search_movies_returns_diverse_slots(search_index):
 def test_search_movies_respects_language_avoid_and_runtime(search_index):
     profile = profile_for("something thrilling")
     out = tools.search_movies(
-        search_index, "tense thriller",
+        search_index,
+        "tense thriller",
         {"languages": ["ml"], "avoid": ["violence", "horror"], "max_runtime": 140},
         base_profile=profile,
     )
@@ -67,7 +68,9 @@ def test_search_excludes_ids(search_index):
     profile = profile_for("cosy")
     first = tools.search_movies(search_index, "cosy", {}, base_profile=profile)["results"]
     excl = {r["movie_id"] for r in first}
-    second = tools.search_movies(search_index, "cosy", {}, base_profile=profile, exclude=excl)["results"]
+    second = tools.search_movies(search_index, "cosy", {}, base_profile=profile, exclude=excl)[
+        "results"
+    ]
     assert not excl & {r["movie_id"] for r in second}
 
 
@@ -76,7 +79,9 @@ def test_distress_keeps_recommendations_gentle(search_index):
     profile.distress = "crisis"
     res = tools.search_movies(search_index, "sad", {}, base_profile=profile)["results"]
     for r in res:
-        assert not {"horror", "violence", "heavy"} & set(search_index.movies[r["movie_id"]].content_flags)
+        assert not {"horror", "violence", "heavy"} & set(
+            search_index.movies[r["movie_id"]].content_flags
+        )
 
 
 def test_movie_details_and_providers(search_index):
@@ -103,7 +108,9 @@ def test_feedback_updates_history_and_taste(search_index):
 
 
 def test_toolbox_logs_steps_and_handles_errors(search_index):
-    box = ToolBox(search_index, clf, user_id="u1", profile=profile_for("happy"), rng=random.Random(1))
+    box = ToolBox(
+        search_index, clf, user_id="u1", profile=profile_for("happy"), rng=random.Random(1)
+    )
     out = box.call("search_movies", {"mood_query": "feel-good"})
     assert out["results"] and box.seen_candidates
     assert "_scored" not in ToolBox.for_llm(out)

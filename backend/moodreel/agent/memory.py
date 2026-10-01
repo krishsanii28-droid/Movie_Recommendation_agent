@@ -69,10 +69,13 @@ def get_user_history(user_id: str) -> dict:
     init_db()
     with session_scope() as s:
         rows = s.execute(
-            select(Feedback.movie_id, Feedback.signal).where(Feedback.user_id == user_id)
+            select(Feedback.movie_id, Feedback.signal)
+            .where(Feedback.user_id == user_id)
             .order_by(Feedback.created_at)
         ).all()
-        watch = s.scalars(select(WatchlistItem.movie_id).where(WatchlistItem.user_id == user_id)).all()
+        watch = s.scalars(
+            select(WatchlistItem.movie_id).where(WatchlistItem.user_id == user_id)
+        ).all()
     movies = get_index().movies
     by_signal: dict[str, list[int]] = defaultdict(list)
     tone_aff: Counter[str] = Counter()
@@ -113,10 +116,17 @@ def get_user_history(user_id: str) -> dict:
 def log_mood(user_id: str, profile: MoodProfile, text: str) -> None:
     init_db()
     with session_scope() as s:
-        s.add(MoodLog(
-            user_id=user_id, primary=profile.primary, secondary=profile.secondary,
-            intensity=profile.intensity, energy=profile.energy, goal=profile.goal, text=text[:300],
-        ))
+        s.add(
+            MoodLog(
+                user_id=user_id,
+                primary=profile.primary,
+                secondary=profile.secondary,
+                intensity=profile.intensity,
+                energy=profile.energy,
+                goal=profile.goal,
+                text=text[:300],
+            )
+        )
 
 
 def mood_history(user_id: str, days: int = 7) -> list[dict]:
@@ -124,12 +134,20 @@ def mood_history(user_id: str, days: int = 7) -> list[dict]:
     since = utcnow() - timedelta(days=days)
     with session_scope() as s:
         rows = s.scalars(
-            select(MoodLog).where(MoodLog.user_id == user_id, MoodLog.created_at >= since)
+            select(MoodLog)
+            .where(MoodLog.user_id == user_id, MoodLog.created_at >= since)
             .order_by(MoodLog.created_at)
         ).all()
         return [
-            {"primary": r.primary, "secondary": r.secondary, "energy": r.energy, "goal": r.goal,
-             "intensity": r.intensity, "text": r.text, "created_at": r.created_at.isoformat() + "Z"}
+            {
+                "primary": r.primary,
+                "secondary": r.secondary,
+                "energy": r.energy,
+                "goal": r.goal,
+                "intensity": r.intensity,
+                "text": r.text,
+                "created_at": r.created_at.isoformat() + "Z",
+            }
             for r in rows
         ]
 
@@ -137,8 +155,11 @@ def mood_history(user_id: str, days: int = 7) -> list[dict]:
 def add_to_watchlist(user_id: str, movie_id: int, note: str = "") -> None:
     init_db()
     with session_scope() as s:
-        exists = s.scalar(select(WatchlistItem).where(
-            WatchlistItem.user_id == user_id, WatchlistItem.movie_id == movie_id))
+        exists = s.scalar(
+            select(WatchlistItem).where(
+                WatchlistItem.user_id == user_id, WatchlistItem.movie_id == movie_id
+            )
+        )
         if not exists:
             s.add(WatchlistItem(user_id=user_id, movie_id=movie_id, note=note[:300]))
 
@@ -146,13 +167,22 @@ def add_to_watchlist(user_id: str, movie_id: int, note: str = "") -> None:
 def remove_from_watchlist(user_id: str, movie_id: int) -> None:
     init_db()
     with session_scope() as s:
-        s.execute(delete(WatchlistItem).where(
-            WatchlistItem.user_id == user_id, WatchlistItem.movie_id == movie_id))
+        s.execute(
+            delete(WatchlistItem).where(
+                WatchlistItem.user_id == user_id, WatchlistItem.movie_id == movie_id
+            )
+        )
 
 
 def get_watchlist(user_id: str) -> list[dict]:
     init_db()
     with session_scope() as s:
-        rows = s.scalars(select(WatchlistItem).where(WatchlistItem.user_id == user_id)
-                         .order_by(WatchlistItem.added_at.desc())).all()
-        return [{"movie_id": r.movie_id, "note": r.note, "added_at": r.added_at.isoformat() + "Z"} for r in rows]
+        rows = s.scalars(
+            select(WatchlistItem)
+            .where(WatchlistItem.user_id == user_id)
+            .order_by(WatchlistItem.added_at.desc())
+        ).all()
+        return [
+            {"movie_id": r.movie_id, "note": r.note, "added_at": r.added_at.isoformat() + "Z"}
+            for r in rows
+        ]

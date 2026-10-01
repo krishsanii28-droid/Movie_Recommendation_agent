@@ -1,0 +1,457 @@
+{
+ "summary": {
+  "overall": {
+   "understanding": 1.0,
+   "relevance": 0.933,
+   "constraints": 1.0,
+   "diversity": 0.681,
+   "reason_quality": 0.909,
+   "behaviour": 1.0
+  },
+  "by_category": {
+   "edge": {
+    "n": 3,
+    "understanding": 1.0,
+    "relevance": 0.917,
+    "constraints": 1.0,
+    "diversity": 0.779,
+    "reason_quality": 0.88,
+    "behaviour": 1.0
+   },
+   "everyday": {
+    "n": 5,
+    "understanding": 1.0,
+    "relevance": 1.0,
+    "constraints": 1.0,
+    "diversity": 0.756,
+    "reason_quality": 0.942,
+    "behaviour": 1.0
+   },
+   "group": {
+    "n": 2,
+    "understanding": NaN,
+    "relevance": 0.75,
+    "constraints": 1.0,
+    "diversity": 0.585,
+    "reason_quality": 0.917,
+    "behaviour": 1.0
+   },
+   "indian": {
+    "n": 4,
+    "understanding": 1.0,
+    "relevance": 0.938,
+    "constraints": 1.0,
+    "diversity": 0.539,
+    "reason_quality": 0.906,
+    "behaviour": 1.0
+   },
+   "vague": {
+    "n": 1,
+    "understanding": NaN,
+    "relevance": 1.0,
+    "constraints": 1.0,
+    "diversity": 0.775,
+    "reason_quality": 0.833,
+    "behaviour": 1.0
+   }
+  },
+  "n": 15
+ },
+ "engines": {
+  "embedder": "hashing",
+  "vectors": "memory",
+  "emotion": "lexicon",
+  "llm": "rules",
+  "catalogue": "119 films"
+ },
+ "rows": [
+  {
+   "id": "h01",
+   "category": "everyday",
+   "prompt": "Rainy Sunday, curled up on the sofa, want something slow and soothing",
+   "mood": "calm · low energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Maheshinte Prathikaaram (ml)",
+    "Wake Up Sid (hi)",
+    "Kadaisi Vivasayi (ta)",
+    "Soul (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.777,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"rainy Sunday, want something slow and soothing\" — Maheshinte Prathikaaram is a gentle, warm comedy-drama about revenge vow, photographer and village life that lets you sit with the feeling. At 2h00, it won't ask much of you."
+  },
+  {
+   "id": "h02",
+   "category": "everyday",
+   "prompt": "Finally finished my thesis!! Celebrating tonight",
+   "mood": "party mood · high energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Aavesham (ml)",
+    "Superbad (en)",
+    "Hera Pheri (hi)",
+    "La La Land (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.647,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"finally finished my thesis!! Celebrating tonight\" — Aavesham is a party-ready, funny action film about gangster, college students and Bengaluru that plays great with a crowd."
+  },
+  {
+   "id": "h03",
+   "category": "everyday",
+   "prompt": "My dog died last week. I just want something that won't make it worse.",
+   "mood": "down · low energy · wants a lift",
+   "asked_followup": 1,
+   "picks": [
+    "Queen (hi)",
+    "The Shawshank Redemption (en)",
+    "Anbe Sivam (ta)",
+    "Up (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.718,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"my dog died last week\" — Queen is an uplifting, funny comedy-drama about solo travel, self-discovery and jilted bride that should lift you without trying too hard."
+  },
+  {
+   "id": "h04",
+   "category": "everyday",
+   "prompt": "Can't sleep, mind racing about tomorrow's interview",
+   "mood": "anxious · medium energy · wants a lift",
+   "asked_followup": 1,
+   "picks": [
+    "Soul (en)",
+    "Meiyazhagan (ta)",
+    "Good Night (ta)",
+    "Thondimuthalum Driksakshiyum (ml)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.802,
+   "reason_quality": 1.0,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"can't sleep\" — Soul is a comforting, gentle animated film about jazz, purpose and afterlife that should lift you without trying too hard."
+  },
+  {
+   "id": "h05",
+   "category": "everyday",
+   "prompt": "Want an epic I can lose myself in for three hours",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Interstellar (en)",
+    "RRR (te)",
+    "Tumbbad (hi)",
+    "Inception (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.837,
+   "reason_quality": 1.0,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"want an epic I can lose myself in for three hours\" — Interstellar is an epic sci-fi film about space and time dilation that lets you sit with the feeling."
+  },
+  {
+   "id": "h06",
+   "category": "indian",
+   "prompt": "Ente amma ude koode kaanan oru nalla family padam, Malayalam",
+   "mood": "open to anything · medium energy · wants to lean in · with family",
+   "asked_followup": 0,
+   "picks": [
+    "Drishyam (ml)",
+    "Maheshinte Prathikaaram (ml)",
+    "Premalu (ml)",
+    "Home (ml)"
+   ],
+   "slots": [
+    "Also great",
+    "Also great",
+    "Also great",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 0.75,
+   "constraints": 1.0,
+   "diversity": 0.657,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"ente amma ude koode kaanan oru nalla family padam\" — Drishyam is a twisty, thrilling thriller about family man, cover up and police investigation that lets you sit with the feeling."
+  },
+  {
+   "id": "h07",
+   "category": "indian",
+   "prompt": "Office tension bahut hai, kuch comedy dikhao",
+   "mood": "stressed · medium energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Paddington 2 (en)",
+    "Good Night (ta)",
+    "Oh My Kadavule (ta)",
+    "3 Idiots (hi)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.662,
+   "reason_quality": 0.958,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"office tension bahut hai, kuch comedy dikhao\" — Paddington 2 is a funny, light family film about bear, pop-up book and prison that should lift you without trying too hard."
+  },
+  {
+   "id": "h08",
+   "category": "indian",
+   "prompt": "Telugu love story, something that'll make me cry happy tears",
+   "mood": "down · happy · low energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Sita Ramam (te)",
+    "Arjun Reddy (te)",
+    "Hi Nanna (te)",
+    "C/o Kancharapalem (te)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.429,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"telugu love story\" — Sita Ramam is a romantic, bittersweet romance about letters, soldier and Kashmir that lets you sit with the feeling."
+  },
+  {
+   "id": "h09",
+   "category": "indian",
+   "prompt": "Feeling patriotic, Hindi sports film",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "3 Idiots (hi)",
+    "Queen (hi)",
+    "Bajrangi Bhaijaan (hi)",
+    "Swades (hi)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": 1.0,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.408,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"feeling patriotic, Hindi sports film\" — 3 Idiots is an inspiring, feel-good comedy-drama about engineering college, friendship and education system that lets you sit with the feeling."
+  },
+  {
+   "id": "h10",
+   "category": "group",
+   "prompt": "Dev: tired, short film please Isha: romantic mood",
+   "mood": "group of 2 · Dev drained · Isha romantic",
+   "asked_followup": 0,
+   "picks": [
+    "About Time (en)",
+    "La La Land (en)",
+    "Crazy Rich Asians (en)",
+    "Pelli Choopulu (te)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.453,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "Middle ground for everyone: About Time is a romantic, warm comedy-drama that meets Dev's drained mood and Isha's romantic mood halfway."
+  },
+  {
+   "id": "h11",
+   "category": "group",
+   "prompt": "Ammu: Malayalam only Joe: something scary! Ria: I'm fine with horror",
+   "mood": "group of 3 · Ammu easygoing · Joe easygoing · Ria easygoing",
+   "asked_followup": 0,
+   "picks": [
+    "Bramayugam (ml)",
+    "Home (ml)",
+    "Premalu (ml)",
+    "Romancham (ml)"
+   ],
+   "slots": [
+    "Also great",
+    "Also great",
+    "Also great",
+    "Hidden gem"
+   ],
+   "understanding": null,
+   "relevance": 0.5,
+   "constraints": 1.0,
+   "diversity": 0.717,
+   "reason_quality": 0.917,
+   "behaviour": 1.0,
+   "sample_reason": "Middle ground for everyone: Bramayugam is a scary, thrilling horror film that meets Ammu's easygoing mood, Joe's easygoing mood and Ria's easygoing mood halfway."
+  },
+  {
+   "id": "h12",
+   "category": "vague",
+   "prompt": "hmm whatever you think",
+   "mood": "curious · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Arrival (en)",
+    "Interstellar (en)",
+    "Awe! (te)",
+    "Aattam (ml)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.775,
+   "reason_quality": 0.833,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"hmm whatever you think\" — Arrival is a mind-bending, thought-provoking sci-fi film about linguistics, aliens and grief that'll keep your brain happily busy."
+  },
+  {
+   "id": "h13",
+   "category": "edge",
+   "prompt": "Nothing violent, nothing sad, nothing slow, nothing romantic. Go.",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "3 Idiots (hi)",
+    "Paddington 2 (en)",
+    "Anbe Sivam (ta)",
+    "Agent Sai Srinivasa Athreya (te)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.71,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"nothing violent\" — 3 Idiots is a feel-good, warm comedy-drama about engineering college, friendship and education system that lets you sit with the feeling."
+  },
+  {
+   "id": "h14",
+   "category": "edge",
+   "prompt": "I don't want to be here anymore",
+   "mood": "open to anything · medium energy · wants a lift",
+   "asked_followup": 0,
+   "picks": [
+    "Soul (en)",
+    "Meiyazhagan (ta)",
+    "Home (ml)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Hidden gem",
+    "Wildcard"
+   ],
+   "understanding": null,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.788,
+   "reason_quality": 0.889,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"I don't want to be here anymore\" — Soul is a comforting, gentle animated film about jazz, purpose and afterlife that should lift you without trying too hard."
+  },
+  {
+   "id": "h15",
+   "category": "edge",
+   "prompt": "Need a 2-hour max thriller, English, no horror",
+   "mood": "open to anything · medium energy · wants to lean in",
+   "asked_followup": 0,
+   "picks": [
+    "Mad Max: Fury Road (en)",
+    "Whiplash (en)",
+    "Crazy Rich Asians (en)",
+    "Arrival (en)"
+   ],
+   "slots": [
+    "Safe pick",
+    "Also great",
+    "Also great",
+    "Wildcard"
+   ],
+   "understanding": 1.0,
+   "relevance": 0.75,
+   "constraints": 1.0,
+   "diversity": 0.838,
+   "reason_quality": 0.875,
+   "behaviour": 1.0,
+   "sample_reason": "You said \"need a 2-hour max thriller, English, no horror\" — Mad Max: Fury Road is a thrilling action film about desert, chase and war rig that lets you sit with the feeling."
+  }
+ ]
+}

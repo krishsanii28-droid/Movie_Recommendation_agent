@@ -109,7 +109,9 @@ def normalize_seed_movie(rec: dict[str, Any]) -> dict[str, Any]:
         "popularity": float(rec.get("popularity", rec.get("vote_count", 0) / 100)),
         "poster_path": rec.get("poster_path"),
         "providers": {
-            "stream": [{"name": canonical_provider(p), "logo_path": None} for p in rec.get("providers", [])],
+            "stream": [
+                {"name": canonical_provider(p), "logo_path": None} for p in rec.get("providers", [])
+            ],
             "rent": [],
             "buy": [],
             "link": None,

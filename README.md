@@ -287,13 +287,14 @@ Interactive docs at `/docs`. The streaming endpoints send Server-Sent Events: `s
 
 ## Evaluation
 
-[`backend/eval/prompts.json`](backend/eval/prompts.json) holds **30 prompts**:
+There are two prompt sets:
 
-- **8 everyday**
-- **7 Indian / code-mixed** (*"Bore adikkunnu, oru nalla Malayalam comedy venam"*, *"Watching with amma and achan tonight…"*)
-- **4 group**
-- **4 vague** (*"idk"*, *"meh"*)
-- **7 edge cases** (distress, contradictory moods, emoji-only, impossible constraints)
+- **Dev set**, [`prompts.json`](backend/eval/prompts.json), with **30 prompts**: 8 everyday,
+  7 Indian / code-mixed (*"Bore adikkunnu, oru nalla Malayalam comedy venam"*), 4 group, 4 vague
+  (*"idk"*, *"meh"*) and 7 edge cases (distress, contradictory moods, emoji-only, impossible constraints).
+  The rules were developed against this set.
+- **Held-out set**, [`heldout.json`](backend/eval/heldout.json), with **15 new prompts** written and scored
+  *before* the stage-2 fixes, so they show how the rules cope with input they weren't tuned on.
 
 [`run_eval.py`](backend/eval/run_eval.py) plays each conversation, answering the follow-up when one is
 asked, and scores it:
@@ -308,42 +309,60 @@ asked, and scores it:
 | Behaviour | ≤ 1 follow-up, asked when expected, care shown on distress, 3–5 picks |
 
 ```bash
-cd backend && python -m eval.run_eval     # writes eval/results.md + results.json
+cd backend
+python -m eval.run_eval                                   # dev set   -> eval/results.md
+python -m eval.run_eval --prompts eval/heldout.json \
+                        --out eval/heldout_results.md      # held-out  -> eval/heldout_results.md
 ```
 
-**Results:** fallback stack, 119-film seed catalogue (full per-prompt table in
-[`backend/eval/results.md`](backend/eval/results.md)):
+CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs both sets on pull requests and pushes to `main`, and fails if relevance drops below 0.90 (dev) or 0.85 (held-out).
 
-| Category | n | Understanding | Relevance | Constraints | Diversity | Reason quality | Behaviour |
-|---|---|---|---|---|---|---|---|
-| Everyday | 8 | 1.00 | 1.00 | 1.00 | 0.65 | 0.96 | 1.00 |
-| Indian / code-mixed | 7 | 1.00 | 0.86 | 1.00 | 0.61 | 0.89 | 1.00 |
-| Group | 4 | — | 0.81 | 0.88 | 0.71 | 0.92 | 1.00 |
-| Vague | 4 | 1.00 | 1.00 | 1.00 | 0.71 | 0.89 | 1.00 |
-| Edge cases | 7 | 1.00 | 0.86 | 1.00 | 0.72 | 0.89 | 1.00 |
-| **Overall** | **30** | **1.00** | **0.91** | **0.98** | **0.67** | **0.91** | **1.00** |
+**Results:** fallback stack, 119-film seed catalogue. Per-prompt tables are in
+[`results.md`](backend/eval/results.md), [`heldout_results.md`](backend/eval/heldout_results.md) and
+[`heldout_baseline.md`](backend/eval/heldout_baseline.md).
+
+| Set | Understanding | Relevance | Constraints | Diversity | Reason quality | Behaviour |
+|---|---|---|---|---|---|---|
+| Dev, before stage 2 | 1.00 | 0.91 | 0.98 | 0.67 | 0.91 | 1.00 |
+| Dev, now | 1.00 | 0.99 | 1.00 | 0.67 | 0.91 | 1.00 |
+| **Held-out, first blind run** | **0.78** | **0.85** | **0.92** | **0.68** | **0.91** | **0.98** |
+| Held-out, now | 1.00 | 0.93 | 1.00 | 0.68 | 0.91 | 1.00 |
 
 **Read these numbers with care.**
-- The expectations were written by the same author as the rules. The perfect understanding score mostly
-  shows the rules cover the cases they were written for. It is not proof of generalisation.
-- The metrics are heuristics. A held-out prompt set and human ratings (or an LLM judge) are the next step.
+- **The blind held-out run is the honest generalisation number.** Its misses (grief and interview-anxiety
+  vocabulary, "2-hour" runtimes, a group asking for horror, and a missed distress phrase) were then fixed,
+  so the "Held-out, now" row is no longer blind. A fresh held-out set is needed for the next round.
+- One dev expectation changed in stage 2: *"no gore"* now excludes gory films rather than every violent
+  film (i05). That reading is more faithful to what the user said.
+- The metrics are heuristics. Human ratings or an LLM judge for reason quality are still to do.
 
-**Known misses** the eval surfaces:
+**Fixed in stage 2:**
+- Explicit requests decide the mood goal. *"Scared… but I want a horror movie, bring it on"* now gets horror.
+- When someone asks for a genre, the safe / gem / wildcard slots are chosen *within* that genre.
+- *"anything but X"* and *"except X"* are understood as avoids.
+- Kid-safe cues (*kids*, *animated*, *wholesome*) rule out violence and horror.
+- *"No gore"* is handled separately from *"no violence"*.
+- Requests for something light now penalise heavy films.
+- Runtimes like *"2-hour"* and *"two hours"* are parsed.
+- Group mode carries each person's explicit requests, unless someone else vetoes them.
+- When an ask can't be met, the agent says so: *"Honest heads-up: I couldn't find a Telugu scary film that
+  fits all your filters…"*
+- **Safety:** passive-ideation phrases such as *"I don't want to be here anymore"* now trigger the care
+  response. The blind held-out run is where this gap showed up.
 
-- **i05** *"Tamil thriller venum… no gore"*: every Tamil thriller in the seed catalogue is flagged
-  `violence`, so the filters leave only comedies. The agent should say so instead of silently changing genre.
-- **x04** *"scared of the dark but I want a horror movie, bring it on"*: read as *uneasy → wants comfort*.
-  Explicit genre requests should override the inferred goal.
-- **g02** *"anything but horror"* isn't parsed as an avoid, so *Get Out* slips into the set.
-- **g03**: a family group avoids gore and sexual content but not violence, so *Knives Out* appears.
-- **x02**: one pick runs slightly over a 90-minute window after constraint relaxation.
+**Still open:**
+- **h06** *"family padam with amma"* includes *Drishyam*. Family viewing with adults doesn't rule out tense
+  crime dramas; whether it should is a product call.
+- **h11, h15**: the seed catalogue has only 2 Malayalam horror films and few English thrillers under two
+  hours, so sets get padded. The TMDB catalogue should fix this.
 
 ---
 
 ## Testing
 
 ```bash
-cd backend && pytest          # 61 tests: pipeline (mocked TMDB), tools, emotion & safety, agent loop, API
+cd backend && pytest          # 77 tests: pipeline (mocked TMDB), tools, emotion & safety, agent loop, API
+cd backend && ruff check . && ruff format --check .
 cd frontend && npm test       # SSE parser & formatting
 cd frontend && npm run build  # type-check (vue-tsc) + production build
 ```
@@ -370,7 +389,7 @@ backend/
     emotion/             # classifier, lexicon, MoodProfile analysis, group blending, safety
     agent/               # agent loop, LLM backends, prompts, tools, ranking, reasons, memory, refine, CLI
     api/main.py          # FastAPI app (SSE), optional SPA serving
-  eval/                  # 30-prompt evaluation set + scorer + results
+  eval/                  # dev (30) + held-out (15) prompt sets, scorer, results
   tests/
 frontend/
   src/
@@ -399,8 +418,8 @@ See **[docs/deploy.md](docs/deploy.md)**:
   approximate. Run the TMDB pipeline for live data.
 - **Sessions live in memory.** The session store is in-process with a TTL; use Redis to run several workers.
   User feedback, watchlist and mood history are in SQL.
-- **Not yet:** a held-out eval set with human ratings, an LLM judge for reason quality, and fixes for the
-  known misses above.
+- **Not yet:** a fresh held-out eval set, human ratings or an LLM judge for reason quality, and testing with
+  the full Hugging Face stack and live TMDB data.
 - **Planned:** user accounts (identity is an anonymous browser id today), deep links into each streaming app, and more Indian languages (Kannada, Bengali, Marathi).
 
 ## Attribution

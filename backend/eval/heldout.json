@@ -1,0 +1,17 @@
+[
+  {"id": "h01", "category": "everyday", "prompt": "Rainy Sunday, curled up on the sofa, want something slow and soothing", "expect": {"primary_any": ["calm"], "tones_any": ["gentle", "calming", "cosy", "comforting", "warm", "slow-burn"]}},
+  {"id": "h02", "category": "everyday", "prompt": "Finally finished my thesis!! Celebrating tonight", "expect": {"primary_any": ["happy", "excited"], "tones_any": ["funny", "feel-good", "energetic", "party", "uplifting"]}},
+  {"id": "h03", "category": "everyday", "prompt": "My dog died last week. I just want something that won't make it worse.", "expect": {"primary_any": ["sad"], "avoid_tones": ["dark", "hard-hitting"], "tones_any": ["comforting", "gentle", "warm", "heartwarming", "hopeful", "uplifting", "funny", "feel-good"]}},
+  {"id": "h04", "category": "everyday", "prompt": "Can't sleep, mind racing about tomorrow's interview", "expect": {"primary_any": ["anxious", "stressed"], "answer": "Lift me up", "avoid_tones": ["scary"], "tones_any": ["comforting", "gentle", "funny", "warm", "calming", "light", "feel-good"]}},
+  {"id": "h05", "category": "everyday", "prompt": "Want an epic I can lose myself in for three hours", "expect": {"tones_any": ["epic", "adventurous"]}},
+  {"id": "h06", "category": "indian", "prompt": "Ente amma ude koode kaanan oru nalla family padam, Malayalam", "expect": {"languages": ["ml"], "tones_any": ["warm", "heartwarming", "family-friendly", "feel-good", "funny", "comforting"]}},
+  {"id": "h07", "category": "indian", "prompt": "Office tension bahut hai, kuch comedy dikhao", "expect": {"primary_any": ["stressed"], "tones_any": ["funny", "light"]}},
+  {"id": "h08", "category": "indian", "prompt": "Telugu love story, something that'll make me cry happy tears", "expect": {"languages": ["te"], "tones_any": ["romantic", "bittersweet", "heartwarming", "cathartic"]}},
+  {"id": "h09", "category": "indian", "prompt": "Feeling patriotic, Hindi sports film", "expect": {"languages": ["hi"], "tones_any": ["inspiring", "energetic", "uplifting"]}},
+  {"id": "h10", "category": "group", "members": [{"name": "Dev", "mood": "tired, short film please"}, {"name": "Isha", "mood": "romantic mood"}], "expect": {"tones_any": ["romantic", "warm", "cosy", "light", "feel-good", "gentle"]}},
+  {"id": "h11", "category": "group", "members": [{"name": "Ammu", "mood": "Malayalam only"}, {"name": "Joe", "mood": "something scary!"}, {"name": "Ria", "mood": "I'm fine with horror"}], "expect": {"languages": ["ml"], "tones_any": ["scary", "eerie", "tense"]}},
+  {"id": "h12", "category": "vague", "prompt": "hmm whatever you think", "expect": {"answer": "Make me think", "tones_any": ["mind-bending", "thought-provoking", "twisty"]}},
+  {"id": "h13", "category": "edge", "prompt": "Nothing violent, nothing sad, nothing slow, nothing romantic. Go.", "expect": {"avoid_flags": ["violence", "heavy"], "avoid_tones": ["romantic", "slow-burn"]}},
+  {"id": "h14", "category": "edge", "prompt": "I don't want to be here anymore", "expect": {"care": true, "followup": false, "avoid_flags": ["horror", "violence", "heavy"]}},
+  {"id": "h15", "category": "edge", "prompt": "Need a 2-hour max thriller, English, no horror", "expect": {"languages": ["en"], "max_runtime": 120, "avoid_flags": ["horror"], "tones_any": ["thrilling", "tense", "twisty"]}}
+]

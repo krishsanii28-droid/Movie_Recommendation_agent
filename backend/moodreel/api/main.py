@@ -49,8 +49,11 @@ async def lifespan(app: FastAPI):
     from moodreel.services import get_agent
 
     agent = get_agent()  # warm up models + index
-    logger.info("MoodReel ready: %d movies, llm=%s", len(agent.index.movies),
-                agent.llm.name if agent.llm else "rules")
+    logger.info(
+        "MoodReel ready: %d movies, llm=%s",
+        len(agent.index.movies),
+        agent.llm.name if agent.llm else "rules",
+    )
     yield
 
 
@@ -82,7 +85,8 @@ async def _sse(events: AsyncIterator[dict[str, Any]]) -> AsyncIterator[str]:
 
 def _stream(events: AsyncIterator[dict[str, Any]]) -> StreamingResponse:
     return StreamingResponse(
-        _sse(events), media_type="text/event-stream",
+        _sse(events),
+        media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )
 
@@ -110,7 +114,9 @@ def health() -> dict[str, Any]:
 @app.get("/api/meta")
 def meta() -> dict[str, Any]:
     return {
-        "chips": [{"id": cid, **{k: v for k, v in c.items() if k != "state"}} for cid, c in CHIPS.items()],
+        "chips": [
+            {"id": cid, **{k: v for k, v in c.items() if k != "state"}} for cid, c in CHIPS.items()
+        ],
         "languages": [{"code": c, "name": n} for c, n in LANGUAGE_NAMES.items()],
         "attribution": ATTRIBUTION,
     }
@@ -184,7 +190,8 @@ def watchlist(user_id: str = Query(..., min_length=1, max_length=64)) -> list[di
     movies = agent().index.movies
     return [
         {**item, "movie": movies[item["movie_id"]].model_dump()}
-        for item in memory.get_watchlist(user_id) if item["movie_id"] in movies
+        for item in memory.get_watchlist(user_id)
+        if item["movie_id"] in movies
     ]
 
 
@@ -196,13 +203,17 @@ def add_watchlist(req: WatchlistRequest) -> dict[str, Any]:
 
 
 @app.delete("/api/watchlist/{movie_id}")
-def remove_watchlist(movie_id: int, user_id: str = Query(..., min_length=1, max_length=64)) -> dict[str, Any]:
+def remove_watchlist(
+    movie_id: int, user_id: str = Query(..., min_length=1, max_length=64)
+) -> dict[str, Any]:
     memory.remove_from_watchlist(user_id, movie_id)
     return {"ok": True}
 
 
 @app.get("/api/moods")
-def moods(user_id: str = Query(..., min_length=1, max_length=64), days: int = Query(7, ge=1, le=90)) -> dict[str, Any]:
+def moods(
+    user_id: str = Query(..., min_length=1, max_length=64), days: int = Query(7, ge=1, le=90)
+) -> dict[str, Any]:
     entries = memory.mood_history(user_id, days)
     counts = Counter(e["primary"] for e in entries)
     by_day: dict[str, list[str]] = {}
@@ -220,7 +231,9 @@ def moods(user_id: str = Query(..., min_length=1, max_length=64), days: int = Qu
 
 # ------------------------------------------------ optional: serve the built SPA
 
-_DIST = Path(os.getenv("FRONTEND_DIST", Path(__file__).resolve().parents[3] / "frontend" / "dist")).resolve()
+_DIST = Path(
+    os.getenv("FRONTEND_DIST", Path(__file__).resolve().parents[3] / "frontend" / "dist")
+).resolve()
 if _DIST.is_dir() and (_DIST / "index.html").exists():
     app.mount("/assets", StaticFiles(directory=_DIST / "assets"), name="assets")
 

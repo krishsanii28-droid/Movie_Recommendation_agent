@@ -13,7 +13,7 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
-from moodreel.emotion.mood import clash_tones
+from moodreel.emotion.mood import clash_tones, request_matches
 from moodreel.emotion.safety import GENTLE_AVOID
 from moodreel.schemas import MoodProfile, MovieOut
 from moodreel.search.index import SearchIndex
@@ -39,10 +39,16 @@ def _jaccard(a: list[str], b: list[str]) -> float:
 
 
 def movie_similarity(a: MovieOut, b: MovieOut) -> float:
-    return 0.5 * _jaccard(a.genres, b.genres) + 0.4 * _jaccard(a.tones, b.tones) + 0.1 * (a.language == b.language)
+    return (
+        0.5 * _jaccard(a.genres, b.genres)
+        + 0.4 * _jaccard(a.tones, b.tones)
+        + 0.1 * (a.language == b.language)
+    )
 
 
-def passes_filters(movie: MovieOut, profile: MoodProfile, exclude: set[int], strict_time: bool = True) -> bool:
+def passes_filters(
+    movie: MovieOut, profile: MoodProfile, exclude: set[int], strict_time: bool = True
+) -> bool:
     ctx = profile.context
     if movie.id in exclude:
         return False
@@ -59,24 +65,42 @@ def passes_filters(movie: MovieOut, profile: MoodProfile, exclude: set[int], str
         return False
     if "violence" in avoid and "gritty" in movie.tones:
         return False
-    if strict_time and ctx.time_available and movie.runtime and movie.runtime > ctx.time_available + 10:
+    if (
+        strict_time
+        and ctx.time_available
+        and movie.runtime
+        and movie.runtime > ctx.time_available + 10
+    ):
         return False
     return True
 
 
-def score_movie(movie: MovieOut, sim_n: float, profile: MoodProfile, history: dict | None) -> Scored:
+def score_movie(
+    movie: MovieOut, sim_n: float, profile: MoodProfile, history: dict | None
+) -> Scored:
     target = profile.target_tones
     matched = [t for t in target if t in movie.tones]
     weight_sum = sum(TONE_WEIGHTS[: min(3, len(target))]) or 1.0
-    tone_fit = min(1.0, sum(TONE_WEIGHTS[i] for i, t in enumerate(target[:7]) if t in movie.tones) / weight_sum)
-    clashes = [t for t in clash_tones(profile.primary, profile.goal, profile.context.avoid) if t in movie.tones]
+    tone_fit = min(
+        1.0, sum(TONE_WEIGHTS[i] for i, t in enumerate(target[:7]) if t in movie.tones) / weight_sum
+    )
+    clashes = [
+        t
+        for t in clash_tones(
+            profile.primary, profile.goal, profile.context.avoid, profile.requested_tones
+        )
+        if t in movie.tones
+    ]
     quality = max(0.0, min(1.0, (movie.rating - 6.0) / 2.5))
     notes: list[str] = []
 
     taste = 0.0
     if history:
         ta, ga = history.get("tone_affinity", {}), history.get("genre_affinity", {})
-        taste = sum(ta.get(t, 0.0) for t in movie.tones) * 0.04 + sum(ga.get(g, 0.0) for g in movie.genres) * 0.05
+        taste = (
+            sum(ta.get(t, 0.0) for t in movie.tones) * 0.04
+            + sum(ga.get(g, 0.0) for g in movie.genres) * 0.05
+        )
         taste = max(-0.3, min(0.3, taste))
         if taste > 0.08:
             notes.append("Matches what you've loved before")
@@ -87,7 +111,7 @@ def score_movie(movie: MovieOut, sim_n: float, profile: MoodProfile, history: di
     tones = set(movie.tones)
     if profile.requested_tones:
         # Explicit asks ("comedy", "something cosy") outweigh mood defaults.
-        hit = sum(t in tones for t in profile.requested_tones) / len(profile.requested_tones)
+        hit = request_matches(profile.requested_tones, tones) / len(profile.requested_tones)
         adjust += 0.22 * hit if hit else -0.15
     if profile.energy == "low":
         if movie.runtime and movie.runtime > 160:
@@ -143,7 +167,11 @@ def rank_candidates(
     if len(ranked) < 3 and profile.context.languages:
         loose = profile.model_copy(deep=True)
         loose.context.languages = []
-        extra = [s for s in collect(False, exclude, loose) if s.movie.id not in {r.movie.id for r in ranked}]
+        extra = [
+            s
+            for s in collect(False, exclude, loose)
+            if s.movie.id not in {r.movie.id for r in ranked}
+        ]
         ranked += extra
         relaxed.append("I added a couple from other languages to round things out")
     return ranked, relaxed
@@ -153,14 +181,25 @@ def _vote_percentiles(index: SearchIndex) -> dict[str, tuple[float, float]]:
     by_lang: dict[str, list[int]] = {}
     for m in index.movies.values():
         by_lang.setdefault(m.language, []).append(m.vote_count)
-    return {lang: (float(np.percentile(v, 40)), float(np.percentile(v, 60))) for lang, v in by_lang.items()}
+    return {
+        lang: (float(np.percentile(v, 40)), float(np.percentile(v, 60)))
+        for lang, v in by_lang.items()
+    }
 
 
 def select_diverse(
-    ranked: list[Scored], index: SearchIndex, n: int = 4, rng: random.Random | None = None
+    ranked: list[Scored],
+    index: SearchIndex,
+    n: int = 4,
+    rng: random.Random | None = None,
+    requested: list[str] | None = None,
 ) -> list[Scored]:
     if not ranked:
         return []
+    if requested:
+        # Diversity happens *within* what the user asked for; others only fill gaps.
+        on_ask = [s for s in ranked if request_matches(requested, s.movie.tones)]
+        ranked = on_ask if len(on_ask) >= n else on_ask + [s for s in ranked if s not in on_ask]
     pool = ranked[: max(20, n * 5)]
     if rng is not None:  # "surprise me": shuffle within the good part of the pool
         head = pool[:12]
@@ -173,10 +212,16 @@ def select_diverse(
     # Vote counts differ hugely by language, so thresholds are per-language percentiles
     # with absolute caps (a 3,000-vote Hollywood film isn't a "hidden" gem).
     def is_safe(s: Scored) -> bool:
-        return s.movie.vote_count >= min(pct.get(s.movie.language, (0, 0))[1], 500) and s.movie.rating >= 7.0
+        return (
+            s.movie.vote_count >= min(pct.get(s.movie.language, (0, 0))[1], 500)
+            and s.movie.rating >= 7.0
+        )
 
     def is_gem(s: Scored) -> bool:
-        return s.movie.vote_count <= min(pct.get(s.movie.language, (0, 0))[0], 600) and s.movie.rating >= 7.3
+        return (
+            s.movie.vote_count <= min(pct.get(s.movie.language, (0, 0))[0], 600)
+            and s.movie.rating >= 7.3
+        )
 
     def take(pred, slot: str, floor: float) -> None:
         for s in pool:
@@ -189,11 +234,17 @@ def select_diverse(
 
     take(is_safe, "Safe pick", top_score * 0.7)
     if n >= 3:
-        take(lambda s: is_gem(s) and all(movie_similarity(s.movie, p.movie) < 0.7 for p in picked),
-             "Hidden gem", top_score * 0.65)
+        take(
+            lambda s: is_gem(s) and all(movie_similarity(s.movie, p.movie) < 0.7 for p in picked),
+            "Hidden gem",
+            top_score * 0.65,
+        )
     if n >= 3:
-        take(lambda s: all(movie_similarity(s.movie, p.movie) < 0.3 for p in picked),
-             "Wildcard", top_score * 0.55)
+        take(
+            lambda s: all(movie_similarity(s.movie, p.movie) < 0.3 for p in picked),
+            "Wildcard",
+            top_score * 0.55,
+        )
 
     # MMR fill for the rest
     while len(picked) < n:

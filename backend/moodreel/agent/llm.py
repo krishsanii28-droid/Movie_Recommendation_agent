@@ -65,7 +65,11 @@ def parse_tool_calls(text: str) -> tuple[str, list[ToolCall]]:
         for m in pattern.finditer(text):
             data = _loads(m.group(1))
             if "name" in data:
-                calls.append(ToolCall(data["name"], _loads(data.get("arguments", data.get("parameters", {})))))
+                calls.append(
+                    ToolCall(
+                        data["name"], _loads(data.get("arguments", data.get("parameters", {})))
+                    )
+                )
         if calls:
             text = pattern.sub("", text)
             break
@@ -74,7 +78,9 @@ def parse_tool_calls(text: str) -> tuple[str, list[ToolCall]]:
         if stripped.startswith("{") and stripped.endswith("}"):
             data = _loads(stripped)
             if "name" in data and ("arguments" in data or "parameters" in data):
-                calls.append(ToolCall(data["name"], _loads(data.get("arguments", data.get("parameters")))))
+                calls.append(
+                    ToolCall(data["name"], _loads(data.get("arguments", data.get("parameters"))))
+                )
                 text = ""
     return text.strip(), calls
 
@@ -89,8 +95,11 @@ class HFInferenceLLM:
 
     async def chat(self, messages: list[dict[str, Any]], tools: list[dict]) -> LLMResponse:
         resp = await self._client.chat_completion(
-            messages=messages, tools=tools, tool_choice="auto",
-            max_tokens=self.max_tokens, temperature=0.4,
+            messages=messages,
+            tools=tools,
+            tool_choice="auto",
+            max_tokens=self.max_tokens,
+            temperature=0.4,
         )
         msg = resp.choices[0].message
         calls = [
@@ -110,18 +119,23 @@ class LocalTransformersLLM:
 
         self._tok = AutoTokenizer.from_pretrained(model, token=token or None)
         self._model = AutoModelForCausalLM.from_pretrained(
-            model, token=token or None, torch_dtype="auto",
+            model,
+            token=token or None,
+            torch_dtype="auto",
             device_map="auto" if torch.cuda.is_available() else None,
         )
         self.name = f"local:{model}"
         self.max_new_tokens = max_new_tokens
 
     def _generate(self, messages: list[dict[str, Any]], tools: list[dict]) -> str:
-        prompt = self._tok.apply_chat_template(messages, tools=tools, add_generation_prompt=True, tokenize=False)
+        prompt = self._tok.apply_chat_template(
+            messages, tools=tools, add_generation_prompt=True, tokenize=False
+        )
         inputs = self._tok(prompt, return_tensors="pt").to(self._model.device)
-        out = self._model.generate(**inputs, max_new_tokens=self.max_new_tokens, do_sample=True,
-                                   temperature=0.4, top_p=0.9)
-        return self._tok.decode(out[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+        out = self._model.generate(
+            **inputs, max_new_tokens=self.max_new_tokens, do_sample=True, temperature=0.4, top_p=0.9
+        )
+        return self._tok.decode(out[0][inputs["input_ids"].shape[1] :], skip_special_tokens=True)
 
     async def chat(self, messages: list[dict[str, Any]], tools: list[dict]) -> LLMResponse:
         text = await asyncio.to_thread(self._generate, messages, tools)
@@ -133,9 +147,15 @@ def get_llm(settings: Settings | None = None) -> LLM | None:
     settings = settings or get_settings()
     try:
         if settings.llm_backend == "hf_inference":
-            return HFInferenceLLM(settings.llm_model, settings.hf_token, settings.llm_max_new_tokens)
+            return HFInferenceLLM(
+                settings.llm_model, settings.hf_token, settings.llm_max_new_tokens
+            )
         if settings.llm_backend == "local":
-            return LocalTransformersLLM(settings.llm_model, settings.llm_max_new_tokens, settings.hf_token)
+            return LocalTransformersLLM(
+                settings.llm_model, settings.llm_max_new_tokens, settings.hf_token
+            )
     except Exception as exc:
-        logger.warning("LLM backend %s unavailable (%s); using rule-based planner", settings.llm_backend, exc)
+        logger.warning(
+            "LLM backend %s unavailable (%s); using rule-based planner", settings.llm_backend, exc
+        )
     return None

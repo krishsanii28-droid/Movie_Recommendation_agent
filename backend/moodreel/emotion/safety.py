@@ -13,13 +13,16 @@ from moodreel.schemas import CareMessage
 _CRISIS = re.compile(
     r"(kill(?:ing)? myself|end (?:my|it all|my life)|suicid\w*|want to die|wanna die|don'?t want to (?:live|be alive|exist)|"
     r"no reason to live|better off dead|self[- ]?harm|hurt(?:ing)? myself|cut(?:ting)? myself|"
-    r"take my (?:own )?life|not worth living|marne ka man|jeena nahi)",
+    r"take my (?:own )?life|not worth living|marne ka man|jeena nahi|"
+    r"don'?t want to be (?:here|around|alive) anymore|want to disappear (?:forever|for good)|"
+    r"no point (?:in )?(?:living|going on|being alive))",
     re.I,
 )
 _ELEVATED = re.compile(
     r"(hopeless|worthless|can'?t go on|cant go on|can'?t take (?:it|this) anymore|nothing matters|"
     r"give up on (?:everything|life)|so empty|completely alone|no one cares|nobody cares|"
-    r"falling apart|breaking down|panic attacks?|haven'?t slept in days|can'?t stop crying)",
+    r"falling apart|breaking down|panic attacks?|haven'?t slept in days|can'?t stop crying|"
+    r"can'?t do this anymore|want to disappear)",
     re.I,
 )
 

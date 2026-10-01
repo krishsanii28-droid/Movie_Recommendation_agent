@@ -58,12 +58,14 @@ def search_movies(
         if filters.get(key):
             setattr(profile, key, filters[key])
     if filters.get("target_tones"):
-        profile.target_tones = list(dict.fromkeys(filters["target_tones"] + profile.target_tones))[:7]
+        profile.target_tones = list(dict.fromkeys(filters["target_tones"] + profile.target_tones))[
+            :7
+        ]
     limit = max(1, min(int(filters.get("limit", 4)), 5))
     excl = set(exclude or ()) | set(filters.get("exclude_ids", []))
 
     ranked, relaxed = rank_candidates(index, mood_query, profile, history, excl)
-    picks = select_diverse(ranked, index, n=limit, rng=rng)
+    picks = select_diverse(ranked, index, n=limit, rng=rng, requested=profile.requested_tones)
     return {
         "results": [
             {
@@ -130,44 +132,106 @@ def _fn(name: str, description: str, properties: dict, required: list[str]) -> d
 
 
 TOOL_SCHEMAS: list[dict] = [
-    _fn("detect_emotion", "Score the user's text for emotions (fast classifier signal).",
-        {"text": {"type": "string"}}, ["text"]),
-    _fn("search_movies",
+    _fn(
+        "detect_emotion",
+        "Score the user's text for emotions (fast classifier signal).",
+        {"text": {"type": "string"}},
+        ["text"],
+    ),
+    _fn(
+        "search_movies",
         "Semantic search over the movie index, ranked for the mood and diversified "
         "(safe pick, hidden gem, wildcard). Returns candidate movies with ids.",
         {
-            "mood_query": {"type": "string", "description": "Natural-language description of the films wanted, e.g. 'warm, gentle, funny film about friendship'"},
+            "mood_query": {
+                "type": "string",
+                "description": "Natural-language description of the films wanted, e.g. 'warm, gentle, funny film about friendship'",
+            },
             "filters": {
                 "type": "object",
                 "properties": {
-                    "languages": {"type": "array", "items": {"type": "string", "enum": ["ml", "hi", "ta", "te", "en"]}},
-                    "avoid": {"type": "array", "items": {"type": "string", "enum": ["violence", "horror", "heavy", "gore", "sexual content"]}},
+                    "languages": {
+                        "type": "array",
+                        "items": {"type": "string", "enum": ["ml", "hi", "ta", "te", "en"]},
+                    },
+                    "avoid": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": ["violence", "horror", "heavy", "gore", "sexual content"],
+                        },
+                    },
                     "max_runtime": {"type": "integer"},
                     "target_tones": {"type": "array", "items": {"type": "string"}},
                     "energy": {"type": "string", "enum": ["low", "medium", "high"]},
                     "goal": {"type": "string", "enum": ["stay", "shift", "unclear"]},
-                    "company": {"type": "string", "enum": ["alone", "partner", "family", "friends", "unknown"]},
+                    "company": {
+                        "type": "string",
+                        "enum": ["alone", "partner", "family", "friends", "unknown"],
+                    },
                     "limit": {"type": "integer", "minimum": 3, "maximum": 5},
                 },
             },
-        }, ["mood_query"]),
-    _fn("get_movie_details", "Full details for one movie.", {"movie_id": {"type": "integer"}}, ["movie_id"]),
-    _fn("get_watch_providers", "Where a movie streams in a region (default India).",
-        {"movie_id": {"type": "integer"}, "region": {"type": "string", "default": "IN"}}, ["movie_id"]),
-    _fn("get_user_history", "The user's seen / loved / disliked movies and taste profile.",
-        {"user_id": {"type": "string"}}, ["user_id"]),
-    _fn("save_feedback", "Record feedback such as 'seen it', 'too slow' or 'loved it'.",
-        {"user_id": {"type": "string"}, "movie_id": {"type": "integer"},
-         "signal": {"type": "string", "enum": sorted(VALID_SIGNALS)}}, ["user_id", "movie_id", "signal"]),
-    _fn("ask_followup", "Ask ONE short follow-up question when the mood goal is genuinely unclear. Ends the turn.",
-        {"question": {"type": "string"}, "options": {"type": "array", "items": {"type": "string"}}}, ["question"]),
-    _fn("recommend", "Final answer: 3-5 movie ids from search results, each with a 1-2 sentence reason tied to the user's words. Ends the turn.",
+        },
+        ["mood_query"],
+    ),
+    _fn(
+        "get_movie_details",
+        "Full details for one movie.",
+        {"movie_id": {"type": "integer"}},
+        ["movie_id"],
+    ),
+    _fn(
+        "get_watch_providers",
+        "Where a movie streams in a region (default India).",
+        {"movie_id": {"type": "integer"}, "region": {"type": "string", "default": "IN"}},
+        ["movie_id"],
+    ),
+    _fn(
+        "get_user_history",
+        "The user's seen / loved / disliked movies and taste profile.",
+        {"user_id": {"type": "string"}},
+        ["user_id"],
+    ),
+    _fn(
+        "save_feedback",
+        "Record feedback such as 'seen it', 'too slow' or 'loved it'.",
         {
-            "message": {"type": "string", "description": "One or two warm sentences introducing the picks"},
-            "mood": {"type": "object", "description": "Your reading of the mood: primary, secondary, energy, goal"},
-            "picks": {"type": "array", "items": {"type": "object", "properties": {
-                "movie_id": {"type": "integer"}, "reason": {"type": "string"}}, "required": ["movie_id", "reason"]}},
-        }, ["message", "picks"]),
+            "user_id": {"type": "string"},
+            "movie_id": {"type": "integer"},
+            "signal": {"type": "string", "enum": sorted(VALID_SIGNALS)},
+        },
+        ["user_id", "movie_id", "signal"],
+    ),
+    _fn(
+        "ask_followup",
+        "Ask ONE short follow-up question when the mood goal is genuinely unclear. Ends the turn.",
+        {"question": {"type": "string"}, "options": {"type": "array", "items": {"type": "string"}}},
+        ["question"],
+    ),
+    _fn(
+        "recommend",
+        "Final answer: 3-5 movie ids from search results, each with a 1-2 sentence reason tied to the user's words. Ends the turn.",
+        {
+            "message": {
+                "type": "string",
+                "description": "One or two warm sentences introducing the picks",
+            },
+            "mood": {
+                "type": "object",
+                "description": "Your reading of the mood: primary, secondary, energy, goal",
+            },
+            "picks": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {"movie_id": {"type": "integer"}, "reason": {"type": "string"}},
+                    "required": ["movie_id", "reason"],
+                },
+            },
+        },
+        ["message", "picks"],
+    ),
 ]
 TERMINAL_TOOLS = {"ask_followup", "recommend"}
 
@@ -209,8 +273,13 @@ class ToolBox:
             if self.history is None:
                 self.history = get_user_history(self.user_id)
             result = search_movies(
-                self.index, args.get("mood_query", ""), args.get("filters") or {},
-                base_profile=self.profile, history=self.history, exclude=self.exclude, rng=self.rng,
+                self.index,
+                args.get("mood_query", ""),
+                args.get("filters") or {},
+                base_profile=self.profile,
+                history=self.history,
+                exclude=self.exclude,
+                rng=self.rng,
             )
             for s in result["_scored"]:
                 self.seen_candidates[s.movie.id] = s
@@ -223,13 +292,17 @@ class ToolBox:
             self.history = get_user_history(args.get("user_id") or self.user_id)
             return self.history
         if name == "save_feedback":
-            return save_feedback(args.get("user_id") or self.user_id, args["movie_id"], args["signal"])
+            return save_feedback(
+                args.get("user_id") or self.user_id, args["movie_id"], args["signal"]
+            )
         return {"error": f"unknown tool {name}"}
 
     @staticmethod
     def for_llm(result: dict[str, Any]) -> str:
         """Serialise a tool result for the model (drop private keys, keep it short)."""
-        return json.dumps({k: v for k, v in result.items() if not k.startswith("_")}, default=str)[:4000]
+        return json.dumps({k: v for k, v in result.items() if not k.startswith("_")}, default=str)[
+            :4000
+        ]
 
 
 def profile_from_context(context: MoodContext) -> dict[str, Any]:

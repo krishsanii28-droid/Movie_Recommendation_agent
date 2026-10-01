@@ -9,12 +9,47 @@ These feed the embedding text and the mood-fit part of the ranker.
 from __future__ import annotations
 
 TONE_VOCAB: tuple[str, ...] = (
-    "feel-good", "warm", "cosy", "funny", "light", "uplifting", "hopeful", "inspiring",
-    "heartwarming", "comforting", "gentle", "calming", "bittersweet", "melancholic",
-    "poignant", "cathartic", "romantic", "nostalgic", "whimsical", "quirky", "witty",
-    "tense", "thrilling", "twisty", "dark", "gritty", "intense", "eerie", "scary",
-    "mind-bending", "thought-provoking", "slow-burn", "fast-paced", "epic", "energetic",
-    "party", "musical", "family-friendly", "adventurous", "hard-hitting", "satirical",
+    "feel-good",
+    "warm",
+    "cosy",
+    "funny",
+    "light",
+    "uplifting",
+    "hopeful",
+    "inspiring",
+    "heartwarming",
+    "comforting",
+    "gentle",
+    "calming",
+    "bittersweet",
+    "melancholic",
+    "poignant",
+    "cathartic",
+    "romantic",
+    "nostalgic",
+    "whimsical",
+    "quirky",
+    "witty",
+    "tense",
+    "thrilling",
+    "twisty",
+    "dark",
+    "gritty",
+    "intense",
+    "eerie",
+    "scary",
+    "mind-bending",
+    "thought-provoking",
+    "slow-burn",
+    "fast-paced",
+    "epic",
+    "energetic",
+    "party",
+    "musical",
+    "family-friendly",
+    "adventurous",
+    "hard-hitting",
+    "satirical",
     "chaotic",
 )
 
@@ -101,7 +136,9 @@ KEYWORD_FLAGS: dict[str, list[str]] = {
 }
 
 
-def derive_tones(genres: list[str], keywords: list[str], extra: list[str] | None = None) -> list[str]:
+def derive_tones(
+    genres: list[str], keywords: list[str], extra: list[str] | None = None
+) -> list[str]:
     """Return an ordered, de-duplicated list of tone descriptors."""
     tones: list[str] = list(extra or [])
     for genre in genres:
@@ -120,7 +157,9 @@ def derive_tones(genres: list[str], keywords: list[str], extra: list[str] | None
     return ordered
 
 
-def derive_flags(genres: list[str], keywords: list[str], extra: list[str] | None = None) -> list[str]:
+def derive_flags(
+    genres: list[str], keywords: list[str], extra: list[str] | None = None
+) -> list[str]:
     flags: set[str] = set(extra or [])
     for genre in genres:
         flags.update(GENRE_FLAGS.get(genre, []))

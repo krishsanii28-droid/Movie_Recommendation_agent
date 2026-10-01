@@ -96,9 +96,7 @@ class TMDBClient:
             return resp.json()
         raise TMDBError("unreachable")  # pragma: no cover
 
-    async def discover(
-        self, language: str, page: int = 1, **filters: Any
-    ) -> dict[str, Any]:
+    async def discover(self, language: str, page: int = 1, **filters: Any) -> dict[str, Any]:
         params = {
             "with_original_language": language,
             "sort_by": "vote_count.desc",
@@ -110,6 +108,4 @@ class TMDBClient:
         return await self.get("/discover/movie", **params)
 
     async def movie(self, movie_id: int) -> dict[str, Any]:
-        return await self.get(
-            f"/movie/{movie_id}", append_to_response="keywords,watch/providers"
-        )
+        return await self.get(f"/movie/{movie_id}", append_to_response="keywords,watch/providers")

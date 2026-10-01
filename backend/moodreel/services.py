@@ -33,4 +33,6 @@ def ensure_catalog() -> None:
 def get_agent() -> MoodReelAgent:
     settings = get_settings()
     ensure_catalog()
-    return MoodReelAgent(get_index(settings), get_classifier(settings), get_llm(settings), settings=settings)
+    return MoodReelAgent(
+        get_index(settings), get_classifier(settings), get_llm(settings), settings=settings
+    )

@@ -40,7 +40,7 @@ class MemoryStore:
 
     def upsert(self, ids: list[int], vectors: np.ndarray, metadatas: list[dict]) -> None:
         index = {mid: i for i, mid in enumerate(self._ids)}
-        for mid, vec, meta in zip(ids, vectors, metadatas):
+        for mid, vec, meta in zip(ids, vectors, metadatas, strict=False):
             if mid in index:
                 assert self._vecs is not None
                 self._vecs[index[mid]] = vec
@@ -114,7 +114,7 @@ class ChromaStore:
         )
         ids = res["ids"][0]
         dists = res["distances"][0]
-        return [Hit(int(i), 1.0 - float(d)) for i, d in zip(ids, dists)]
+        return [Hit(int(i), 1.0 - float(d)) for i, d in zip(ids, dists, strict=False)]
 
     def count(self) -> int:
         return int(self._col.count())

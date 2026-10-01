@@ -32,8 +32,12 @@ from moodreel.agent.ranking import HEAVY_TONES, diversity_score  # noqa: E402
 from moodreel.schemas import AgentReply, ChatRequest, GroupMember, GroupRequest  # noqa: E402
 
 HERE = Path(__file__).parent
-CLINICAL = re.compile(r"\b(diagnos\w*|disorder|symptom\w*|patient|clinical|therapy session|medicat\w*)\b", re.I)
-STOP = set("a an the and or but i im i'm to of in on for with my me it is something want some just".split())
+CLINICAL = re.compile(
+    r"\b(diagnos\w*|disorder|symptom\w*|patient|clinical|therapy session|medicat\w*)\b", re.I
+)
+STOP = set(
+    "a an the and or but i im i'm to of in on for with my me it is something want some just".split()
+)
 
 
 def _words(text: str) -> set[str]:
@@ -51,10 +55,17 @@ def reason_quality(reply: AgentReply, prompt_text: str) -> float:
         text = r.reason
         sentences = [s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s]
         vocab = _words(text)
-        echoes = bool(prompt_words & vocab) or "you said" in text.lower() or "feeling" in text.lower() \
+        echoes = (
+            bool(prompt_words & vocab)
+            or "you said" in text.lower()
+            or "feeling" in text.lower()
             or any(n.lower() in text.lower() for n in re.findall(r"[A-Z][a-z]+(?=:)", prompt_text))
-        concrete = bool(set(r.movie.tones) & vocab) or any(g.lower() in text.lower() for g in r.movie.genres) \
+        )
+        concrete = (
+            bool(set(r.movie.tones) & vocab)
+            or any(g.lower() in text.lower() for g in r.movie.genres)
             or any(t.split("-")[0] in text.lower() for t in r.movie.tones)
+        )
         checks = [
             echoes,
             1 <= len(sentences) <= 2 and 50 <= len(text) <= 340,
@@ -99,7 +110,9 @@ async def run_case(agent: MoodReelAgent, case: dict) -> dict:
         if reply.question:
             asked += 1
             answer = expect.get("answer") or (reply.options[-1] if reply.options else "anything")
-            reply = await agent.collect(agent.stream(ChatRequest(user_id=user, session_id=reply.session_id, message=answer)))
+            reply = await agent.collect(
+                agent.stream(ChatRequest(user_id=user, session_id=reply.session_id, message=answer))
+            )
             asked += int(bool(reply.question))
 
     movies = [r.movie for r in reply.recommendations]
@@ -107,7 +120,9 @@ async def run_case(agent: MoodReelAgent, case: dict) -> dict:
     # understanding
     u_checks = []
     if "primary_any" in expect and mood:
-        u_checks.append(mood.primary in expect["primary_any"] or (mood.secondary in expect["primary_any"]))
+        u_checks.append(
+            mood.primary in expect["primary_any"] or (mood.secondary in expect["primary_any"])
+        )
     if "goal" in expect and mood:
         u_checks.append(mood.goal == expect["goal"])
     if "company" in expect and mood:
@@ -119,7 +134,11 @@ async def run_case(agent: MoodReelAgent, case: dict) -> dict:
     ok = [constraint_ok(m, expect, reply) for m in movies]
     constraints = sum(ok) / len(ok) if ok else 0.0
     tones = set(expect.get("tones_any", []))
-    rel = [bool(tones & set(m.tones)) and c for m, c in zip(movies, ok)]
+    # No expected tones (pure-constraint prompts): relevance = constraint satisfaction.
+    rel = [
+        (bool(tones & set(m.tones)) if tones else True) and c
+        for m, c in zip(movies, ok, strict=False)
+    ]
     relevance = sum(rel) / len(rel) if rel else 0.0
 
     b_checks = [asked <= 1, 3 <= len(movies) <= 5]
@@ -152,7 +171,14 @@ def summarize(rows: list[dict]) -> dict:
         vals = [r[key] for r in (subset or rows) if r[key] is not None]
         return round(statistics.mean(vals), 3) if vals else float("nan")
 
-    metrics = ["understanding", "relevance", "constraints", "diversity", "reason_quality", "behaviour"]
+    metrics = [
+        "understanding",
+        "relevance",
+        "constraints",
+        "diversity",
+        "reason_quality",
+        "behaviour",
+    ]
     overall = {m: mean(m) for m in metrics}
     by_cat = {}
     for cat in sorted({r["category"] for r in rows}):
@@ -166,49 +192,85 @@ def _fmt(v: float) -> str:
 
 
 def to_markdown(summary: dict, rows: list[dict], engines: dict) -> str:
-    metrics = ["understanding", "relevance", "constraints", "diversity", "reason_quality", "behaviour"]
-    lines = ["# MoodReel evaluation results", "",
-             f"{summary['n']} prompts · engines: " + ", ".join(f"{k}=`{v}`" for k, v in engines.items()), "",
-             "| Metric | Score |", "|---|---|"]
+    metrics = [
+        "understanding",
+        "relevance",
+        "constraints",
+        "diversity",
+        "reason_quality",
+        "behaviour",
+    ]
+    lines = [
+        "# MoodReel evaluation results",
+        "",
+        f"{summary['n']} prompts · engines: " + ", ".join(f"{k}=`{v}`" for k, v in engines.items()),
+        "",
+        "| Metric | Score |",
+        "|---|---|",
+    ]
     lines += [f"| {m.replace('_', ' ').title()} | {_fmt(summary['overall'][m])} |" for m in metrics]
-    lines += ["", "## By category", "", "| Category | n | " + " | ".join(m.replace("_", " ") for m in metrics) + " |",
-              "|---|---|" + "---|" * len(metrics)]
+    lines += [
+        "",
+        "## By category",
+        "",
+        "| Category | n | " + " | ".join(m.replace("_", " ") for m in metrics) + " |",
+        "|---|---|" + "---|" * len(metrics),
+    ]
     for cat, vals in summary["by_category"].items():
-        lines.append(f"| {cat} | {vals['n']} | " + " | ".join(_fmt(vals[m]) for m in metrics) + " |")
-    lines += ["", "## Per prompt", "", "| id | prompt | understood as | picks | rel | div | reason |", "|---|---|---|---|---|---|---|"]
+        lines.append(
+            f"| {cat} | {vals['n']} | " + " | ".join(_fmt(vals[m]) for m in metrics) + " |"
+        )
+    lines += [
+        "",
+        "## Per prompt",
+        "",
+        "| id | prompt | understood as | picks | rel | div | reason |",
+        "|---|---|---|---|---|---|---|",
+    ]
     for r in rows:
         prompt = r["prompt"].replace("|", "/")[:70]
-        lines.append(f"| {r['id']} | {prompt} | {r['mood']} | {'; '.join(r['picks'])} | {r['relevance']:.2f} | {r['diversity']:.2f} | {r['reason_quality']:.2f} |")
+        lines.append(
+            f"| {r['id']} | {prompt} | {r['mood']} | {'; '.join(r['picks'])} | {r['relevance']:.2f} | {r['diversity']:.2f} | {r['reason_quality']:.2f} |"
+        )
     lines += ["", "## Sample reasons", ""]
     for r in rows[:8]:
         lines.append(f"- **{r['id']}** “{r['prompt'][:60]}” → {r['sample_reason']}")
     return "\n".join(lines) + "\n"
 
 
-async def main_async(out: Path) -> dict:
+async def main_async(out: Path, prompts: Path = HERE / "prompts.json") -> dict:
     from moodreel.services import get_agent
 
     agent = get_agent()
     agent.typing_delay = 0
-    cases = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
+    cases = json.loads(prompts.read_text(encoding="utf-8"))
     rows = [await run_case(agent, c) for c in cases]
     summary = summarize(rows)
     engines = {
-        "embedder": agent.index.embedder.name, "vectors": agent.index.store.name,
-        "emotion": agent.classifier.name, "llm": agent.llm.name if agent.llm else "rules",
+        "embedder": agent.index.embedder.name,
+        "vectors": agent.index.store.name,
+        "emotion": agent.classifier.name,
+        "llm": agent.llm.name if agent.llm else "rules",
         "catalogue": f"{len(agent.index.movies)} films",
     }
     out.write_text(to_markdown(summary, rows, engines), encoding="utf-8")
-    out.with_suffix(".json").write_text(json.dumps({"summary": summary, "engines": engines, "rows": rows}, indent=1, ensure_ascii=False))
+    out.with_suffix(".json").write_text(
+        json.dumps(
+            {"summary": summary, "engines": engines, "rows": rows}, indent=1, ensure_ascii=False
+        )
+    )
     return summary
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--prompts", type=Path, default=HERE / "prompts.json")
     parser.add_argument("--out", type=Path, default=HERE / "results.md")
-    parser.add_argument("--min-relevance", type=float, default=0.0, help="exit non-zero below this (CI gate)")
+    parser.add_argument(
+        "--min-relevance", type=float, default=0.0, help="exit non-zero below this (CI gate)"
+    )
     args = parser.parse_args()
-    summary = asyncio.run(main_async(args.out))
+    summary = asyncio.run(main_async(args.out, args.prompts))
     print(json.dumps(summary["overall"], indent=2))
     for cat, vals in summary["by_category"].items():
         print(f"  {cat:9s} " + "  ".join(f"{k[:5]}={v:.2f}" for k, v in vals.items() if k != "n"))

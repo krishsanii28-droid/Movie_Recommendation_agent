@@ -7,8 +7,14 @@ from dataclasses import dataclass, field
 
 from moodreel.schemas import MoodProfile
 
-_MORE = re.compile(r"\b(something else|more options|show me more|more please|others?|different ones?|another( one)?|not these|none of these|next|anything else|more like (?:this|these))\b", re.I)
-_SEEN = re.compile(r"\b(seen (?:it|them|those|these|all|that)|already (?:seen|watched)|watched (?:them|those|these|all))\b", re.I)
+_MORE = re.compile(
+    r"\b(something else|more options|show me more|more please|others?|different ones?|another( one)?|not these|none of these|next|anything else|more like (?:this|these))\b",
+    re.I,
+)
+_SEEN = re.compile(
+    r"\b(seen (?:it|them|those|these|all|that)|already (?:seen|watched)|watched (?:them|those|these|all))\b",
+    re.I,
+)
 _SHORTER = re.compile(r"\b(shorter|less long|too long|quicker)\b", re.I)
 _LIGHTER = re.compile(r"\b(lighter|less heavy|too heavy|too sad|too dark|funnier|happier)\b", re.I)
 _FASTER = re.compile(r"\b(too slow|faster|more exciting|more action|more energy|pacier)\b", re.I)
@@ -38,17 +44,25 @@ def detect_refinement(text: str, last: MoodProfile | None) -> Refinement | None:
         ref.notes.append("shorter runtimes")
     if _LIGHTER.search(text):
         prof.requested_tones = list(dict.fromkeys(["funny", "light"] + prof.requested_tones))
-        prof.target_tones = list(dict.fromkeys(["funny", "light", "feel-good"] + prof.target_tones))[:7]
+        prof.target_tones = list(
+            dict.fromkeys(["funny", "light", "feel-good"] + prof.target_tones)
+        )[:7]
         prof.context.avoid = sorted(set(prof.context.avoid) | {"heavy"})
         prof.goal = "shift"
         ref.notes.append("lighter")
     if _FASTER.search(text):
-        prof.requested_tones = list(dict.fromkeys(["fast-paced", "thrilling"] + prof.requested_tones))
-        prof.target_tones = list(dict.fromkeys(["fast-paced", "thrilling", "energetic"] + prof.target_tones))[:7]
+        prof.requested_tones = list(
+            dict.fromkeys(["fast-paced", "thrilling"] + prof.requested_tones)
+        )
+        prof.target_tones = list(
+            dict.fromkeys(["fast-paced", "thrilling", "energetic"] + prof.target_tones)
+        )[:7]
         prof.context.avoid = sorted(set(prof.context.avoid) | {"tone:slow-burn"})
         ref.notes.append("faster-paced")
     if _CALMER.search(text):
-        prof.target_tones = list(dict.fromkeys(["gentle", "calming", "comforting"] + prof.target_tones))[:7]
+        prof.target_tones = list(
+            dict.fromkeys(["gentle", "calming", "comforting"] + prof.target_tones)
+        )[:7]
         prof.context.avoid = sorted(set(prof.context.avoid) | {"tone:intense", "violence"})
         ref.notes.append("calmer")
     return ref

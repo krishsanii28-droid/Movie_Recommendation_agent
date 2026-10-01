@@ -92,7 +92,7 @@ class HashingEmbedder:
         for row, text in enumerate(texts):
             tokens = tokenize(text)
             feats = [(t, 2.0 if t.startswith("~") else 1.0) for t in tokens]
-            feats += [(f"{a}|{b}", 0.5) for a, b in zip(tokens, tokens[1:])]
+            feats += [(f"{a}|{b}", 0.5) for a, b in zip(tokens, tokens[1:], strict=False)]
             for feat, weight in feats:
                 idx, sign = self._index(feat)
                 out[row, idx] += sign * weight

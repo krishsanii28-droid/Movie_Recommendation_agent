@@ -2,20 +2,20 @@
  "summary": {
   "overall": {
    "understanding": 1.0,
-   "relevance": 0.908,
-   "constraints": 0.983,
-   "diversity": 0.671,
-   "reason_quality": 0.913,
+   "relevance": 0.992,
+   "constraints": 1.0,
+   "diversity": 0.667,
+   "reason_quality": 0.91,
    "behaviour": 1.0
   },
   "by_category": {
    "edge": {
     "n": 7,
     "understanding": 1.0,
-    "relevance": 0.857,
+    "relevance": 0.964,
     "constraints": 1.0,
-    "diversity": 0.719,
-    "reason_quality": 0.889,
+    "diversity": 0.686,
+    "reason_quality": 0.895,
     "behaviour": 1.0
    },
    "everyday": {
@@ -23,25 +23,25 @@
     "understanding": 1.0,
     "relevance": 1.0,
     "constraints": 1.0,
-    "diversity": 0.647,
-    "reason_quality": 0.964,
+    "diversity": 0.661,
+    "reason_quality": 0.948,
     "behaviour": 1.0
    },
    "group": {
     "n": 4,
     "understanding": NaN,
-    "relevance": 0.812,
-    "constraints": 0.875,
-    "diversity": 0.713,
+    "relevance": 1.0,
+    "constraints": 1.0,
+    "diversity": 0.695,
     "reason_quality": 0.917,
     "behaviour": 1.0
    },
    "indian": {
     "n": 7,
     "understanding": 1.0,
-    "relevance": 0.857,
+    "relevance": 1.0,
     "constraints": 1.0,
-    "diversity": 0.606,
+    "diversity": 0.605,
     "reason_quality": 0.893,
     "behaviour": 1.0
    },
@@ -50,7 +50,7 @@
     "understanding": 1.0,
     "relevance": 1.0,
     "constraints": 1.0,
-    "diversity": 0.707,
+    "diversity": 0.729,
     "reason_quality": 0.885,
     "behaviour": 1.0
    }
@@ -74,8 +74,8 @@
    "picks": [
     "Paddington 2 (en)",
     "Chef (en)",
-    "Good Night (ta)",
-    "Ustad Hotel (ml)"
+    "Anbe Sivam (ta)",
+    "Romancham (ml)"
    ],
    "slots": [
     "Safe pick",
@@ -86,8 +86,8 @@
    "understanding": 1.0,
    "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.652,
-   "reason_quality": 1.0,
+   "diversity": 0.629,
+   "reason_quality": 0.917,
    "behaviour": 1.0,
    "sample_reason": "You said \"long day, want something cosy but not cheesy\" — Paddington 2 is a cosy, light family film about bear, pop-up book and prison that should lift you without trying too hard. At 1h44, it won't ask much of you."
   },
@@ -99,21 +99,21 @@
    "asked_followup": 0,
    "picks": [
     "Zindagi Na Milegi Dobara (hi)",
-    "Queen (hi)",
     "Premalu (ml)",
-    "Good Night (ta)"
+    "Jaya Jaya Jaya Jaya Hey (ml)",
+    "Everything Everywhere All at Once (en)"
    ],
    "slots": [
     "Safe pick",
     "Also great",
-    "Also great",
-    "Hidden gem"
+    "Hidden gem",
+    "Wildcard"
    ],
    "understanding": 1.0,
    "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.526,
-   "reason_quality": 1.0,
+   "diversity": 0.654,
+   "reason_quality": 0.958,
    "behaviour": 1.0,
    "sample_reason": "You said \"I'm in a great mood\" — Zindagi Na Milegi Dobara is a feel-good, funny comedy-drama about road trip, friendship and Spain that lets you sit with the feeling."
   },
@@ -179,7 +179,7 @@
     "Arrival (en)",
     "Interstellar (en)",
     "Awe! (te)",
-    "Inception (en)"
+    "Aattam (ml)"
    ],
    "slots": [
     "Safe pick",
@@ -190,7 +190,7 @@
    "understanding": 1.0,
    "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.77,
+   "diversity": 0.775,
    "reason_quality": 0.958,
    "behaviour": 1.0,
    "sample_reason": "You said \"I want something that makes me think\" — Arrival is a mind-bending, thought-provoking sci-fi film about linguistics, aliens and grief that'll keep your brain happily busy."
@@ -384,39 +384,39 @@
    "mood": "open to anything · medium energy · wants to lean in",
    "asked_followup": 0,
    "picks": [
-    "Good Night (ta)",
-    "Tourist Family (ta)",
-    "Oh My Kadavule (ta)",
-    "Anbe Sivam (ta)"
+    "Maharaja (ta)",
+    "Doctor (ta)",
+    "Kaithi (ta)",
+    "Jigarthanda (ta)"
    ],
    "slots": [
+    "Safe pick",
     "Also great",
     "Also great",
-    "Also great",
-    "Hidden gem"
+    "Also great"
    ],
    "understanding": 1.0,
-   "relevance": 0.0,
+   "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.519,
+   "diversity": 0.449,
    "reason_quality": 0.875,
    "behaviour": 1.0,
-   "sample_reason": "You said \"tamil thriller venum, edge of the seat\" — Good Night is a feel-good, warm comedy-drama about snoring, newlyweds and marriage that lets you sit with the feeling."
+   "sample_reason": "You said \"tamil thriller venum, edge of the seat\" — Maharaja is a thrilling, twisty thriller about barber, revenge and nonlinear that lets you sit with the feeling."
   },
   {
    "id": "i06",
    "category": "indian",
    "prompt": "Telugu movie that'll inspire me, exams next week and I'm tense",
    "mood": "stressed · medium energy · wants a lift",
-   "asked_followup": 1,
+   "asked_followup": 0,
    "picks": [
-    "Ee Nagaraniki Emaindi (te)",
-    "Agent Sai Srinivasa Athreya (te)",
+    "Jersey (te)",
     "Jathi Ratnalu (te)",
+    "Ee Nagaraniki Emaindi (te)",
     "Pelli Choopulu (te)"
    ],
    "slots": [
-    "Also great",
+    "Safe pick",
     "Also great",
     "Also great",
     "Hidden gem"
@@ -424,10 +424,10 @@
    "understanding": 1.0,
    "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.659,
+   "diversity": 0.725,
    "reason_quality": 0.917,
    "behaviour": 1.0,
-   "sample_reason": "You said \"exams next week and I'm tense\" — Ee Nagaraniki Emaindi is a funny, light comedy-drama about friends, short film and goa trip that should lift you without trying too hard."
+   "sample_reason": "You said \"telugu movie that'll inspire me\" — Jersey is an inspiring drama about cricket, comeback and fathers and sons that should lift you without trying too hard."
   },
   {
    "id": "i07",
@@ -465,7 +465,7 @@
     "Zindagi Na Milegi Dobara (hi)",
     "Paddington 2 (en)",
     "Good Night (ta)",
-    "Knives Out (en)"
+    "Inside Out (en)"
    ],
    "slots": [
     "Safe pick",
@@ -476,7 +476,7 @@
    "understanding": null,
    "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.708,
+   "diversity": 0.662,
    "reason_quality": 0.917,
    "behaviour": 1.0,
    "sample_reason": "Middle ground for everyone: Zindagi Na Milegi Dobara is a funny, feel-good comedy-drama that meets Asha's drained mood and Ravi's easygoing mood halfway."
@@ -490,8 +490,8 @@
    "picks": [
     "Andhadhun (hi)",
     "Agent Sai Srinivasa Athreya (te)",
-    "Anbe Sivam (ta)",
-    "Get Out (en)"
+    "Awe! (te)",
+    "The Martian (en)"
    ],
    "slots": [
     "Safe pick",
@@ -500,12 +500,12 @@
     "Wildcard"
    ],
    "understanding": null,
-   "relevance": 0.5,
-   "constraints": 0.75,
-   "diversity": 0.766,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.746,
    "reason_quality": 0.917,
    "behaviour": 1.0,
-   "sample_reason": "Middle ground for everyone: Andhadhun is a twisty, thrilling thriller that meets Neha's easygoing mood, Arjun's curious mood and Sam's easygoing mood halfway."
+   "sample_reason": "Middle ground for everyone: Andhadhun is a thrilling, twisty thriller that meets Neha's easygoing mood, Arjun's curious mood and Sam's easygoing mood halfway."
   },
   {
    "id": "g03",
@@ -517,7 +517,7 @@
     "Paddington 2 (en)",
     "Home (ml)",
     "Tourist Family (ta)",
-    "Knives Out (en)"
+    "Coco (en)"
    ],
    "slots": [
     "Safe pick",
@@ -526,9 +526,9 @@
     "Wildcard"
    ],
    "understanding": null,
-   "relevance": 0.75,
-   "constraints": 0.75,
-   "diversity": 0.607,
+   "relevance": 1.0,
+   "constraints": 1.0,
+   "diversity": 0.6,
    "reason_quality": 0.917,
    "behaviour": 1.0,
    "sample_reason": "Middle ground for everyone: Paddington 2 is a feel-good, funny family film that meets Mom's easygoing mood and Kid's easygoing mood halfway."
@@ -567,9 +567,9 @@
    "asked_followup": 1,
    "picks": [
     "3 Idiots (hi)",
-    "Agent Sai Srinivasa Athreya (te)",
+    "Premalu (ml)",
     "Anbe Sivam (ta)",
-    "Andhadhun (hi)"
+    "Agent Sai Srinivasa Athreya (te)"
    ],
    "slots": [
     "Safe pick",
@@ -580,7 +580,7 @@
    "understanding": null,
    "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.693,
+   "diversity": 0.702,
    "reason_quality": 0.875,
    "behaviour": 1.0,
    "sample_reason": "You said \"idk\" — 3 Idiots is a funny, feel-good comedy-drama about engineering college, friendship and education system that should lift you without trying too hard."
@@ -594,8 +594,8 @@
    "picks": [
     "Chef (en)",
     "Paddington 2 (en)",
-    "Anbe Sivam (ta)",
-    "Good Night (ta)"
+    "Premalu (ml)",
+    "Anbe Sivam (ta)"
    ],
    "slots": [
     "Safe pick",
@@ -606,7 +606,7 @@
    "understanding": null,
    "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.524,
+   "diversity": 0.603,
    "reason_quality": 0.917,
    "behaviour": 1.0,
    "sample_reason": "You said \"meh\" — Chef is a cosy, light comedy-drama about food truck, fathers and sons and road trip that should lift you without trying too hard. At 1h55, it won't ask much of you."
@@ -697,7 +697,7 @@
     "Inside Out (en)",
     "The Grand Budapest Hotel (en)",
     "Soul (en)",
-    "The Great Indian Kitchen (ml)"
+    "Up (en)"
    ],
    "slots": [
     "Safe pick",
@@ -706,9 +706,9 @@
     "Also great"
    ],
    "understanding": null,
-   "relevance": 0.75,
+   "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.813,
+   "diversity": 0.598,
    "reason_quality": 0.917,
    "behaviour": 1.0,
    "sample_reason": "You said \"only have 90 minutes before bed, something light\" — Inside Out is a light, warm animated film about emotions, childhood and sadness that lets you sit with the feeling."
@@ -743,13 +743,13 @@
    "id": "x04",
    "category": "edge",
    "prompt": "Scared of the dark but I want a horror movie tonight, bring it on",
-   "mood": "uneasy · medium energy · wants a lift",
-   "asked_followup": 1,
+   "mood": "uneasy · medium energy · wants to lean in",
+   "asked_followup": 0,
    "picks": [
-    "About Time (en)",
-    "Paddington 2 (en)",
-    "Romancham (ml)",
-    "Knives Out (en)"
+    "The Conjuring (en)",
+    "Tumbbad (hi)",
+    "Bhool Bhulaiyaa (hi)",
+    "Ratsasan (ta)"
    ],
    "slots": [
     "Safe pick",
@@ -758,12 +758,12 @@
     "Wildcard"
    ],
    "understanding": 1.0,
-   "relevance": 0.25,
+   "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.736,
-   "reason_quality": 0.917,
+   "diversity": 0.698,
+   "reason_quality": 0.958,
    "behaviour": 1.0,
-   "sample_reason": "You said \"scared of the dark but I want a horror movie tonight\" — About Time is a comforting, funny comedy-drama about time travel, fathers and sons and love that should lift you without trying too hard."
+   "sample_reason": "You said \"scared of the dark but I want a horror movie tonight\" — The Conjuring is a scary, eerie horror film about haunted house, demonologists and farmhouse that lets you sit with the feeling."
   },
   {
    "id": "x05",
@@ -798,24 +798,24 @@
    "mood": "open to anything · medium energy · wants to lean in",
    "asked_followup": 1,
    "picks": [
+    "3 Idiots (hi)",
     "Paddington 2 (en)",
-    "Chef (en)",
-    "Good Night (ta)",
-    "Knives Out (en)"
+    "Premalu (ml)",
+    "Anbe Sivam (ta)"
    ],
    "slots": [
     "Safe pick",
     "Also great",
-    "Hidden gem",
-    "Wildcard"
+    "Also great",
+    "Hidden gem"
    ],
    "understanding": null,
    "relevance": 1.0,
    "constraints": 1.0,
-   "diversity": 0.654,
+   "diversity": 0.643,
    "reason_quality": 0.875,
    "behaviour": 1.0,
-   "sample_reason": "You said \"😴😴😴\" — Paddington 2 is a cosy, light family film about bear, pop-up book and prison that lets you sit with the feeling."
+   "sample_reason": "You said \"😴😴😴\" — 3 Idiots is a light, feel-good comedy-drama about engineering college, friendship and education system that lets you sit with the feeling."
   },
   {
    "id": "x07",
@@ -826,7 +826,7 @@
    "picks": [
     "Agent Sai Srinivasa Athreya (te)",
     "Ee Nagaraniki Emaindi (te)",
-    "Awe! (te)",
+    "Balagam (te)",
     "Pelli Choopulu (te)"
    ],
    "slots": [
@@ -836,9 +836,9 @@
     "Hidden gem"
    ],
    "understanding": 1.0,
-   "relevance": 1.0,
+   "relevance": 0.75,
    "constraints": 1.0,
-   "diversity": 0.713,
+   "diversity": 0.741,
    "reason_quality": 0.917,
    "behaviour": 1.0,
    "sample_reason": "You said \"telugu horror comedy under 60 minutes with no violence\" — Agent Sai Srinivasa Athreya is a funny, twisty mystery about detective, unclaimed bodies and Nellore that lets you sit with the feeling."

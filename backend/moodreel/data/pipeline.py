@@ -102,7 +102,9 @@ async def ingest(
     return n
 
 
-async def refresh(languages: list[str], days: int = 45, stale_days: int = 7, limit: int = 300) -> int:
+async def refresh(
+    languages: list[str], days: int = 45, stale_days: int = 7, limit: int = 300
+) -> int:
     """Pick up new releases and re-check watch providers for stale rows."""
     since = (date.today() - timedelta(days=days)).isoformat()
     n_new = await ingest(
@@ -127,7 +129,9 @@ def stats() -> dict[str, Any]:
     init_db()
     with session_scope() as session:
         rows = session.execute(
-            select(Movie.language, Movie.source, func.count()).group_by(Movie.language, Movie.source)
+            select(Movie.language, Movie.source, func.count()).group_by(
+                Movie.language, Movie.source
+            )
         ).all()
     return {f"{lang}/{src}": n for lang, src, n in rows}
 

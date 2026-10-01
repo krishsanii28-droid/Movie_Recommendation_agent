@@ -39,7 +39,9 @@ def to_movie_out(movie: Movie, settings: Settings | None = None) -> MovieOut:
         return [
             Provider(
                 name=p["name"],
-                logo_url=f"{settings.tmdb_image_base}/w92{p['logo_path']}" if p.get("logo_path") else None,
+                logo_url=f"{settings.tmdb_image_base}/w92{p['logo_path']}"
+                if p.get("logo_path")
+                else None,
             )
             for p in prov.get(key, [])
         ]
@@ -61,7 +63,9 @@ def to_movie_out(movie: Movie, settings: Settings | None = None) -> MovieOut:
         runtime=movie.runtime,
         rating=movie.rating,
         vote_count=movie.vote_count,
-        poster_url=f"{settings.tmdb_image_base}/w342{movie.poster_path}" if movie.poster_path else None,
+        poster_url=f"{settings.tmdb_image_base}/w342{movie.poster_path}"
+        if movie.poster_path
+        else None,
         providers=WatchProviders(
             stream=plist("stream"),
             rent=plist("rent"),
@@ -113,7 +117,9 @@ class SearchIndex:
             {"language": self.movies[i].language, "year": self.movies[i].year or 0} for i in ids
         ]
         self.store.upsert(ids, vectors, metas)
-        logger.info("indexed %d movies with %s into %s", len(ids), self.embedder.name, self.store.name)
+        logger.info(
+            "indexed %d movies with %s into %s", len(ids), self.embedder.name, self.store.name
+        )
         return len(ids)
 
     def ensure_ready(self) -> None:

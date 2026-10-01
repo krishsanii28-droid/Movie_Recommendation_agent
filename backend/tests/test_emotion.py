@@ -17,13 +17,16 @@ def test_primary_and_secondary_emotions():
     assert p.energy == "low"
 
 
-@pytest.mark.parametrize("text,goal", [
-    ("I'm sad, cheer me up", "shift"),
-    ("I'm sad and just want a good cry", "stay"),
-    ("heartbroken", "unclear"),
-    ("in a great mood!", "stay"),
-    ("long day, want something cosy", "shift"),
-])
+@pytest.mark.parametrize(
+    "text,goal",
+    [
+        ("I'm sad, cheer me up", "shift"),
+        ("I'm sad and just want a good cry", "stay"),
+        ("heartbroken", "unclear"),
+        ("in a great mood!", "stay"),
+        ("long day, want something cosy", "shift"),
+    ],
+)
 def test_mood_goal(text, goal):
     assert analyze(text).goal == goal
 
@@ -77,12 +80,15 @@ def test_group_blend():
     assert "Asha" in g.summary and "Ravi" in g.summary
 
 
-@pytest.mark.parametrize("text,level", [
-    ("I want to die", "crisis"),
-    ("i feel hopeless and worthless", "elevated"),
-    ("sad day at work", "none"),
-    ("this movie will kill me with laughter", "none"),
-])
+@pytest.mark.parametrize(
+    "text,level",
+    [
+        ("I want to die", "crisis"),
+        ("i feel hopeless and worthless", "elevated"),
+        ("sad day at work", "none"),
+        ("this movie will kill me with laughter", "none"),
+    ],
+)
 def test_distress(text, level):
     assert assess_distress(text) == level
 
@@ -91,3 +97,68 @@ def test_care_message():
     assert care_message("none") is None
     msg = care_message("crisis")
     assert "14416" in str(msg.helplines) and "112" in msg.text
+
+
+# --- Stage 2 regressions ---------------------------------------------------------
+
+
+def test_explicit_request_decides_goal():
+    p = analyze("Scared of the dark but I want a horror movie tonight, bring it on")
+    assert p.goal == "stay" and p.target_tones[0] == "scary"
+    assert analyze("so stressed, need something inspiring").goal == "shift"
+
+
+def test_anything_but_and_except_are_negations():
+    assert "horror" in analyze("anything but horror").context.avoid
+    assert "horror" in analyze("any genre except horror").context.avoid
+    assert "scary" not in analyze("anything but horror").requested_tones
+
+
+def test_gore_is_not_all_violence():
+    ctx = analyze("Tamil thriller, no gore").context
+    assert "gore" in ctx.avoid and "violence" not in ctx.avoid
+
+
+def test_kid_safe_cues_avoid_violence_and_horror():
+    for text in ("something for the kids", "wholesome family night", "an animated movie"):
+        assert {"violence", "horror"} <= set(analyze(text).context.avoid), text
+
+
+@pytest.mark.parametrize(
+    "text,minutes",
+    [
+        ("Need a 2-hour max thriller", 120),
+        ("only two hours", 120),
+        ("about 1.5 hrs", 90),
+        ("90 minutes", 90),
+    ],
+)
+def test_time_parsing(text, minutes):
+    assert analyze(text).context.time_available == minutes
+
+
+def test_group_keeps_explicit_requests_unless_someone_vetoes():
+    joe = analyze("something scary!")
+    ammu = analyze("Malayalam only")
+    assert "scary" in blend_group([("Joe", joe), ("Ammu", ammu)]).requested_tones
+    veto = analyze("no horror please")
+    assert "scary" not in blend_group([("Joe", joe), ("Sam", veto)]).requested_tones
+
+
+def test_light_requests_clash_with_heavy_tones():
+    from moodreel.emotion.mood import clash_tones
+
+    assert "hard-hitting" in clash_tones("neutral", "stay", [], ["light"])
+    assert "scary" not in clash_tones(
+        "scared", "shift", [], ["scary"]
+    )  # never penalise an explicit ask
+
+
+@pytest.mark.parametrize("text", ["I don't want to be here anymore", "there's no point in living"])
+def test_passive_ideation_is_crisis(text):
+    assert assess_distress(text) == "crisis"
+
+
+def test_grief_and_anxiety_vocabulary():
+    assert analyze("my dog died last week").primary == "sad"
+    assert analyze("can't sleep, mind racing about my interview").primary == "anxious"

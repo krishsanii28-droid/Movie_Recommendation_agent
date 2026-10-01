@@ -30,9 +30,14 @@ Never invent movie ids, ratings or streaming services - only use tool results.""
 
 def user_turn(text: str, profile: MoodProfile, user_id: str, asked_followup: bool) -> str:
     reading = {
-        "primary": profile.primary, "secondary": profile.secondary, "intensity": profile.intensity,
-        "energy": profile.energy, "goal": profile.goal, "context": profile.context.model_dump(),
-        "suggested_tones": profile.target_tones, "distress": profile.distress,
+        "primary": profile.primary,
+        "secondary": profile.secondary,
+        "intensity": profile.intensity,
+        "energy": profile.energy,
+        "goal": profile.goal,
+        "context": profile.context.model_dump(),
+        "suggested_tones": profile.target_tones,
+        "distress": profile.distress,
     }
     return (
         f"User message: {text!r}\n\n"
@@ -44,16 +49,40 @@ def user_turn(text: str, profile: MoodProfile, user_id: str, asked_followup: boo
 
 # Deterministic intros for the rule-based planner (and as LLM fallback copy).
 INTROS: dict[tuple[str, str], str] = {
-    ("tired", "shift"): "Long days deserve soft landings. Here's a cosy little lineup that won't ask much of you:",
+    (
+        "tired",
+        "shift",
+    ): "Long days deserve soft landings. Here's a cosy little lineup that won't ask much of you:",
     ("tired", "stay"): "Let's keep it slow and gentle tonight. A few quiet picks:",
-    ("sad", "shift"): "Sending you a small cinematic hug. These should nudge the day somewhere brighter:",
-    ("sad", "stay"): "Sometimes you just need a film that gets it. These sit with the feeling, gently:",
-    ("heartbroken", "stay"): "Heartbreak is rough. Here are films that understand — tissues optional, but recommended:",
-    ("heartbroken", "shift"): "No sappy love stories tonight — just momentum, laughs and a little hope:",
-    ("lonely", "shift"): "You're in good company with these — warm films full of people who find each other:",
+    (
+        "sad",
+        "shift",
+    ): "Sending you a small cinematic hug. These should nudge the day somewhere brighter:",
+    (
+        "sad",
+        "stay",
+    ): "Sometimes you just need a film that gets it. These sit with the feeling, gently:",
+    (
+        "heartbroken",
+        "stay",
+    ): "Heartbreak is rough. Here are films that understand — tissues optional, but recommended:",
+    (
+        "heartbroken",
+        "shift",
+    ): "No sappy love stories tonight — just momentum, laughs and a little hope:",
+    (
+        "lonely",
+        "shift",
+    ): "You're in good company with these — warm films full of people who find each other:",
     ("lonely", "stay"): "Quiet, tender films for a quiet night in:",
-    ("stressed", "shift"): "Deep breath. Here's some low-stakes comfort to help your brain unclench:",
-    ("stressed", "stay"): "Let's channel that energy — gripping enough to take over your head for a couple of hours:",
+    (
+        "stressed",
+        "shift",
+    ): "Deep breath. Here's some low-stakes comfort to help your brain unclench:",
+    (
+        "stressed",
+        "stay",
+    ): "Let's channel that energy — gripping enough to take over your head for a couple of hours:",
     ("anxious", "shift"): "Let's keep things soft and safe. Gentle picks, zero jump scares:",
     ("anxious", "stay"): "Films that understand restless minds, handled gently:",
     ("angry", "stay"): "Let it out through someone else's fight — high-octane picks ahead:",
@@ -61,7 +90,10 @@ INTROS: dict[tuple[str, str], str] = {
     ("scared", "shift"): "Let's swap the nerves for something cosy:",
     ("scared", "stay"): "Oh, you want to lean into it? Brave. Lights off, here you go:",
     ("bored", "shift"): "Boredom? Not on my watch. Here's a mix to wake things up:",
-    ("curious", "stay"): "Brain snacks, coming right up. These will stay with you after the credits:",
+    (
+        "curious",
+        "stay",
+    ): "Brain snacks, coming right up. These will stay with you after the credits:",
     ("happy", "stay"): "Love that for you! Let's keep the good mood rolling:",
     ("happy", "shift"): "Feeling good enough to go somewhere deeper? Try these:",
     ("excited", "stay"): "Party mode activated 🎉 Crowd-pleasers, big laughs and bigger energy:",
@@ -70,7 +102,9 @@ INTROS: dict[tuple[str, str], str] = {
     ("calm", "stay"): "Easy, unhurried picks for a calm evening:",
 }
 DEFAULT_INTRO = "Here's a varied lineup — one of these should click:"
-GENTLE_INTRO = "Whenever you're ready, here are a few gentle, comforting films — nothing heavy, nothing dark:"
+GENTLE_INTRO = (
+    "Whenever you're ready, here are a few gentle, comforting films — nothing heavy, nothing dark:"
+)
 UNCLEAR_INTRO = "I kept these somewhere in the middle — gentle, but not gloomy:"
 
 
@@ -79,16 +113,30 @@ def intro_for(profile: MoodProfile) -> str:
         return GENTLE_INTRO
     if profile.goal == "unclear":
         return UNCLEAR_INTRO
-    return INTROS.get((profile.primary, profile.goal)) or INTROS.get((profile.primary, "stay")) or DEFAULT_INTRO
+    return (
+        INTROS.get((profile.primary, profile.goal))
+        or INTROS.get((profile.primary, "stay"))
+        or DEFAULT_INTRO
+    )
 
 
 def followup_for(profile: MoodProfile) -> tuple[str, list[str]]:
     if profile.vague:
-        return ("Happy to help! What kind of night is it?",
-                ["Cosy & easy", "Make me laugh", "Something gripping", "Make me think"])
+        return (
+            "Happy to help! What kind of night is it?",
+            ["Cosy & easy", "Make me laugh", "Something gripping", "Make me think"],
+        )
     feeling = {
-        "sad": "a bit down", "heartbroken": "heartbroken", "lonely": "lonely", "stressed": "stressed",
-        "anxious": "anxious", "angry": "frustrated", "scared": "uneasy",
+        "sad": "a bit down",
+        "heartbroken": "heartbroken",
+        "lonely": "lonely",
+        "stressed": "stressed",
+        "anxious": "anxious",
+        "angry": "frustrated",
+        "scared": "uneasy",
     }.get(profile.primary, "that way")
-    return (f"Got it — feeling {feeling}. Do you want something that sits with that feeling, "
-            f"or something to lift you out of it?", ["Sit with it", "Lift me up"])
+    return (
+        f"Got it — feeling {feeling}. Do you want something that sits with that feeling, "
+        f"or something to lift you out of it?",
+        ["Sit with it", "Lift me up"],
+    )

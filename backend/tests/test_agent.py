@@ -14,7 +14,9 @@ def agent(search_index):
 
 
 async def chat(agent, text, user="u-agent", session=None, **kw):
-    return await agent.collect(agent.stream(ChatRequest(user_id=user, session_id=session, message=text, **kw)))
+    return await agent.collect(
+        agent.stream(ChatRequest(user_id=user, session_id=session, message=text, **kw))
+    )
 
 
 async def test_rule_agent_recommends_with_reasons(agent):
@@ -57,7 +59,13 @@ async def test_language_filter_and_refinement(agent):
     first = await chat(agent, "want a laugh", user="u-lang", languages=["ml"])
     assert all(r.movie.language == "ml" for r in first.recommendations)
     shown = {r.movie.id for r in first.recommendations}
-    more = await chat(agent, "seen them, something else", user="u-lang", session=first.session_id, languages=["ml"])
+    more = await chat(
+        agent,
+        "seen them, something else",
+        user="u-lang",
+        session=first.session_id,
+        languages=["ml"],
+    )
     assert more.recommendations and not shown & {r.movie.id for r in more.recommendations}
     assert more.message.startswith("Okay")
 
@@ -82,11 +90,14 @@ async def test_feedback_memory_excludes_seen_across_sessions(agent):
 
 
 async def test_group_mode(agent):
-    req = GroupRequest(user_id="u-group", members=[
-        GroupMember(name="Asha", mood="exhausted after work"),
-        GroupMember(name="Ravi", mood="want to laugh, no horror"),
-        GroupMember(name="Meera", mood="happy, Malayalam or Hindi"),
-    ])
+    req = GroupRequest(
+        user_id="u-group",
+        members=[
+            GroupMember(name="Asha", mood="exhausted after work"),
+            GroupMember(name="Ravi", mood="want to laugh, no horror"),
+            GroupMember(name="Meera", mood="happy, Malayalam or Hindi"),
+        ],
+    )
     reply = await agent.collect(agent.stream_group(req))
     assert reply.recommendations and "Asha" in reply.message
     assert "horror" in reply.mood.context.avoid
@@ -94,14 +105,20 @@ async def test_group_mode(agent):
 
 
 async def test_surprise(agent):
-    reply = await agent.collect(agent.stream_surprise(SurpriseRequest(user_id="u-surprise"), seed=7))
+    reply = await agent.collect(
+        agent.stream_surprise(SurpriseRequest(user_id="u-surprise"), seed=7)
+    )
     assert len(reply.recommendations) >= 3 and "Surprise" in reply.message
 
 
 def test_build_query_is_natural_language(agent):
     from moodreel.schemas import MoodProfile
 
-    q = build_query(MoodProfile(primary="tired", goal="shift", target_tones=["cosy", "funny"], key_phrase="long day"))
+    q = build_query(
+        MoodProfile(
+            primary="tired", goal="shift", target_tones=["cosy", "funny"], key_phrase="long day"
+        )
+    )
     assert q.startswith("A cosy, funny film") and "drained" in q and "long day" in q
 
 
@@ -126,22 +143,51 @@ class ScriptedLLM:
 def _pick_from_search(messages):
     import json
 
-    tool_msgs = [m for m in messages if m.get("role") == "tool" and m.get("name") == "search_movies"]
+    tool_msgs = [
+        m for m in messages if m.get("role") == "tool" and m.get("name") == "search_movies"
+    ]
     results = json.loads(tool_msgs[-1]["content"])["results"]
-    picks = [{"movie_id": r["movie_id"], "reason": f"You said long day — {r['title']} is gentle. Extra sentence. Third sentence dropped."} for r in results[:3]]
+    picks = [
+        {
+            "movie_id": r["movie_id"],
+            "reason": f"You said long day — {r['title']} is gentle. Extra sentence. Third sentence dropped.",
+        }
+        for r in results[:3]
+    ]
     picks.append({"movie_id": 123456789, "reason": "hallucinated id"})
-    return LLMResponse(tool_calls=[ToolCall("recommend", {
-        "message": "Soft landing incoming.", "picks": picks,
-        "mood": {"primary": "tired", "secondary": "lonely", "energy": "low", "goal": "shift"},
-    })])
+    return LLMResponse(
+        tool_calls=[
+            ToolCall(
+                "recommend",
+                {
+                    "message": "Soft landing incoming.",
+                    "picks": picks,
+                    "mood": {
+                        "primary": "tired",
+                        "secondary": "lonely",
+                        "energy": "low",
+                        "goal": "shift",
+                    },
+                },
+            )
+        ]
+    )
 
 
 async def test_llm_agent_tool_loop(search_index):
-    llm = ScriptedLLM([
-        LLMResponse(tool_calls=[ToolCall("detect_emotion", {"text": "long day"})]),
-        LLMResponse(tool_calls=[ToolCall("search_movies", {"mood_query": "cosy gentle", "filters": {"limit": 4}})]),
-        _pick_from_search,
-    ])
+    llm = ScriptedLLM(
+        [
+            LLMResponse(tool_calls=[ToolCall("detect_emotion", {"text": "long day"})]),
+            LLMResponse(
+                tool_calls=[
+                    ToolCall(
+                        "search_movies", {"mood_query": "cosy gentle", "filters": {"limit": 4}}
+                    )
+                ]
+            ),
+            _pick_from_search,
+        ]
+    )
     agent = MoodReelAgent(search_index, EmotionClassifier(), llm=llm, typing_delay=0)
     reply = await chat(agent, "long day, feeling kind of lonely", user="u-llm")
     assert reply.engine == "llm"
@@ -155,12 +201,21 @@ async def test_llm_agent_tool_loop(search_index):
 
 
 async def test_llm_followup_then_no_second_question(search_index):
-    llm = ScriptedLLM([
-        LLMResponse(tool_calls=[ToolCall("ask_followup", {"question": "Sit with it or lift you up?", "options": ["Sit", "Lift"]})]),
-        LLMResponse(tool_calls=[ToolCall("ask_followup", {"question": "Again?"})]),
-        LLMResponse(tool_calls=[ToolCall("search_movies", {"mood_query": "uplifting"})]),
-        _pick_from_search,
-    ])
+    llm = ScriptedLLM(
+        [
+            LLMResponse(
+                tool_calls=[
+                    ToolCall(
+                        "ask_followup",
+                        {"question": "Sit with it or lift you up?", "options": ["Sit", "Lift"]},
+                    )
+                ]
+            ),
+            LLMResponse(tool_calls=[ToolCall("ask_followup", {"question": "Again?"})]),
+            LLMResponse(tool_calls=[ToolCall("search_movies", {"mood_query": "uplifting"})]),
+            _pick_from_search,
+        ]
+    )
     agent = MoodReelAgent(search_index, EmotionClassifier(), llm=llm, typing_delay=0)
     first = await chat(agent, "rough day", user="u-llm2")
     assert first.question == "Sit with it or lift you up?"
@@ -188,11 +243,47 @@ async def test_llm_that_never_finishes_falls_back(search_index):
 
 
 def test_parse_tool_calls_formats():
-    text, calls = parse_tool_calls('Sure!<tool_call>\n{"name": "search_movies", "arguments": {"mood_query": "x"}}\n</tool_call>')
-    assert text == "Sure!" and calls[0].name == "search_movies" and calls[0].arguments == {"mood_query": "x"}
-    _, calls = parse_tool_calls('```json\n{"name": "get_movie_details", "arguments": {"movie_id": 5}}\n```')
+    text, calls = parse_tool_calls(
+        'Sure!<tool_call>\n{"name": "search_movies", "arguments": {"mood_query": "x"}}\n</tool_call>'
+    )
+    assert (
+        text == "Sure!"
+        and calls[0].name == "search_movies"
+        and calls[0].arguments == {"mood_query": "x"}
+    )
+    _, calls = parse_tool_calls(
+        '```json\n{"name": "get_movie_details", "arguments": {"movie_id": 5}}\n```'
+    )
     assert calls[0].arguments["movie_id"] == 5
     _, calls = parse_tool_calls('{"name": "recommend", "parameters": {"message": "hi"}}')
     assert calls[0].name == "recommend"
     text, calls = parse_tool_calls("just chatting")
     assert text == "just chatting" and calls == []
+
+
+# --- Stage 2 regressions ---------------------------------------------------------
+
+
+async def test_explicit_genre_request_stays_on_request(agent):
+    reply = await chat(agent, "Need a thriller, English, no horror", user="u-req")
+    on_ask = [
+        r for r in reply.recommendations if {"thrilling", "tense", "twisty"} & set(r.movie.tones)
+    ]
+    assert len(on_ask) >= 3
+    assert all("Horror" not in r.movie.genres for r in reply.recommendations)
+
+
+async def test_says_so_when_an_ask_cannot_be_met(agent):
+    reply = await chat(
+        agent, "Telugu horror comedy under 60 minutes with no violence", user="u-unmet"
+    )
+    assert reply.recommendations
+    assert "couldn't find a Telugu scary film" in reply.message
+
+
+async def test_horror_fan_gets_horror_without_a_question(agent):
+    reply = await chat(
+        agent, "Scared of the dark but I want a horror movie tonight, bring it on", user="u-horror"
+    )
+    assert not reply.question
+    assert sum("scary" in r.movie.tones for r in reply.recommendations) >= 3

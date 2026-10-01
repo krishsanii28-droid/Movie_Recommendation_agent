@@ -1,19 +1,57 @@
 # Deploying MoodReel
 
 MoodReel is two parts: a **FastAPI backend** (agent, data, memory) and a **Vue SPA**.
-Pick one of the two layouts:
+Pick one of these layouts:
 
-| Layout | Backend | Frontend | Good for |
+| Layout | Where | Cost | Good for |
 |---|---|---|---|
-| **A. Single container** | Hugging Face Spaces (Docker) | served by the backend | Simplest; one URL, no CORS |
-| **B. Split** | Render (Docker) | Vercel or Netlify | Fast global CDN for the UI |
+| **A. Single container on Render** | Render web service (root `Dockerfile`) | Free tier | Simplest free option; one URL, no CORS |
+| **B. Single container on Hugging Face Spaces** | HF Space (Docker SDK) | Needs HF PRO | One URL, inside the HF ecosystem |
+| **C. Split** | Render (API) + Vercel/Netlify (UI) | Free tiers | Fast global CDN for the UI |
 
-Both work with zero API keys (seed catalogue and the built-in fallbacks). Add `TMDB_API_KEY` for live data
-and `HF_TOKEN` + `LLM_BACKEND=hf_inference` for the LLM planner.
+All of them work with zero API keys (seed catalogue and the built-in fallbacks). Add `TMDB_API_KEY` for
+live data and `HF_TOKEN` + `LLM_BACKEND=hf_inference` for the LLM planner.
 
 ---
 
-## A. Hugging Face Spaces (single container)
+## A. Render, single container (free)
+
+The root [`Dockerfile`](../Dockerfile) builds the UI and the API into one image. Render sets `$PORT` and the
+container listens on it, so nothing needs changing. Everything is done in the browser.
+
+1. Sign up at [render.com](https://render.com) with GitHub and give it access to this repository.
+2. **New → Web Service** → pick the repository.
+3. Settings:
+   - **Branch:** `main`
+   - **Language:** `Docker`. Leave the root directory empty and the Dockerfile path as `./Dockerfile`.
+   - **Instance type:** Free
+   - **Health check path** (under Advanced): `/api/health`
+   - **Environment variables** (optional): `TMDB_API_KEY`
+4. **Create Web Service**. The first build takes about 5–10 minutes; then open the `onrender.com` URL.
+
+**More films (TMDB):** without a key the app uses the 119-film curated seed list. To load real TMDB data
+(up to about 800 films across the five languages, with posters and India streaming providers):
+
+1. Get a free API key at [themoviedb.org](https://www.themoviedb.org/settings/api).
+2. In Render: your service → **Environment** → add `TMDB_API_KEY` → **Save, rebuild, and deploy**.
+3. In the build log, look for `ingested N movies from TMDB` followed by the per-language counts.
+   If TMDB fails, the build prints `keeping the curated seed catalogue` and still succeeds.
+
+The films are loaded **during the build** and baked into the image, so they survive the free plan's
+restarts. Use **Manual Deploy → Deploy latest commit** now and then to refresh them. `TMDB_PAGES`
+(default 8, 20 films per page per language) controls how many are loaded.
+
+Free-plan caveats:
+- The service sleeps when idle, so the first request after a break takes 30–60 seconds.
+- The disk is ephemeral: feedback, watchlists and mood history reset on every deploy or restart. For
+  lasting data, set `DATABASE_URL` to a managed PostgreSQL database (see Render setup in layout C).
+
+---
+
+## B. Hugging Face Spaces (single container)
+
+> **Hugging Face now requires a PRO subscription to host Docker Spaces.** On a free account, creating the
+> Space fails with `402 Payment Required`. Use layout A for a free deploy.
 
 The root [`Dockerfile`](../Dockerfile) builds the frontend, installs the backend, seeds the catalogue and
 serves everything on port **7860**.
@@ -67,7 +105,7 @@ docker compose up --build          # http://localhost:7860
 
 ---
 
-## B. Render (API) + Vercel/Netlify (UI)
+## C. Render (API) + Vercel/Netlify (UI)
 
 ### Backend on Render
 

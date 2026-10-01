@@ -20,7 +20,19 @@ COPY eval ./eval
 COPY pyproject.toml ./
 
 # Bake the curated catalogue + index into the image so cold starts are instant.
-RUN useradd -m -u 1000 app && mkdir -p /app/data && python -m moodreel.data.pipeline seed \
+# Catalogue baked into the image (survives restarts on ephemeral hosts like Render's free plan).
+# With TMDB_API_KEY available at build time (Render passes service env vars as build args),
+# the curated seed list is replaced by live TMDB data; if TMDB fails, the seed list is kept.
+ARG TMDB_API_KEY=""
+ARG TMDB_READ_TOKEN=""
+ARG TMDB_PAGES=8
+RUN useradd -m -u 1000 app && mkdir -p /app/data \
+ && python -m moodreel.data.pipeline seed --no-index \
+ && if [ -n "$TMDB_API_KEY$TMDB_READ_TOKEN" ]; then \
+      python -m moodreel.data.pipeline ingest --pages "$TMDB_PAGES" --replace-seed --no-index \
+      || echo "TMDB ingest failed - keeping the curated seed catalogue"; \
+    else echo "No TMDB key at build time - using the curated seed catalogue"; fi \
+ && python -m moodreel.data.pipeline stats \
  && chown -R app:app /app
 USER app
 
